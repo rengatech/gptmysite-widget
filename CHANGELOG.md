@@ -3,7 +3,7 @@
 ### **Authors**: 
     *Gabriele Panico*
     *Dario De Pascalis* 
-### **Copyrigth**: *Tiledesk SRL*
+### **Copyrigth**: *GPTMysite SRL*
 
 ### 5.0.80 in PROD
 
@@ -18,7 +18,7 @@
 ### 5.0.79 in PROD
 
 ### 5.0.79-rc.3
-- added: downloadURL in metadata obj while sending message from tiledesk
+- added: downloadURL in metadata obj while sending message from GPTMysite
 
 ### 5.0.79-rc.2
 ### 5.0.79-rc.1
@@ -102,7 +102,7 @@
 - changed: index.js, index-dev.js and chatbot-panel.js UI improved
 
 ### 5.0.71-rc.10
-- bug-fixed: signInWithCustomToken override tiledesk_token key 
+- bug-fixed: signInWithCustomToken override GPTMysite_token key 
 
 ### 5.0.71-rc.9
 - added: brandSrc env property
@@ -121,7 +121,7 @@
 - bug-fixed: do not disable url buttons on carousel element
 - bug-fixed: do not sound if convAdded is fired and on reconnect event
 - bug-fixed: init Rules only if widget is closed
-- removed: 'Powereb By Tiledesk' on conversation and home components only for chatbot-panel.html page
+- removed: 'Powereb By GPTMysite' on conversation and home components only for chatbot-panel.html page
 
 ### 5.0.71-rc.3
 - added: delete method for firebase-upload service
@@ -129,7 +129,7 @@
 - bug-fixed: cannot read property of undefined while reading auth() in onOpenCloseWidget method with singleConversation mode active
 
 ### 5.0.71-rc.2
-- added: hiddenMessage tiledesk property to start a conversation with an hidden info message
+- added: hiddenMessage GPTMysite property to start a conversation with an hidden info message
 - added: ability to listen from parent message and start a new Conversation with an hidden intentName info message
 - changed: minor UI fix carousel component
 
@@ -169,7 +169,7 @@
 ### 5.0.65 in PROD
 
 ### 5.0.65-rc.1
-- added: disconnectTime tiledesk property to manage the time before disconnecting from messaging system if no interaction is fired while the widget is in closed status
+- added: disconnectTime GPTMysite property to manage the time before disconnecting from messaging system if no interaction is fired while the widget is in closed status
 - bug-fixed: numbered list reduce the font-size of the bubble-message
 - bug-fixed: init() method of conversationHandler.service is not called after a refresh page
 
@@ -223,24 +223,24 @@
 
 ### 5.0.57-rc.5
 - changed: chat21client.js to v0.1.12.5 (window scope fixed)
-- changed: tiledesk logo in conversation and home components
+- changed: GPTMysite logo in conversation and home components
 
 ### 5.0.57-rc.4
 - changed: set calloutStatus to false as default value
 
 ### 5.0.57-rc.3
-- changed: tiledesk logo during conversation
+- changed: GPTMysite logo during conversation
 - changed: show entire text of buttons
 - bug-fixed: window.location is undefined in chat21client.js
 
 ### 5.0.57-rc.2
-- changed: tiledesk logo during conversation
+- changed: GPTMysite logo during conversation
 - removed: image loader wrapper
 - bug-fixed: callout not render right height if heavy image is received
 
 ### 5.0.57-rc.1
-- added: fileUploadAccept as a tiledesk property
-- added: tiledesk logo during conversation
+- added: fileUploadAccept as a GPTMysite property
+- added: GPTMysite logo during conversation
 - added: presence manger on mqtt service
 - changed: new conversation-footer UI
 - removed: fileUploadAccept from envs and template
@@ -290,7 +290,7 @@
 ### 5.0.54 in PROD
 
 ### 5.0.53-rc.8
-- bug-fixed: if tiledeskAuth get 401 error do logOut
+- bug-fixed: if GPTMysiteAuth get 401 error do logOut
 
 ### 5.0.53-rc.7
 - bug-fixed: start message was shown twice
@@ -313,7 +313,7 @@
 - added: limit parameter to message-attachment component
 - added: send message on attachment button clicked on last-message component
 - added: events service
-- added: /requests/messages tiledesk api
+- added: /requests/messages GPTMysite api
 - added: convertConversationToMessage utils function in last-message component
 - changed: last-message UI
 - upgraded: chat21client.js to v0.1.12.4
@@ -327,7 +327,7 @@
 ### 5.0.53-rc.3
 - added: html descriptions to index.html and index-dev.html
 - changed: script tag for style.css to link tag with rel="stylesheet"
-- changed: binding to tiledesk iframe from scr to srcdoc 
+- changed: binding to GPTMysite iframe from scr to srcdoc 
 - removed: base_script.html 
 - removed: jquery plugin
 - removed: relativeLinkResolution from forRoot in RooterModule
@@ -342,7 +342,7 @@
 
 ### 5.0.53-rc.1
 - added: Rules class (work in progress)
-- added: base_script.html to load element inside tiledesk-iframe
+- added: base_script.html to load element inside GPTMysite-iframe
 - added: getLoggerConfig to logger service
 - removed: document.write() injection
 - removed: unused html test file
@@ -422,7 +422,7 @@
 - changed: converation-preview UI
 
 ### 5.0.46-rc.3
-- added: participants tiledesk property to set specific chatbot/humans to talk with
+- added: participants GPTMysite property to set specific chatbot/humans to talk with
 
 ### 5.0.46-rc.2
 - added: scale on hover in message buttons
@@ -566,14 +566,14 @@
 ### 5.0.36 in PROD
 
 ### 5.0.36-rc.1
-- added: dispose external method to tiledesk widget
+- added: dispose external method to GPTMysite widget
 - added: manage behaviour for a banned user
 - added: enabled possibility to continue old conversation (when singleConversation is active) if last timeout is less then continueConversationBeforeTime property value
 
 ### 5.0.35 in PROD
 - bug-fixed: widget/chat must not modify original dimension of the attached file (image or video or gif ) before sending message
-- removed: deprecated isOpen tiledesk settings
-- added: open tiledesk property to enable widget to open/close itself after initialization
+- removed: deprecated isOpen GPTMysite settings
+- added: open GPTMysite property to enable widget to open/close itself after initialization
 
 ### 5.0.35-rc.3
 - bug-fixed: cannot find property of undefined while close a conversation from upper-right menu in conversation-detail header component
@@ -636,7 +636,7 @@
 ### 5.0.28 in PROD
 
 ### 5.0.28-rc.2
-- changed: hideSettings tiledesk property default value from false to true	
+- changed: hideSettings GPTMysite property default value from false to true	
 - changed: changed powered by on home footer default value
 - changed: sound behaviour. before sounds when widget tab is hidden; now sounds when new conv added and conv changed (on every incoming message)
 - changed: option menu home icon visible on mouse hover
@@ -646,8 +646,8 @@
 - bug-fixed: if text is sent by keyboad return key and then emojii is selected, text area present a '\r' at the end
 - bug-fixed: improve the loading of emoji-mart picker 
 - bug-fixed: convesation component delayed to start when singleConversation mode is active
-- changed: lancher icon with new tiledesk logo
-- changed: tiledesk logos with new one 
+- changed: lancher icon with new GPTMysite logo
+- changed: GPTMysite logos with new one 
 - added: getLastConversation method for mqtt useful for singleConversation mode
 
 ### 5.0.27 in PROD
@@ -701,7 +701,7 @@
 ### 5.0.24-rc.5
  - added: close chat button option in upper-right menu concersation-detail header to close a chat from widget
  - added: amLocal pipe in tooltip message timestamp on mouse-hover event
- - added: hideCloseConversationOptionMenu tiledesk setting property to hide/show close conversation a chat from setting upper-right conversation heater menu option
+ - added: hideCloseConversationOptionMenu GPTMysite setting property to hide/show close conversation a chat from setting upper-right conversation heater menu option
  - bug-fixed: image url different from firebase show image fullscreen instead of download it as a file
  
 ### 5.0.24-rc.4
@@ -745,7 +745,7 @@
 - bug-fixed: do not notify commands message on child_changed firebase event
 
 ### 5.0.23-rc.1
-- added: mobileMarginX and mobileMarginY tiledesk settings property to manage mobile launch button margin
+- added: mobileMarginX and mobileMarginY GPTMysite settings property to manage mobile launch button margin
 - added: typing component moved from con-header to conv-content
 - bug-fixed: align-right and align-left were both set if align equals to 'right'
 - bug-fixed: splitted message update unexisted firebase msg node
@@ -758,10 +758,10 @@
 - bug-fixed: transform string value of customAttribute url parameter to keyValue object
 - changed: last step 'close' button UI star-rating component
 - changed: info-message font size reduced
-- added: hideBubbleInfoMessage tiledesk propery to manage bubble info message
+- added: hideBubbleInfoMessage GPTMysite propery to manage bubble info message
 
 ### 5.0.22-rc.8
-- bug-fixed: preChatFormJson error when passed through tiledeskSettings 
+- bug-fixed: preChatFormJson error when passed through GPTMysiteSettings 
 
 ### 5.0.22-rc.7
 - changed: errorLabel and label translation key restored to old values
@@ -823,11 +823,11 @@
 - added: setParmeter and setAttributeParameter methods added to external programmers
 
 ### 5.0.19-rc.12
-- added: onBeforeInit tiledesk event
+- added: onBeforeInit GPTMysite event
 - added: checkImageExists function in image-repo.service
 - changed: launch.js file -> replace onInit with onBeforeInit
-- bug-fixed: window.Tiledesk function wasn't created if widget don't have any event queued
-- bug-fixed: if tiledeskToken passed is different from stored one, remove item with key 'recipientId' in storage 
+- bug-fixed: window.GPTMysite function wasn't created if widget don't have any event queued
+- bug-fixed: if GPTMysiteToken passed is different from stored one, remove item with key 'recipientId' in storage 
 
 ### 5.0.19-rc.11
 - bug-fixed: widget sounds also when info message arrived: managed conversationChanged BS
@@ -840,7 +840,7 @@
 - bug-fixed: bubbleSentBackground and bubbleReceivedBackground errors while rgb color is passed as property value
 - added: if previus message has same senderId, not show avatar and agent/bot placeholder
 - added : subscription to on('value') firebase event in getConversationDetail method
-- added: buttonBackgroundColor, buttonTextColor, buttonHoverBackgroundColor, buttonHoverTextColor tiledesk settings property to customize attachment buttons
+- added: buttonBackgroundColor, buttonTextColor, buttonHoverBackgroundColor, buttonHoverTextColor GPTMysite settings property to customize attachment buttons
 - added: enabled splitting messages into different message objects
 - added: loader in iframe bubblemessage component (WID-53)
 - added: when user send/receive single emotion, it is showed without background and bigger than normal message text size
@@ -860,7 +860,7 @@
 - bug-fixed: bubbleSentBackground and bubbleReceivedBackground errors while rgb color is passed as property value
 - added: if previus message has same senderId, not show avatar and agent/bot placeholder
 - added : subscription to on('value') firebase event in getConversationDetail method
-- added: buttonBackgroundColor, buttonTextColor, buttonHoverBackgroundColor, buttonHoverTextColor tiledesk settings property to customize attachment buttons
+- added: buttonBackgroundColor, buttonTextColor, buttonHoverBackgroundColor, buttonHoverTextColor GPTMysite settings property to customize attachment buttons
 - added: enabled splitting messages into different message objects
 - added: loader in iframe bubblemessage component (WID-53)
 - added: when user send/receive single emotion, it is showed without background and bigger than normal message text size
@@ -888,11 +888,11 @@
 - added: not show footer if conversation is archived
 
 ### 5.0.19-rc.7
-- added: nativeRating property to tiledesk settings to decide if show/hide rating component
+- added: nativeRating property to GPTMysite settings to decide if show/hide rating component
 - added : subscription to on('value') firebase event in getConversationDetail method
 - updated: chat21client.js and mqtt-conversation-handler.ts
 - bug-fixed: ratingWidget component not shown because getConversationDetail fired multiple times and change isConversationArchived boolean value
-- bug-fixed: tiledesk_singleConversation property not get right value 
+- bug-fixed: GPTMysite_singleConversation property not get right value 
 
 ### 5.0.19-rc.6
 - added: border to conversation-preview header
@@ -909,13 +909,13 @@
 - changed: bubbleMessage border radius from 8px to 20px
 - added: management of keaboard tab button for preChatForm
 - added: widgetVer attributes property 
-- added: hideSettings tiledesk property to hide/show settings icon in home (WID-80)	
+- added: hideSettings GPTMysite property to hide/show settings icon in home (WID-80)	
 
 ### 5.0.19-rc.5.1
 - bug-fixed: cannot find module environments/firebase-config in firebase-conversations-handler
 
 ### 5.0.19-rc.5
-- added: buttonBackgroundColor, buttonTextColor, buttonHoverBackgroundColor, buttonHoverTextColor tiledesk settings property to customize attachment buttons
+- added: buttonBackgroundColor, buttonTextColor, buttonHoverBackgroundColor, buttonHoverTextColor GPTMysite settings property to customize attachment buttons
 - changed: bubblemessage ui when single emojii is in message text
 
 ### 5.0.19-rc.4
@@ -932,10 +932,10 @@
 
 ### 5.0.19-rc.1
 - added: if msg.type is 'html' enable possibility to render html code inside msg.text (WID-82)
-- added: hideSettings tiledesk property to hide/show settings icon in home (WID-80)
+- added: hideSettings GPTMysite property to hide/show settings icon in home (WID-80)
 - added: widgetVer attributes property in conversation (WID-79)
 - removed: title tag from return-receipt svg icons
-- removed: privacyField property from tiledesk settings and from components usage
+- removed: privacyField property from GPTMysite settings and from components usage
 - bug-fixed: disabled horizontal resize for form-textarea component
 - bug-fixed: loading bounce don't have themeColor and foregroundColor right value as background and color css property (WID-84)
 
@@ -967,7 +967,7 @@
 - added: programmatically set bubble message background and foreground color with bubbleSentBackground, bubbleReceivedBackground, bubbleSentTextColor, bubbleSentTextColor
 - added:  programatically set message attachment buttons font size with buttonFontSize
 - added: linear gradient to bubble message background like conversation-header background
-- added: bubbleSentBackground, bubbleMsgReceivedBackground, bubbleSentTextColor, bubbleSentTextColor, fontSize, fontFamily , buttonFontSize as tiledesk parameters
+- added: bubbleSentBackground, bubbleMsgReceivedBackground, bubbleSentTextColor, bubbleSentTextColor, fontSize, fontFamily , buttonFontSize as GPTMysite parameters
 - added: invertColor function to programatically decide the text color (white or black) of message text based on background color
 - changed: hideTextReply and typeMessagePlaceholder attributes message key property renamed
 - changed: border radius of widget 
@@ -1031,7 +1031,7 @@
 - added: validateRegex function to check for valid regex from preChatFormJson object
 
 ### 5.0.18-rc.1
-- bug-fixed: userFullname passed from url not set correctly due to user info received after tiledesk auth response - (WID-68)
+- bug-fixed: userFullname passed from url not set correctly due to user info received after GPTMysite auth response - (WID-68)
 - removed: 2 unuseful log (app.component and localSessionStorage initialize)
 
 ### 5.0.17 - PROD
@@ -1079,12 +1079,12 @@
 - added: clear button to events text area in index-dev.html page
 
 ### 5.0.16-rc.1
-- changed: improved tiledesk script spaces
+- changed: improved GPTMysite script spaces
 
 ### 5.0.0-beta.3.15
 - bug-fixed: archived conversation was removed when user viewed its detail for the first time
 - added: paste event on conversation-footer only for image file type
-- changed: new Tiledesk logo in poweredBy footer html code
+- changed: new GPTMysite logo in poweredBy footer html code
 
 ### 5.0.0-beta.3.14
  - bug-fixed: badgeNumberConversation is 0
@@ -1092,12 +1092,12 @@
 
 ### 5.0.0-beta.3.13
 - bug-fixed: same user after log out --> mqtt-auth not publish BSSignOut 
-- added: isLogEnabled parameter from url/tiledeskSettings in customLogger 
+- added: isLogEnabled parameter from url/GPTMysiteSettings in customLogger 
 - adeed: queue initilialization in index.html page
-- changed: renamed hideConversationOptionsMenu tiledeskSetting with hideHeaderConversationOptionsMenu
+- changed: renamed hideConversationOptionsMenu GPTMysiteSetting with hideHeaderConversationOptionsMenu
 - changed: method name of customLogger
 - changed: refactoring log method in components and levels struct
-- removed: startMessage, userPassword, isLogoutEnabled tiledesksettings properties
+- removed: startMessage, userPassword, isLogoutEnabled GPTMysitesettings properties
 - removed: from app.config userEmail && userPassword auth method
 
 ### 5.0.0-beta.3.12 - NATIVE-MQTT
@@ -1105,7 +1105,7 @@
 - updated: mqtt service classes
 
 ### 5.0.0-beta.3.11
-- added: hideConversationOptionsMenu tiledeskSetting property to manage options menu in conversation header
+- added: hideConversationOptionsMenu GPTMysiteSetting property to manage options menu in conversation header
 - added: fileUploadAccept property in env to manage type of file attachment to upload in conversation-footer
 - added: type property in conversation model
 - changed: set themeColor for bounce in conversation-content while load data
@@ -1115,10 +1115,10 @@
 - bug-fixed: text message in conversation-footer obscure the content if text is more than 1 line
 
 ### 5.0.0-beta.3.10
-- added: logLevel tiledeskSetting property to manage log 
-- added: enabled chance to open widget into a specific conv by url with tiledesk_recipientid
+- added: logLevel GPTMysiteSetting property to manage log 
+- added: enabled chance to open widget into a specific conv by url with GPTMysite_recipientid
 - changed: removed activeConversation json from storage and saved only uid with 'PREFIX_recipientId' key
-- bug-fixed: window.Tiledesk.q undefined in launch.js
+- bug-fixed: window.GPTMysite.q undefined in launch.js
 
 ### 5.0.0-beta.3.9
 - added: fade-in animation when open chat-internal-frame component for self action button
@@ -1132,7 +1132,7 @@
 - bug-fix: logger is undefined while load image in firebase-upload service 
 
 ### 5.0.0-beta.3.7
-- bug-fixed: tiledesk-container showed with short dimension for ms on refresh --> removed showWidget() from signInWithCustomToken()
+- bug-fixed: GPTMysite-container showed with short dimension for ms on refresh --> removed showWidget() from signInWithCustomToken()
 - added: css for chat-department component in list on hover
 - changed: print of logger in firebase services to better understand source log component/service
 
@@ -1145,14 +1145,14 @@
 - bug-fix: mgs trimmed on sendMessage method when user send a message
 - bug-fix: removed black color from components header and used 'colorGradient' from globals settings
 - bug-fix: native-upload when load files tha contains white space in their name--> encodeUri fixed bug
-- bug-fix: on signOut, authenticate the same user --> clean g.tiledeskToken
+- bug-fix: on signOut, authenticate the same user --> clean g.GPTMysiteToken
 - bug-fix: on signOut, prechatForm not shown --> clan userFullname and userEmail from globals.attributes and globals.userFullname, globals.userEmail
 - changed: now load svg file as a file, not as an image type
--removed: showWidgetNameInConversation from tiledeskSetting (used in chat-conversation-footer to set recipientFullname += '-' + widgetTitle)
-- added: openExternalLinkButton tiledeskSettings property to manage self action link button from bot
+-removed: showWidgetNameInConversation from GPTMysiteSetting (used in chat-conversation-footer to set recipientFullname += '-' + widgetTitle)
+- added: openExternalLinkButton GPTMysiteSettings property to manage self action link button from bot
 
 ### 5.0.0-beta.3.4
-- added: soundEnabled, launcherWidth, launcherHeight, baloonImage, baloonShape tiledeskSettings property
+- added: soundEnabled, launcherWidth, launcherHeight, baloonImage, baloonShape GPTMysiteSettings property
 - changed: behavior of footer while loading image/file --> not is ever active also while uploading
 - added: fake bubble message while loading: NOT ACTIVE YET
 - added: internal-frame component for self button url
@@ -1202,7 +1202,7 @@
 
 
 ### 5.0.0-beta.2.6
-- bug-fix: translation error with /assets/ pages (ex. Tiledesk visitor page)
+- bug-fix: translation error with /assets/ pages (ex. GPTMysite visitor page)
 - bug-fix: after archived a converversation when open new conversation always show rating component
 - bug-fix: conversationBadge not show when refresh closed widget 
 - bug-fix: prechat form shown always, not only the first time
@@ -1430,7 +1430,7 @@
 - new: add splitMessageForKey for video in chat (al momento non utilizzata!)
 - new: add markdown messages (https://github.com/markedjs/marked, https://www.jamiecockrill.com/2018-04-30-marked-directive/, https://markrabey.com/2019/05/31/angular-markdown-pipe/)
 - new: lock the archived chats
-- new: added tiledesk_persistence
+- new: added GPTMysite_persistence
 - changed: start page detail conversation on end intro animation
 - bug fix: disabled button header until intro animation is complete
 
@@ -1481,7 +1481,7 @@
 - bug fix: load logo in test_widget_page;
 
 ### 4.0.29
-- bug fix: changed tiledeskScriptBaseLocation in launc.js;
+- bug fix: changed GPTMysiteScriptBaseLocation in launc.js;
 
 ### 4.0.28
 - bug fix: conversation.image;
@@ -1505,14 +1505,14 @@
 - changed: set firebase.auth.Auth.Persistence.NONE;
 
 ### 4.0.23
-- bug fix: tiledesk token in local storage
+- bug fix: GPTMysite token in local storage
 
 ### 4.0.22
 - bug fix: timeout spinner
 
 ### 4.0.21
 - bug fix: with autoStart == false not start the login 
-- bug fix: save tiledesk token in global
+- bug fix: save GPTMysite token in global
 - bug fix: hide the spinner when the first message arrives
 
 ### 4.0.20
@@ -1524,7 +1524,7 @@
 - changed: add spinner to new conversation
 
 ### 4.0.17
-- bug fix: shemaVersion, firebaseToken, tiledesk Token in storage without projectid
+- bug fix: shemaVersion, firebaseToken, GPTMysite Token in storage without projectid
 - bug fix: rating_message
 - bug fix: callout and new message
 
@@ -1561,7 +1561,7 @@
 - updated twp 
 
 ### 4.0.8
-- renamed tiledesk_widget_project in twp
+- renamed GPTMysite_widget_project in twp
 
 ### 4.0.7
 - new: added filter on departments
@@ -1577,9 +1577,9 @@
 - new: added onNewConversationComponentInit trigger. Now to enabled greetings features you must add these lines of code:
 
 ```
-window.tileDeskAsyncInit = function() {              
-    window.tiledesk.on('onNewConversationComponentInit', function(event_data) {
-       window.tiledesk.angularcomponent.component.g.currentConversationComponent.setAvailableAgentsStatus();
+window.GPTMysiteAsyncInit = function() {              
+    window.GPTMysite.on('onNewConversationComponentInit', function(event_data) {
+       window.GPTMysite.angularcomponent.component.g.currentConversationComponent.setAvailableAgentsStatus();
     });
 }
 ```
@@ -1595,7 +1595,7 @@ window.tileDeskAsyncInit = function() {              
 - new: adds the ability to send a hidden message to start the conversation
 
 ### 3.0.27
-- new: window.tiledesk.showCallout()  // open callout window if widget is closed
+- new: window.GPTMysite.showCallout()  // open callout window if widget is closed
 - bug fix: deleted hexadecimal with transparency x IE for display the border of the widget 
 - bug fix: deleted min height widget
 - bug fix: widget fullscreen con bordi netti

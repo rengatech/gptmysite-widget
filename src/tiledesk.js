@@ -18,50 +18,50 @@ function appendJs(url) {
 }
 
   function initWidget() {
-    var tiledeskroot = document.createElement('chat-root');
+    var GPTMysiteroot = document.createElement('chat-root');
 
-    var tiledeskScriptLocation = document.getElementById("tiledesk-jssdk").src;
-    // console.log("tiledeskScriptLocation", tiledeskScriptLocation);
-    var tiledeskScriptBaseLocation = tiledeskScriptLocation.replace("/tiledesk.js","");
-   // console.log("tiledeskScriptBaseLocation", tiledeskScriptBaseLocation);
-    
-    window.tiledesk = new function() {
+    var GPTMysiteScriptLocation = document.getElementById("GPTMysite-jssdk").src;
+    // console.log("GPTMysiteScriptLocation", GPTMysiteScriptLocation);
+    var GPTMysiteScriptBaseLocation = GPTMysiteScriptLocation.replace("/GPTMysite.js","");
+   // console.log("GPTMysiteScriptBaseLocation", GPTMysiteScriptBaseLocation);
+
+    window.GPTMysite = new function() {
         //this.type = "macintosh";
         this.on = function (event_name, handler) {
                 //console.log("addEventListener for "+ event_name, handler);
-                tiledeskroot.addEventListener(event_name, handler);
+                GPTMysiteroot.addEventListener(event_name, handler);
         };
         this.getBaseLocation = function() {
-            return tiledeskScriptBaseLocation;
+            return GPTMysiteScriptBaseLocation;
         }
     }
-    // console.log("window.tiledesk created");
-    
-    
+    // console.log("window.GPTMysite created");
+
+
     try {
-        window.tileDeskAsyncInit();
-        // console.log("tileDeskAsyncInit() called");
+        window.GPTMysiteAsyncInit();
+        // console.log("GPTMysiteAsyncInit() called");
     }catch(er) {
-        // console.log("tileDeskAsyncInit() doesn't exists",er);
+        // console.log("GPTMysiteAsyncInit() doesn't exists",er);
     }
-    
+
     //aTag.setAttribute('href',"yourlink.htm");
     //aTag.innerHTML = "link text";
-    document.body.appendChild(tiledeskroot);
-    
-   
-    
-    
-    appendJs(tiledeskScriptBaseLocation+'/inline.bundle.js');
-    appendJs(tiledeskScriptBaseLocation+'/polyfills.bundle.js');
-    
+    document.body.appendChild(GPTMysiteroot);
+
+
+
+
+    appendJs(GPTMysiteScriptBaseLocation+'/inline.bundle.js');
+    appendJs(GPTMysiteScriptBaseLocation+'/polyfills.bundle.js');
+
     //remove development check with  --build-optimizer=false
-    // if (window.tiledeskSettings && window.tiledeskSettings.development) {
-        appendJs(tiledeskScriptBaseLocation+'/styles.bundle.js');
-        appendJs(tiledeskScriptBaseLocation+'/vendor.bundle.js');
+    // if (window.GPTMysiteSettings && window.GPTMysiteSettings.development) {
+        appendJs(GPTMysiteScriptBaseLocation+'/styles.bundle.js');
+        appendJs(GPTMysiteScriptBaseLocation+'/vendor.bundle.js');
     // }
-    
-    appendJs(tiledeskScriptBaseLocation+'/main.bundle.js');
+
+    appendJs(GPTMysiteScriptBaseLocation+'/main.bundle.js');
   }
 
 

@@ -10,8 +10,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CustomTranslateService } from '../chat21-core/providers/custom-translate.service';
 import { ConversationsHandlerService } from '../chat21-core/providers/abstract/conversations-handler.service';
 import { ArchivedConversationsHandlerService } from '../chat21-core/providers/abstract/archivedconversations-handler.service';
-import { TiledeskRequestsService } from 'src/chat21-core/providers/tiledesk/tiledesk-requests.service';
-import { TiledeskAuthService } from 'src/chat21-core/providers/tiledesk/tiledesk-auth.service';
+import { GPTMysiteRequestsService } from 'src/chat21-core/providers/GPTMysite/GPTMysite-requests.service';
+import { GPTMysiteAuthService } from 'src/chat21-core/providers/GPTMysite/GPTMysite-auth.service';
 import { MessagingAuthService } from 'src/chat21-core/providers/abstract/messagingAuth.service';
 import { ConversationHandlerBuilderService } from 'src/chat21-core/providers/abstract/conversation-handler-builder.service';
 import { ImageRepoService } from 'src/chat21-core/providers/abstract/image-repo.service';
@@ -23,13 +23,13 @@ import { ChatManager } from 'src/chat21-core/providers/chat-manager';
 import { NGXLogger } from 'ngx-logger';
 import { CustomLogger } from 'src/chat21-core/providers/logger/customLogger';
 import { LoggerInstance } from 'src/chat21-core/providers/logger/loggerInstance';
- 
+
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let ngxlogger: NGXLogger;
   let customLogger = new CustomLogger(ngxlogger)
-  
+
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -48,8 +48,8 @@ describe('AppComponent', () => {
         ConversationsHandlerService,
         ConversationHandlerBuilderService,
         ArchivedConversationsHandlerService,
-        TiledeskRequestsService,
-        TiledeskAuthService,
+        GPTMysiteRequestsService,
+        GPTMysiteAuthService,
         MessagingAuthService,
         ImageRepoService,
         TypingService,

@@ -23,7 +23,7 @@ To generate the shared secret required for authenticated visitors
 * Open the Dashboard and go to Project Name > Project Settings.
 * Scroll down to the Visitor Authentication section and click the Generate button.
 
-<img src="https://raw.githubusercontent.com/Tiledesk/tiledesk-docs/master/docs/tiledesk-project-settings.png"/>
+<img src="https://raw.githubusercontent.com/GPTMysite/GPTMysite-docs/master/docs/GPTMysite-project-settings.png"/>
 
 Note:The shared secret is intended to remain secure. As a result, it will only appear in full one time. If you don’t have access to the shared secret and need the full secret to create your token, you can reset the secret by clicking the 'Generate' button.
 Regenerating a new shared secret will revoke the previous token. If you have concerns the shared secret has been compromised, you should regenerate a new one. If you need to rotate the keys, you should schedule it when Chat is offline because regenerating the secret cause visitors to be disconnected from the widget.
@@ -48,16 +48,16 @@ To create a JWT token and add the code to the Chat  snippet
 
 2) Use the code samples below to generate the server side JWT token .
 
-3) Use the window.tiledesk.signInWithCustomToken Javascript API to provide a function which supplies a fresh JWT every time it is invoked. Below is a code example:
+3) Use the window.GPTMysite.signInWithCustomToken Javascript API to provide a function which supplies a fresh JWT every time it is invoked. Below is a code example:
 
 ```
-window.tiledesk.signInWithCustomToken("<JWT_TOKEN_HERE_GENERATED_SERVER_SIDE>");
+window.GPTMysite.signInWithCustomToken("<JWT_TOKEN_HERE_GENERATED_SERVER_SIDE>");
 ```
 
 Example:
 
 ```
-window.tiledesk.signInWithCustomToken("JWT 12345678...");
+window.GPTMysite.signInWithCustomToken("JWT 12345678...");
 ```
 
 ## Generate JWT Token Server Side
@@ -115,4 +115,4 @@ A few things are updated in the Chat dashboard when an agent starts chatting wit
 
 First, the agent will be able to tell the visitor is authenticated by the authenticated checkmark overlay on the visitor's avatar.
 
-<img src="https://raw.githubusercontent.com/Tiledesk/tiledesk-docs/master/docs/authuser.png"/>
+<img src="https://raw.githubusercontent.com/GPTMysite/GPTMysite-docs/master/docs/authuser.png"/>

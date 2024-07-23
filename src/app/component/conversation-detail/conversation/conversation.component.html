@@ -1,9 +1,9 @@
 
 <!-- tabindex="1500"-->
 <!-- onFocus="document.querySelector('[start-focus-chat21-conversation-component]').focus()" -->
-<div id="chat21-conversation-component" 
+<div id="chat21-conversation-component"
     #afConversationComponent
-    tabindex="1500" 
+    tabindex="1500"
     aria-modal="true">
 
     <!-- HEADER -->
@@ -43,13 +43,13 @@
             <!-- drop zone -->
         </div>
     </div>
-    
+
     <!-- CONTENT -->
     <chat-conversation-content
         [class.hideTextReply]="hideFooterTextReply && g?.poweredBy"
         [messages]="messages"
         [senderId]="senderId"
-        [baseLocation]="g?.windowContext['tiledesk']?.getBaseLocation()"
+        [baseLocation]="g?.windowContext['GPTMysite']?.getBaseLocation()"
         [isConversationArchived]="isConversationArchived"
         [isTypings]="isTypings"
         [idUserTypingNow]="idUserTypingNow"
@@ -65,11 +65,11 @@
         (onMenuOptionShow)="onMenuOption($event)"
         (onEmojiiPickerShow)="onEmojiiPickerShow($event)"
         (drop)="drop($event)"
-        (dragover)="allowDrop($event)" 
+        (dragover)="allowDrop($event)"
         (dragleave)="drag($event)" >
     </chat-conversation-content>
 
-    
+
 
     <!-- INTERNAL FRAME FOR SELF ACTION LINK BUTTONS-->
     <chat-internal-frame *ngIf="isButtonUrl"

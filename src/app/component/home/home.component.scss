@@ -53,7 +53,7 @@
                 margin: 30px 40px 0px 40px;
                 width: auto;
                 height: auto;
-                
+
                 .avatar-project {
                     width: 22%;
                 }
@@ -65,7 +65,7 @@
                         line-height: 1.2em;
                         max-height: 2.4em;
                         font-weight: 400;
-                        font-size: 3.0em; 
+                        font-size: 3.0em;
                         margin-bottom: 10px;
                     }
                     .c21-text-intro {
@@ -86,7 +86,7 @@
 
                 display: flex;
                 align-items: stretch;
-                
+
                 .c21-logo {
                     position: relative;
                     width: auto;
@@ -108,7 +108,7 @@
                         line-height: 1.4em; //1.2em;
                         max-height: 3em; //2.4em;
                         font-weight: 200;
-                        font-size: 2.5em; //3.0em; 
+                        font-size: 2.5em; //3.0em;
                         margin-bottom: 15px; //10px;
                     }
                     .c21-text-intro {
@@ -138,7 +138,7 @@
         //     border-top-style: initial;
         //     border-left-style: initial;
         //     border-right-style: initial;
-            
+
         // }
     }
 
@@ -193,8 +193,8 @@
 
                         // width: 325px; //comment to make responsive
                     }
-                } 
-            } 
+                }
+            }
         // }
     }
 
@@ -231,7 +231,7 @@
                 width: 35px;
                 display: flex;
                 justify-content: center;
-                
+
             }
             &:hover svg{
                 transform: scale(1.2);
@@ -268,7 +268,7 @@
             // right: 60px;
             display: flex;
             align-items: center;
-            
+
             a {
                 text-decoration: none;
                 cursor: pointer;
@@ -281,7 +281,7 @@
                 font-family: Mulish, sans-serif;
                 letter-spacing: 0.24px;
                 -webkit-font-smoothing: antialiased;
-    
+
                 span {
                     display: inline-block;
                     position: relative;
@@ -322,9 +322,9 @@
             }
         }
 
-    } 
+    }
 
-    
+
 
 }
 /*********************************/
@@ -332,9 +332,9 @@
 /*********************************/
 
 @media (max-width: 451px) {
-    #tiledesk-container {
+    #GPTMysite-container {
         .c21-header-button.close {
             display: flex;
         }
-    } 
+    }
 }

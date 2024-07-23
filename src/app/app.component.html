@@ -1,20 +1,20 @@
 
-<div id="tiledesk-container" [class.active]="g.isShown" tabindex="9999"> 
+<div id="GPTMysite-container" [class.active]="g.isShown" tabindex="9999">
 
   <div id="chat21-conversations"
     [ngClass]="{ 'swing-in-bottom-fwd' : g.isOpen === true, 'full-screen-mode' : g.fullscreenMode === true, 'c21-align-left' : g.align === 'left', 'c21-align-right' : g.align !== 'left'}"
     [ngStyle]="{ 'display': (g.isOpen == true)?'block':'none', 'bottom': g.marginY+'px', 'left':(g.align==='left')?g.marginX+'px':'', 'right':(g.align==='right')?g.marginX+'px':'' }">
-      
+
     <div *ngIf="isOpenHome && g.senderId" class="modal-page active">
-      <chat-home 
+      <chat-home
         [listConversations]="listConversations"
         [archivedConversations]="archivedConversations"
         [hideSettings]="g.hideSettings"
         [stylesMap]="styleMapConversation"
-        (onNewConversation)="onNewConversation()" 
+        (onNewConversation)="onNewConversation()"
         (onConversationSelected)="onSelectedConversation($event)"
         (onOpenAllConvesations)="onOpenAllConversation()"
-        (onCloseWidget)="onCloseWidget()" 
+        (onCloseWidget)="onCloseWidget()"
         (onSignOut)="onSignOut()"
         (onImageLoaded)="onImageLoaded($event)"
         (onConversationLoaded)="onConversationLoaded($event)">
@@ -26,7 +26,7 @@
         [listConversations]="listConversations"
         [archivedConversations]="archivedConversations"
         [stylesMap]="styleMapConversation"
-        (onCloseWidget)="onCloseAllConversation()" 
+        (onCloseWidget)="onCloseAllConversation()"
         (onConversationSelected)="onSelectedConversation($event)">
       </chat-list-all-conversations>
     </div>
@@ -34,13 +34,13 @@
     <div *ngIf="isOpenConversation && g.senderId" class="modal-page active" >
       <!-- [class.active]="true" isOpenConversation &&  [class.modal-slide-in-right]="isOpenConversation && !g?.singleConversation &&  [class.modal-slide-out-right]="!isOpenConversation"-->
       <!-- [conversation]="conversationSelected" -->
-      <chat-conversation 
+      <chat-conversation
         [senderId]="g.senderId"
         [conversationId]="g.recipientId"
         [isOpen]="g.isOpen"
         [isConversationArchived]="isConversationArchived"
         [stylesMap]="styleMapConversation"
-        (onBackHome)="onBackConversation()" 
+        (onBackHome)="onBackConversation()"
         (onCloseWidget)="onCloseWidget()"
         (onSoundChange)="onSoundChange($event)"
         (onConversationClosed)="onConversationClosed($event)"
@@ -55,20 +55,20 @@
       </chat-conversation>
     </div>
 
-    <!-- 
+    <!--
     ****************************************
     ******* MODALE SELECT DEPARTMENT *******
     *************** STEP 1 *****************
      -->
     <div *ngIf="isOpenSelectionDepartment" class="modal-page selection-department active">
       <chat-selection-department
-        (onBeforeDepartmentsFormRender)="triggerHandler.triggerOnbeforeDepartmentsFormRender($event)" 
+        (onBeforeDepartmentsFormRender)="triggerHandler.triggerOnbeforeDepartmentsFormRender($event)"
         (onClose)="onCloseModalDepartment()"
         (onDepartmentSelected)="onDepartmentSelected($event)">
       </chat-selection-department>
-    </div>   
+    </div>
 
-    <!-- 
+    <!--
     *******************************************
     *********** MODALE PRECHAT FORM ***********
     **************** STEP 2 *******************
@@ -76,12 +76,12 @@
     <div *ngIf="g.isOpenPrechatForm && g.senderId" class="modal-page prechat-form active">
       <chat-prechat-form
         [stylesMap]="styleMapConversation"
-        (onClosePage)="onCloseModalPrechatForm()" 
+        (onClosePage)="onCloseModalPrechatForm()"
         (onCloseForm)="onPrechatFormComplete()">
       </chat-prechat-form>
     </div>
 
-    <!-- 
+    <!--
     ****************************************
     *********** MODALE RATE CHAT ***********
     ****************************************
@@ -90,14 +90,14 @@
       <chat-star-rating-widget
         [recipientId]="g.recipientId"
         [stylesMap]="styleMapConversation"
-        (onClosePage)="onCloseModalRateChat()" 
+        (onClosePage)="onCloseModalRateChat()"
         (onCloseRate)="onRateChatComplete()">
       </chat-star-rating-widget>
 
     </div>
 
 
-    <!-- 
+    <!--
     ****************************************
     ******* MODALE OFFLINE NETWORK *********
     ****************************************
@@ -107,9 +107,9 @@
     </div>
 
   </div>
-  
 
-  <!-- 
+
+  <!--
   *******************************************
   ******* EYE-CATCHER (aka CALLOUT) *********
   *******************************************
@@ -117,17 +117,17 @@
   <chat-eyeeye-catcher-card *ngIf="g.senderId && !g.isOpenNewMessage"
     (onOpenChat)="onOpenCloseWidget($event)"
     (onCloseEyeCatcherCard)="onCloseEyeCatcherCard($event)">
-  </chat-eyeeye-catcher-card> 
+  </chat-eyeeye-catcher-card>
 
-  <!-- 
-  *******************************************    
+  <!--
+  *******************************************
   ********** PREVIEW NEW MESSAGE ************
-  ******************************************* 
+  *******************************************
   -->
   <div *ngIf="!g.isOpen">
     <chat-last-message
       [conversation]="lastConversation"
-      [baseLocation]="g?.windowContext['tiledesk']?.getBaseLocation()"
+      [baseLocation]="g?.windowContext['GPTMysite']?.getBaseLocation()"
       [stylesMap]="styleMapConversation"
       (onCloseMessagePreview)="triggerHandler.triggerOnCloseMessagePreview()"
       (onSelectedConversation)="onSelectedConversation($event)">
@@ -136,8 +136,8 @@
 
   <!-- ****** LAUNCHER BUTTON ****** -->
   <!-- tabindex -> 10 -->
-  <chat-launcher-button *ngIf="isInitialized" 
+  <chat-launcher-button *ngIf="isInitialized"
     (onButtonClicked)="onOpenCloseWidget($event)">
   </chat-launcher-button>
-  
+
 </div>

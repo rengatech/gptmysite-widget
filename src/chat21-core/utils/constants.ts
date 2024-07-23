@@ -90,16 +90,16 @@ export const URL_SOUND_CONVERSATION_ADDED = '/assets/sounds/wheep-wheep.mp3';
 // export const CHAT_SEND_BY_EMAIL_LINK =
 // 'mailto:?subject=Transcript Chat Conversation&body=Salve,%0D%0A%0D%0Adi
 // seguito potrà scaricare il transcript della conversazione intercorsa con il nostro servizio di
-// Supporto:%0D%0A%0D%0Ahttps://api.tiledesk.com/v1/public/requests/ ';
-// export const URL_VIDEO_CHAT = 'https://videochat.tiledesk.com/add-user-group.html';
+// Supporto:%0D%0A%0D%0Ahttps://api.GPTMysite.com/v1/public/requests/ ';
+// export const URL_VIDEO_CHAT = 'https://videochat.GPTMysite.com/add-user-group.html';
 // export const URL_TICKET_CHAT = 'https://chat21sdk.atlassian.net/secure/CreateIssue!default.jspa';
 // export const FIREBASESTORAGE_BASE_URL_IMAGE = 'https://firebasestorage.googleapis.com/v0/b/chat-v2-dev.appspot.com/o/';
-// export const BASE_URL_HOSTNAME = 'support.tiledesk.com';
-// export const DASHBOARD_URL = 'https://support.tiledesk.com/dashboard/';
-// export const URL_PROJECT_ID = 'https://support.tiledesk.com/dashboard/#/project/ ';
+// export const BASE_URL_HOSTNAME = 'support.GPTMysite.com';
+// export const DASHBOARD_URL = 'https://support.GPTMysite.com/dashboard/';
+// export const URL_PROJECT_ID = 'https://support.GPTMysite.com/dashboard/#/project/ ';
 
 
-// 'https://videochat.tiledesk.com/videochat/videochat.html';
+// 'https://videochat.GPTMysite.com/videochat/videochat.html';
 // 'https://www.chat21.org/videochat/';
 // 'https://support.chat21.org/videochat/videochat.php';
 
@@ -108,12 +108,12 @@ export const PLATFORM_MOBILE = 'mobile';
 export const PLATFORM_DESKTOP = 'desktop';
 
 // STORAGE
-export const STORAGE_PREFIX = 'tiledesk_widget_';
+export const STORAGE_PREFIX = 'GPTMysite_widget_';
 
 // links
 export const FIREBASESTORAGE_BASE_URL_IMAGE = 'https://firebasestorage.googleapis.com/v0/b/' //+ 'chat-v2-dev.appspot.com/o/';
-export const IMG_PROFILE_BOT = '/assets/images/avatar_bot_tiledesk.svg';
-export const IMG_PROFILE_DEFAULT = '/assets/images/avatar_male_tiledesk.svg';
+export const IMG_PROFILE_BOT = '/assets/images/avatar_bot_GPTMysite.svg';
+export const IMG_PROFILE_DEFAULT = '/assets/images/avatar_male_GPTMysite.svg';
 
 //LOG LEVEL
 export const LogLevel = {

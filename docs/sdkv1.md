@@ -1,6 +1,6 @@
 # Web SDK version 1.0
 
-This guide will show you how to get started as quickly as possible with the Web SDK from TileDesk. The Web SDK will give businesses and developers the flexibility to build and customize a chat experience that meet their specific design/brand requirements.
+This guide will show you how to get started as quickly as possible with the Web SDK from GPTMysite. The Web SDK will give businesses and developers the flexibility to build and customize a chat experience that meet their specific design/brand requirements.
 
 # Install the Web HTML Widget
 
@@ -9,31 +9,31 @@ Copy the following script and insert it in the HTML source between the HEAD tags
 
 ```
     <script type="application/javascript">
-        window.tiledeskSettings = 
+        window.GPTMysiteSettings = 
             {
-                projectid: "YOUR_TILEDESK_PROJECT_ID"
+                projectid: "YOUR_GPTMysite_PROJECT_ID"
             };
             (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id; //js.async=!0;
-            js.src = "https://widget.tiledesk.com/tiledesk.js";
+            js.src = "https://widget.GPTMysite.com/GPTMysite.js";
             fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'tiledesk-jssdk'));
+            }(document, 'script', 'GPTMysite-jssdk'));
     </script>
 ```
 
-To get your TILEDESK_PROJECT_ID go to the TileDesk Dashboard and click on the Widget item of the menu:
+To get your GPTMysite_PROJECT_ID go to the GPTMysite Dashboard and click on the Widget item of the menu:
 
-<img src="https://raw.githubusercontent.com/chat21/chat21-web-widget/master/docs/tiledesk-dashboard-widget-screenshots.png"/>
+<img src="https://raw.githubusercontent.com/chat21/chat21-web-widget/master/docs/GPTMysite-dashboard-widget-screenshots.png"/>
 
 
 
 ## Configuration ##
 
-You can customize the widget passing these parameters to  window.tiledeskSettings object:
+You can customize the widget passing these parameters to  window.GPTMysiteSettings object:
 
-* **projectid**. The TileDesk project id. Find your TileDesk ProjectID in the TileDesk Dashboard under the Widget menu.
+* **projectid**. The GPTMysite project id. Find your GPTMysite ProjectID in the GPTMysite Dashboard under the Widget menu.
 
 * **preChatForm**: You can require customers to enter information like name and email before sending a chat message by enabling the Pre-Chat form. Permitted values: true, false. The default value is false.
 
@@ -47,7 +47,7 @@ You can customize the widget passing these parameters to  window.tiledeskSetting
 
 * **welcomeMsg**: Set the widget welcome message. Value type : string
 
-* **widgetTitle**: Set the widget title label shown in the widget header. Value type : string. The default value is Tiledesk.
+* **widgetTitle**: Set the widget title label shown in the widget header. Value type : string. The default value is GPTMysite.
 
 * **lang** : With this configuration it is possible to force the widget lang. The widget will try to get the browser lang, if it is not possible it will use the default "en" lang
 
@@ -74,7 +74,7 @@ You can customize the widget passing these parameters to  window.tiledeskSetting
 
 ```
 <script type="application/javascript">
-      window.tiledeskSettings = 
+      window.GPTMysiteSettings = 
           {
               projectid: "5b55e806c93dde00143163dd",
               userFullname: "Andrea Leo",
@@ -85,16 +85,16 @@ You can customize the widget passing these parameters to  window.tiledeskSetting
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id; //js.async=!0;
-        js.src = "./tiledesk.js";
+        js.src = "./GPTMysite.js";
         fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'tiledesk-jssdk'));
+      }(document, 'script', 'GPTMysite-jssdk'));
     </script>
 ```
 ### Example 2. Widget with preChatForm and left alignment:
 
 ```
 <script type="application/javascript">
-  window.tiledeskSettings = 
+  window.GPTMysiteSettings = 
     {
       projectid: "5b55e806c93dde00143163dd",
       preChatForm: true,
@@ -104,9 +104,9 @@ You can customize the widget passing these parameters to  window.tiledeskSetting
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id; //js.async=!0;
-      js.src = "https://widget.tiledesk.com/tiledesk.js";
+      js.src = "https://widget.GPTMysite.com/GPTMysite.js";
       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'tiledesk-jssdk'));
+    }(document, 'script', 'GPTMysite-jssdk'));
 </script>
 ```
 
@@ -119,20 +119,20 @@ You can customize the widget passing these parameters to  window.tiledeskSetting
 This will open the widget:
 
 ```
-window.tiledesk.open();
+window.GPTMysite.open();
 ```
 ## Minimize the widget
 
 This will minimize the widget:
 
 ```
-window.tiledesk.close();
+window.GPTMysite.close();
 ```
 
 
 # Events
 
-## window.tiledesk.on(event_name, handler)
+## window.GPTMysite.on(event_name, handler)
 Register an event handler to an event type.
 
 The handler will have the signature function(event_data).
@@ -151,12 +151,12 @@ Arguments:
 
 ```
  <script type="application/javascript">    
-      window.tileDeskAsyncInit = function() {
-       window.tiledesk.on('beforeMessageSend', function(event_data) {
+      window.GPTMysiteAsyncInit = function() {
+       window.GPTMysite.on('beforeMessageSend', function(event_data) {
          var message =  event_data.detail;
          console.log("beforeMessageSend called ", message);
        });
-       window.tiledesk.on('afterMessageSend', function(event_data) {
+       window.GPTMysite.on('afterMessageSend', function(event_data) {
          var message =  event_data.detail;
          console.log("afterMessageSend called ", message);
        });
@@ -169,7 +169,7 @@ Arguments:
 
 ## Load Parameters event
 
-This event will be fired before the tiledesk parameters is loaded. Use this event to change at runtime your TileDesk settings.
+This event will be fired before the GPTMysite parameters is loaded. Use this event to change at runtime your GPTMysite settings.
 
 Important payload of event_data:
 
@@ -185,10 +185,10 @@ Important payload of event_data:
     localStorage.setItem("user_fullname", "Andrea from localStorage");
     localStorage.setItem("user_email", "andrea.leo@f21.it");
     
-      window.tileDeskAsyncInit = function() {
-       window.tiledesk.on('loadParams', function(event_data) {
-          window.tiledeskSettings.userFullname = localStorage.getItem("user_fullname");
-          window.tiledeskSettings.userEmail = localStorage.getItem("user_email");
+      window.GPTMysiteAsyncInit = function() {
+       window.GPTMysite.on('loadParams', function(event_data) {
+          window.GPTMysiteSettings.userFullname = localStorage.getItem("user_fullname");
+          window.GPTMysiteSettings.userEmail = localStorage.getItem("user_email");
        });
       }
 </script>
@@ -200,9 +200,9 @@ Important payload of event_data:
 
 ```
 <script type="application/javascript">    
-      window.tileDeskAsyncInit = function() {
-       window.tiledesk.on('loadParams', function(event_data) {
-         window.tiledeskSettings.welcomeMsg = " Hello at: " + new Date().toLocaleString();
+      window.GPTMysiteAsyncInit = function() {
+       window.GPTMysite.on('loadParams', function(event_data) {
+         window.GPTMysiteSettings.welcomeMsg = " Hello at: " + new Date().toLocaleString();
        });
       }
 </script>
@@ -222,8 +222,8 @@ Example. Programmatic setting custom user metadata
 
 ```
  <script type="application/javascript">    
-      window.tileDeskAsyncInit = function() {
-       window.tiledesk.on('beforeMessageSend', function(event_data) {
+      window.GPTMysiteAsyncInit = function() {
+       window.GPTMysite.on('beforeMessageSend', function(event_data) {
          var message =  event_data.detail;
          message.attributes.userCompany = "Frontiere21";
        });
@@ -238,8 +238,8 @@ Example. Add a custom attribute (page title) to the message.
 
 ```
  <script type="application/javascript">    
-      window.tileDeskAsyncInit = function() {
-       window.tiledesk.on('beforeMessageSend', function(event_data) {
+      window.GPTMysiteAsyncInit = function() {
+       window.GPTMysite.on('beforeMessageSend', function(event_data) {
          var message =  event_data.detail;
          message.attributes.pagetitle = document.title;
        });
@@ -268,8 +268,8 @@ Example:
 
 ```
  <script type="application/javascript">    
-      window.tileDeskAsyncInit = function() {
-        window.tiledesk.on('afterMessageSend', function(event_data) {
+      window.GPTMysiteAsyncInit = function() {
+        window.GPTMysite.on('afterMessageSend', function(event_data) {
           var message =  event_data.detail;
           console.log("afterMessageSend called ", message);
        });

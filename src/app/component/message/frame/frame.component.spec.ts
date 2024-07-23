@@ -30,7 +30,7 @@ describe('FrameComponent', () => {
   });
 
   it('should create', () => {
-    component.url = component['sanitizer'].bypassSecurityTrustResourceUrl('http://www.tiledesk.com');
+    component.url = component['sanitizer'].bypassSecurityTrustResourceUrl('http://www.GPTMysite.com');
     fixture.detectChanges();
     expect(component).toBeTruthy();
   });

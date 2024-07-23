@@ -111,9 +111,9 @@ import { MQTTConversationHandler } from 'src/chat21-core/providers/mqtt/mqtt-con
 import { MQTTTypingService } from 'src/chat21-core/providers/mqtt/mqtt-typing.service';
 import { MQTTPresenceService } from 'src/chat21-core/providers/mqtt/mqtt-presence.service';
 
-// NATIVE TILEDESK SERVICES
-import { TiledeskAuthService } from './../chat21-core/providers/tiledesk/tiledesk-auth.service';
-import { TiledeskRequestsService } from 'src/chat21-core/providers/tiledesk/tiledesk-requests.service';
+// NATIVE GPTMysite SERVICES
+import { GPTMysiteAuthService } from './../chat21-core/providers/GPTMysite/GPTMysite-auth.service';
+import { GPTMysiteRequestsService } from 'src/chat21-core/providers/GPTMysite/GPTMysite-requests.service';
 import { NativeImageRepoService } from 'src/chat21-core/providers/native/native-image-repo';
 import { NativeUploadService } from 'src/chat21-core/providers/native/native-upload-service';
 
@@ -205,8 +205,8 @@ export function typingFactory(chat21Service: Chat21Service, appConfig: AppConfig
   const config = appConfig.getConfig()
   if (config.chatEngine === CHAT_ENGINE_MQTT) {
     return new MQTTTypingService();
-  } else {  
-    return new FirebaseTypingService(); 
+  } else {
+    return new FirebaseTypingService();
   }
 }
 
@@ -320,7 +320,7 @@ export function uploadFactory(http: HttpClient, appConfig: AppConfigService, app
       enableSourceMaps: false,
       disableFileDetails: true,
       colorScheme: ['purple', 'yellow', 'gray', 'gray', 'red', 'red', 'red'],
-      //serverLoggingUrl: 'https://tiledesk-server-pre.herokuapp.com/logs'
+      //serverLoggingUrl: 'https://GPTMysite-server-pre.herokuapp.com/logs'
     }),
   ],
   providers: [
@@ -386,8 +386,8 @@ export function uploadFactory(http: HttpClient, appConfig: AppConfigService, app
       useFactory: uploadFactory,
       deps: [HttpClient, AppConfigService, AppStorageService ]
     },
-    TiledeskAuthService,
-    TiledeskRequestsService,
+    GPTMysiteAuthService,
+    GPTMysiteRequestsService,
     TranslatorService,
     CustomTranslateService,
     Triggerhandler,

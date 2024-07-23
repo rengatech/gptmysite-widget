@@ -100,7 +100,7 @@
       width: 109px;
       height: 39px;
       background-repeat: no-repeat;
-      background-image: url(./tiledesk_widget_files/logo@2x-black.png);
+      background-image: url(./GPTMysite_widget_files/logo@2x-black.png);
       background-size: contain;
       position: absolute;
       top: 50%;
@@ -307,20 +307,20 @@
 
   </style>
 
-  <meta property="og:title" content="Try Tiledesk now!" />
+  <meta property="og:title" content="Try GPTMysite now!" />
   <meta property="og:description"
-    content="Qualify your leads to increase your sales faster. It's really easy to do it with the Tiledesk conversational form builder" />
-  <meta property="og:image" content="https://tiledesk.com/wp-content/uploads/2022/12/6029654-02-min.png" />
+    content="Qualify your leads to increase your sales faster. It's really easy to do it with the GPTMysite conversational form builder" />
+  <meta property="og:image" content="https://GPTMysite.com/wp-content/uploads/2022/12/6029654-02-min.png" />
   <meta property="og:locale" content="en">
 
-  <link rel="icon" type="image/png" href="./tiledesk_widget_files/logo-short.png">
+  <link rel="icon" type="image/png" href="./GPTMysite_widget_files/logo-short.png">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <script defer="" src="./tiledesk_widget_files/jquery.min.js"></script>
-  <script defer="" src="./tiledesk_widget_files/bootstrap.min.js"></script>
+  <script defer="" src="./GPTMysite_widget_files/jquery.min.js"></script>
+  <script defer="" src="./GPTMysite_widget_files/bootstrap.min.js"></script>
 
 
   <script type="application/javascript">
-    window.tiledeskSettings = {
+    window.GPTMysiteSettings = {
       marginX: "100px",
       marginY: "50px",
       // calloutTimer: 1
@@ -338,7 +338,7 @@
       i.c = function (args) {
         i.q.push(args);
       };
-      w.Tiledesk = i;
+      w.GPTMysite = i;
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s);
@@ -346,21 +346,21 @@
       js.async = true;
       js.src = "../../launch.js";
       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'tiledesk-jssdk'));
+    }(document, 'script', 'GPTMysite-jssdk'));
 
     window.addEventListener('load', (event) => {
       document.dispatchEvent(new Event('mousemove'))
     })
 
-    window.Tiledesk('onLoadParams', function (event_data) {
-      console.log("onLoadParams Tiledesk FN", event_data);
-      // window.Tiledesk('signInWithCustomToken', 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDliOGVmYTg3MzJlYjAwMTQxNzYzZDlfNWU0ZWNiOThiNzhlZTQwMDE3NDA2MTEwIiwiZmlyc3RuYW1lIjoiS2VsbHkiLCJsYXN0bmFtZSI6IkdyYWNlIiwiZW1haWwiOiJncmFjZUBlbWFpbG5hLmNvIiwic3ViIjoidXNlcmV4dGVybmFsIiwiYXVkIjoiaHR0cHM6Ly90aWxlZGVzay5jb20vcHJvamVjdHMvNjA5YjhlZmE4NzMyZWIwMDE0MTc2M2Q5IiwiaWF0IjoxNjQxODAzODk0fQ.p0reTwd25p93CsDTyQa8tkihgFxThAI4DXloNc6vbXw')
+    window.GPTMysite('onLoadParams', function (event_data) {
+      console.log("onLoadParams GPTMysite FN", event_data);
+      // window.GPTMysite('signInWithCustomToken', 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDliOGVmYTg3MzJlYjAwMTQxNzYzZDlfNWU0ZWNiOThiNzhlZTQwMDE3NDA2MTEwIiwiZmlyc3RuYW1lIjoiS2VsbHkiLCJsYXN0bmFtZSI6IkdyYWNlIiwiZW1haWwiOiJncmFjZUBlbWFpbG5hLmNvIiwic3ViIjoidXNlcmV4dGVybmFsIiwiYXVkIjoiaHR0cHM6Ly90aWxlZGVzay5jb20vcHJvamVjdHMvNjA5YjhlZmE4NzMyZWIwMDE0MTc2M2Q5IiwiaWF0IjoxNjQxODAzODk0fQ.p0reTwd25p93CsDTyQa8tkihgFxThAI4DXloNc6vbXw')
       //                 .then(response => console.log('signInWithCustomToken: user_logged -> ', response))
       //                 .catch((error)=> console.error('signInWithCustomToken: error', error))
     });
 
-    window.Tiledesk('onBeforeInit', function (event_data) {
-      console.log("onBeforeInit Tiledesk FN", event_data);
+    window.GPTMysite('onBeforeInit', function (event_data) {
+      console.log("onBeforeInit GPTMysite FN", event_data);
 
       var brandSrc = event_data.detail.appConfigs.brandSrc ? getBrandResources(event_data.detail.appConfigs
         .brandSrc) : null;
@@ -370,7 +370,7 @@
 
           var enbedJs = event_data.detail.appConfigs.enbedJs ? event_data.detail.appConfigs.enbedJs : false;
           document.getElementById("enbed").style.display = enbedJs ? "inline-block" : "none";
-          document.getElementById("base_url").innerHTML = enbedJs ? window.tiledesk.getBaseLocation() +
+          document.getElementById("base_url").innerHTML = enbedJs ? window.GPTMysite.getBaseLocation() +
             '/launch.js' : null;
 
           baseUrlConsole = event_data.detail.appConfigs.dashboardUrl ? event_data.detail.appConfigs
@@ -384,25 +384,25 @@
 
     });
 
-    window.Tiledesk('onInit', function (event_data) {
-      console.log("onInit Tiledesk FN", event_data);
+    window.GPTMysite('onInit', function (event_data) {
+      console.log("onInit GPTMysite FN", event_data);
       //open widget after 3s if is closed
       // setTimeout(() => {
       //     if(event_data && event_data.detail && event_data.detail.global && !event_data.detail.global.isOpen){
-      //         window.Tiledesk('open')
+      //         window.GPTMysite('open')
       //     }
       // }, 3000);
     });
 
-    window.Tiledesk('onAuthStateChanged', function (event_data) {
+    window.GPTMysite('onAuthStateChanged', function (event_data) {
       console.log("AUTHENTICATED!", event_data);
     });
 
   </script>
 
   <script type="application/javascript">
-    var baseUrlConsole = "https://console.tiledesk.com/v2/dashboard/";
-    var baseUrlTestPage = "https://widget.tiledesk.com/v5/assets/twp/"
+    var baseUrlConsole = "https://console.GPTMysite.com/v2/dashboard/";
+    var baseUrlTestPage = "https://widget.GPTMysite.com/v5/assets/twp/"
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var urlToConsole = urlParams.get('goToConsole');
@@ -440,7 +440,7 @@
 
     function shareOnTelegram() {
       var TelegramShareUrl = "tg://msg_url?url=" + encodeURIComponent(currentUrl);
-      // console.log('TelegramShareUrl ', TelegramShareUrl ) 
+      // console.log('TelegramShareUrl ', TelegramShareUrl )
       window.open(
         TelegramShareUrl,
         '_blank'
@@ -457,10 +457,10 @@
 
     function goToConsole() {
       var url = new URL(currentUrl);
-      var tiledesk_projectid = url.searchParams.get("tiledesk_projectid");
+      var GPTMysite_projectid = url.searchParams.get("GPTMysite_projectid");
       var project_name = url.searchParams.get("project_name");
-      var urlConsole = baseUrlConsole + "#/project/" + tiledesk_projectid + "/home";
-      //var urlConsole = "dashboard/#/project/"+tiledesk_projectid+"/home";
+      var urlConsole = baseUrlConsole + "#/project/" + GPTMysite_projectid + "/home";
+      //var urlConsole = "dashboard/#/project/"+GPTMysite_projectid+"/home";
       window.open(
         urlConsole,
         '_blank'
@@ -499,7 +499,7 @@
             document.getElementsByClassName('docs')[0].style.display = 'none'
             brandJson['COMMON'].DOCS ? null : document.getElementById('share').style.display = 'none'
             /** IFRAME TITLE**/
-            brandJson['COMMON'].COMPANY_LOGO ? document.getElementById('tiledeskiframe').title = brandJson['COMMON']
+            brandJson['COMMON'].COMPANY_LOGO ? document.getElementById('GPTMysiteiframe').title = brandJson['COMMON']
               .COMPANY_NAME + ' Widget' : null;
           }
 
@@ -511,15 +511,15 @@
     }
 
     var url = new URL(currentUrl);
-    var tiledesk_projectid = url.searchParams.get("tiledesk_projectid");
+    var GPTMysite_projectid = url.searchParams.get("GPTMysite_projectid");
     var project_name = url.searchParams.get("project_name");
     var role = url.searchParams.get("role")
-    var urlConsole = baseUrlConsole + "#/projects/" + tiledesk_projectid + "/home";
-    // console.log('tiledesk_projectid: ', tiledesk_projectid);
+    var urlConsole = baseUrlConsole + "#/projects/" + GPTMysite_projectid + "/home";
+    // console.log('GPTMysite_projectid: ', GPTMysite_projectid);
     // console.log('project_name: ', project_name);
 
     window.onload = function () {
-      document.getElementById("project_id").innerHTML = '"' + tiledesk_projectid + '"';
+      document.getElementById("project_id").innerHTML = '"' + GPTMysite_projectid + '"';
       document.getElementById("project_name").innerHTML = project_name;
 
       if (role !== 'agent') {
@@ -527,13 +527,13 @@
       }
     }
 
-    // window.tileDeskAsyncInit = function() {
-    //     window.tiledesk.on('onLoadParams', function(event_data) {
+    // window.GPTMysiteAsyncInit = function() {
+    //     window.GPTMysite.on('onLoadParams', function(event_data) {
     //         // console.log('onLoadParams: ')
-    //         window.tiledesk.open();
+    //         window.GPTMysite.open();
     //     });
 
-    //     window.tiledesk.on('onInit', function(event_data) {
+    //     window.GPTMysite.on('onInit', function(event_data) {
     //         setTimeout(() => {
     //             document.getElementById("preloader").style.display = "none";
     //         }, 1000);
@@ -579,14 +579,14 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <img src="tiledesk_widget_files/logo.png" id="header-logo">
+            <img src="GPTMysite_widget_files/logo.png" id="header-logo">
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <!-- <ul class="nav navbar-nav docs">
-                            <li><a href="https://developer.tiledesk.com/widget/web-sdk" target="_blank">WEB SDK &amp; Docs<span></span></a></li>
-                            <li><a href="https://www.tiledesk.com/pricing-cloud/" target="_blank">Pricing<span></span></a></li>
-                            <li><a href="https://www.tiledesk.com/blog/" target="_blank">Blog<span></span></a></li>
+                            <li><a href="https://developer.GPTMysite.com/widget/web-sdk" target="_blank">WEB SDK &amp; Docs<span></span></a></li>
+                            <li><a href="https://www.GPTMysite.com/pricing-cloud/" target="_blank">Pricing<span></span></a></li>
+                            <li><a href="https://www.GPTMysite.com/blog/" target="_blank">Blog<span></span></a></li>
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">
@@ -623,7 +623,7 @@
             <div class="modal-body" style="font-family: monospace;font-size: 12px;">
               <span style="margin-bottom: 0px; border:none !important">
                 &lt;script type=&quot;application/javascript&quot;&gt; <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;window.tiledeskSettings = <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;window.GPTMysiteSettings = <br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;projectid: </span>
               <span id="project_id"> </span>
@@ -634,7 +634,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var w=window; var d=document; var
                 i=function() { i.c(arguments); };<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.q=[]; i.c=function(args){ i.q.push(args);
-                }; w.Tiledesk=i;<br>
+                }; w.GPTMysite=i;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var js,
                 fjs=d.getElementsByTagName(s)[0];<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (d.getElementById(id)) return;<br>
@@ -642,7 +642,7 @@
                 js.async=true;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;js.src="<span id="base_url"> </span>";<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fjs.parentNode.insertBefore(js, fjs);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}(document, &#39;script&#39;, &#39;tiledesk-jssdk&#39;));<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}(document, &#39;script&#39;, &#39;GPTMysite-jssdk&#39;));<br>
                 &lt;/script&gt;
               </span>
 
@@ -663,27 +663,27 @@
 
               <a onclick="shareOnFacebook()" style="cursor: pointer;text-decoration: none;">
 
-                <img src="./tiledesk_widget_files/facebook.png" alt="Facebook">
+                <img src="./GPTMysite_widget_files/facebook.png" alt="Facebook">
               </a>
 
               <!-- Twitter -->
               <a onclick="shareOnTwitter()" style="cursor: pointer;text-decoration: none;">
-                <img src="./tiledesk_widget_files/twitter.png" alt="Twitter">
+                <img src="./GPTMysite_widget_files/twitter.png" alt="Twitter">
               </a>
 
               <!-- LinkedIn -->
               <a onclick="shareOnLinkedin()" style="cursor: pointer;text-decoration: none;">
-                <img src="./tiledesk_widget_files/linkedin.png" alt="LinkedIn">
+                <img src="./GPTMysite_widget_files/linkedin.png" alt="LinkedIn">
               </a>
 
               <!-- telegram -->
               <a onclick="shareOnTelegram()" style="cursor: pointer;text-decoration: none;">
-                <img src="./tiledesk_widget_files/telegram.png" alt="Telegram">
+                <img src="./GPTMysite_widget_files/telegram.png" alt="Telegram">
               </a>
 
               <!-- whatsapp -->
               <a onclick="shareOnWhatsapp()" style="cursor: pointer">
-                <img src="./tiledesk_widget_files/whatsapp.png" alt="Whatsapp">
+                <img src="./GPTMysite_widget_files/whatsapp.png" alt="Whatsapp">
               </a>
 
             </div>
@@ -695,9 +695,9 @@
 
   <footer id="footer">
     <div class="b-agent-demo_powered_by">
-      <a href="https://tiledesk.com/" target="_blank" style="cursor: pointer;text-decoration: none;" id="footer-link">
+      <a href="https://GPTMysite.com/" target="_blank" style="cursor: pointer;text-decoration: none;" id="footer-link">
         <span style="position: relative; top: 2px;">Powered by</span>
-        <img src="./tiledesk_widget_files/logo@2x-black.png" alt="Tiledesk" id="footer-logo">
+        <img src="./GPTMysite_widget_files/logo@2x-black.png" alt="GPTMysite" id="footer-logo">
       </a>
     </div>
   </footer>
@@ -728,9 +728,9 @@
 
 
   <div>
-    <link href="./tiledesk_widget_files/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <!-- <link href="./tiledesk_widget_files/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="./tiledesk_widget_files/website-poly.min.css" rel="stylesheet" type="text/css">
+    <link href="./GPTMysite_widget_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="./GPTMysite_widget_files/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="./GPTMysite_widget_files/website-poly.min.css" rel="stylesheet" type="text/css">
   </div>
 </body>
 

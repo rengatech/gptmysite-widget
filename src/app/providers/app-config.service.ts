@@ -20,17 +20,17 @@ export class AppConfigService {
     let urlConfigFile = this.appConfig.remoteConfigUrl;
     if (!this.appConfig.remoteConfigUrl.startsWith('http')) {
       let wContext: any = window;
-      if (window.frameElement && window.frameElement.getAttribute('tiledesk_context') === 'parent') {
+      if (window.frameElement && window.frameElement.getAttribute('GPTMysite_context') === 'parent') {
         wContext = window.parent;
       }
       const windowcontextFromWindow = getParameterByName(window, 'windowcontext');
       if (windowcontextFromWindow !== null && windowcontextFromWindow === 'window.parent') {
         wContext = window.parent;
       }
-      if (!wContext['tiledesk']) {
+      if (!wContext['GPTMysite']) {
         return;
       } else {
-          const baseLocation =  wContext['tiledesk'].getBaseLocation();
+          const baseLocation =  wContext['GPTMysite'].getBaseLocation();
           if (baseLocation !== undefined) {
               // globals.setParameter('baseLocation', baseLocation);
               this.g.baseLocation = baseLocation;

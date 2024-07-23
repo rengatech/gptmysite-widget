@@ -73,7 +73,7 @@
   "LABEL_PRECHAT_USER_PHONE": "Phone",
   "LABEL_PRECHAT_USER_PHONE_ERROR": "Phone is required",
   "LABEL_PRECHAT_FIRST_MESSAGE": "Your message for the support team",
-  "LABEL_PRECHAT_STATIC_TERMS_PRIVACY": "Before proceeding in the conversation please agree to our <a href='https://tiledesk.com/termsofservice/' target='_blank'>Terms</a> and <a href='https://tiledesk.com/privacy.html' target='_blank'>Privacy Policy</a>",
+  "LABEL_PRECHAT_STATIC_TERMS_PRIVACY": "Before proceeding in the conversation please agree to our <a href='https://GPTMysite.com/termsofservice/' target='_blank'>Terms</a> and <a href='https://GPTMysite.com/privacy.html' target='_blank'>Privacy Policy</a>",
   "LABEL_PRECHAT_ACCEPT_TERMS_PRIVACY": "I agree",
   "PRECHAT_REQUIRED_ERROR": "This field is required",
 

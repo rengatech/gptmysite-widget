@@ -16,7 +16,7 @@ describe('ConversationContentComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         ConversationContentComponent,
         // BubbleMessageComponent,
         // ReturnReceiptComponent,
@@ -35,7 +35,7 @@ describe('ConversationContentComponent', () => {
       ],
       imports: [
       ],
-      providers: [ 
+      providers: [
         UploadService,
         ImageRepoService
       ],
@@ -64,7 +64,7 @@ describe('ConversationContentComponent', () => {
     const messages: [any] = [{
           attributes: {
               projectId: "6013ec749b32000045be650e",
-              tiledesk_message_id: "611cbf8ffb379b00346660e7"
+              GPTMysite_message_id: "611cbf8ffb379b00346660e7"
           },
           channel_type: "group",
           recipient: "support-group-6013ec749b32000045be650e-4904aee91f8b487aad117bcda860549d",
@@ -81,7 +81,7 @@ describe('ConversationContentComponent', () => {
     ]
     component.messages = messages
     component.senderId = '9d3b6aa5-0aea-4b7e-935f-1c1c675cd8d4'
-    component.baseLocation = 'http://tiledesk-widget-pre.s3-eu-west-1.amazonaws.com'
+    component.baseLocation = 'http://GPTMysite-widget-pre.s3-eu-west-1.amazonaws.com'
     component.translationMap = new Map();
     component.stylesMap = new Map();
     fixture.detectChanges()
@@ -94,7 +94,7 @@ describe('ConversationContentComponent', () => {
     const messages: [any] = [{
           attributes: {
               projectId: "6013ec749b32000045be650e",
-              tiledesk_message_id: "611cbf8ffb379b00346660e7"
+              GPTMysite_message_id: "611cbf8ffb379b00346660e7"
           },
           channel_type: "group",
           recipient: "support-group-6013ec749b32000045be650e-4904aee91f8b487aad117bcda860549d",
@@ -111,7 +111,7 @@ describe('ConversationContentComponent', () => {
     ]
     component.messages = messages
     component.senderId = '9d3b6aa5-0aea-4b7e-935f-1c1c675cd8d4'
-    component.baseLocation = 'http://tiledesk-widget-pre.s3-eu-west-1.amazonaws.com'
+    component.baseLocation = 'http://GPTMysite-widget-pre.s3-eu-west-1.amazonaws.com'
     component.translationMap = new Map();
     component.stylesMap = new Map();
     const nativeEl: HTMLElement = fixture.nativeElement;
@@ -124,7 +124,7 @@ describe('ConversationContentComponent', () => {
     const messages: Array<any> = [{
           attributes: {
               projectId: "6013ec749b32000045be650e",
-              tiledesk_message_id: "611cbf8ffb379b00346660e7"
+              GPTMysite_message_id: "611cbf8ffb379b00346660e7"
           },
           channel_type: "group",
           recipient: "support-group-6013ec749b32000045be650e-4904aee91f8b487aad117bcda860549d",
@@ -141,7 +141,7 @@ describe('ConversationContentComponent', () => {
       {
         attributes: {
             projectId: "6013ec749b32000045be650e",
-            tiledesk_message_id: "611cbf8ffb379b00346660e7"
+            GPTMysite_message_id: "611cbf8ffb379b00346660e7"
         },
         channel_type: "group",
         recipient: "support-group-6013ec749b32000045be650e-4904aee91f8b487aad117bcda860549d",
@@ -158,10 +158,10 @@ describe('ConversationContentComponent', () => {
     ]
     component.messages = messages
     component.senderId = '9d3b6aa5-0aea-4b7e-935f-1c1c675cd8d4'
-    component.baseLocation = 'http://tiledesk-widget-pre.s3-eu-west-1.amazonaws.com'
+    component.baseLocation = 'http://GPTMysite-widget-pre.s3-eu-west-1.amazonaws.com'
     component.translationMap = new Map();
     component.stylesMap = new Map();
-    
+
     const nativeEl: HTMLElement = fixture.nativeElement;
     const baseReceiveEl = nativeEl.querySelectorAll('.base_receive')
     const chatImageComponentChild = baseReceiveEl[0].querySelector('chat-avatar-image')

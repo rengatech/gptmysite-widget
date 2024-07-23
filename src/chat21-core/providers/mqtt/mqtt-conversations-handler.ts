@@ -216,7 +216,7 @@ export class MQTTConversationsHandler extends ConversationsHandlerService {
      * 1 -  completo la conversazione con i parametri mancanti
      * 2 -  verifico che sia una conversazione valida
      * 3 -  salvo stato conversazione (false) nell'array delle conversazioni chiuse
-     * 4 -  aggiungo alla pos 0 la nuova conversazione all'array di conversazioni 
+     * 4 -  aggiungo alla pos 0 la nuova conversazione all'array di conversazioni
      *      o sostituisco la conversazione con quella preesistente
      * 5 -  salvo la conversazione nello storage
      * 6 -  ordino l'array per timestamp
@@ -252,7 +252,7 @@ export class MQTTConversationsHandler extends ConversationsHandlerService {
     /**
      * 1 -  completo la conversazione con i parametri mancanti
      * 2 -  verifico che sia una conversazione valida
-     * 3 -  aggiungo alla pos 0 la nuova conversazione all'array di conversazioni 
+     * 3 -  aggiungo alla pos 0 la nuova conversazione all'array di conversazioni
      * 4 -  salvo la conversazione nello storage
      * 5 -  ordino l'array per timestamp
      * 6 -  pubblico conversations:update
@@ -277,7 +277,7 @@ export class MQTTConversationsHandler extends ConversationsHandlerService {
         if(messageType(MESSAGE_TYPE_INFO, conversation) ){
             return;
         }
-        
+
         const index = searchIndexInArrayForUid(this.conversations, conversation.conversation_with);
         const oldConversation = this.conversations[index]
         if (index > -1) {
@@ -343,7 +343,7 @@ export class MQTTConversationsHandler extends ConversationsHandlerService {
         });
     }
 
-    
+
     /**
      * 1 -  cerco indice conversazione da eliminare
      * 2 -  elimino conversazione da array conversations
@@ -479,9 +479,9 @@ export class MQTTConversationsHandler extends ConversationsHandlerService {
     //             // console.log('****** then *****');
     //         })
     //         .catch(function() {
-    //             // console.log('***//tiledesk-dashboard/chat*');
+    //             // console.log('***//GPTMysite-dashboard/chat*');
     //         });
-    //     }, 1000);       
+    //     }, 1000);
     // }
 
     // /**
@@ -542,7 +542,7 @@ export class MQTTConversationsHandler extends ConversationsHandlerService {
         this.logger.debug('[MQTTConversationsHandler] checking uid of', convToCheck)
         this.logger.debug('[MQTTConversationsHandler] conversation.uid', convToCheck.uid)
         this.logger.debug('[MQTTConversationsHandler] channel_type is:', convToCheck.channel_type)
-        
+
         if (!this.isValidField(convToCheck.uid)) {
             this.logger.error('[MQTTConversationsHandler] ChatConversationsHandler::isValidConversation:: "uid is not valid" ');
             return false;

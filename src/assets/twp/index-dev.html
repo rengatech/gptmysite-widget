@@ -98,7 +98,7 @@
       width: 109px;
       height: 39px;
       background-repeat: no-repeat;
-      background-image: url(./tiledesk_widget_files/logo@2x-black.png);
+      background-image: url(./GPTMysite_widget_files/logo@2x-black.png);
       background-size: contain;
       position: absolute;
       top: 50%;
@@ -534,19 +534,19 @@
         }
     </script> -->
 
-  <meta property="og:title" content="Try Tiledesk now!" />
+  <meta property="og:title" content="Try GPTMysite now!" />
   <meta property="og:description"
-    content="Qualify your leads to increase your sales faster. It's really easy to do it with the Tiledesk conversational form builder" />
-  <meta property="og:image" content="https://tiledesk.com/wp-content/uploads/2022/12/6029654-02-min.png" />
+    content="Qualify your leads to increase your sales faster. It's really easy to do it with the GPTMysite conversational form builder" />
+  <meta property="og:image" content="https://GPTMysite.com/wp-content/uploads/2022/12/6029654-02-min.png" />
   <meta property="og:locale" content="en">
 
-  <link rel="icon" type="image/png" href="./tiledesk_widget_files/logo-short.png">
+  <link rel="icon" type="image/png" href="./GPTMysite_widget_files/logo-short.png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
-  <script defer="" src="./tiledesk_widget_files/jquery.min.js"></script>
-  <script defer="" src="./tiledesk_widget_files/bootstrap.min.js"></script>
+  <script defer="" src="./GPTMysite_widget_files/jquery.min.js"></script>
+  <script defer="" src="./GPTMysite_widget_files/bootstrap.min.js"></script>
 
   <script type="application/javascript">
-    window.tiledeskSettings = {
+    window.GPTMysiteSettings = {
       marginX: "100px",
       marginY: "50px",
       // calloutTimer: 1,
@@ -562,7 +562,7 @@
       i.c = function (args) { //c-> call
         i.q.push(args);
       };
-      w.Tiledesk = i;
+      w.GPTMysite = i;
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s);
@@ -570,26 +570,26 @@
       js.async = true;
       js.src = "../../launch.js";
       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'tiledesk-jssdk'));
+    }(document, 'script', 'GPTMysite-jssdk'));
 
     window.addEventListener('load', (event) => {
       document.dispatchEvent(new Event('mousemove'))
     })
 
-    window.Tiledesk('onLoadParams', function (event_data) {
-      console.log("onLoadParams Tiledesk FN", event_data);
-      // window.tiledesk.open();
+    window.GPTMysite('onLoadParams', function (event_data) {
+      console.log("onLoadParams GPTMysite FN", event_data);
+      // window.GPTMysite.open();
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onLoadParams --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
 
-      document.getElementById("project_id").innerHTML = '"' + tiledesk_projectid + '"';
+      document.getElementById("project_id").innerHTML = '"' + GPTMysite_projectid + '"';
       document.getElementById("project_name").innerHTML = project_name;
     });
 
-    window.Tiledesk('onBeforeInit', function (event_data) {
-      console.log("onBeforeInit Tiledesk FN", event_data);
+    window.GPTMysite('onBeforeInit', function (event_data) {
+      console.log("onBeforeInit GPTMysite FN", event_data);
 
       var brandSrc = event_data.detail.appConfigs.brandSrc ? getBrandResources(event_data.detail.appConfigs
         .brandSrc) : null;
@@ -599,7 +599,7 @@
 
           var enbedJs = event_data.detail.appConfigs.enbedJs ? event_data.detail.appConfigs.enbedJs : false;
           document.getElementById("enbed").style.display = enbedJs ? "inline-block" : "none";
-          document.getElementById("base_url").innerHTML = enbedJs ? window.tiledesk.getBaseLocation() +
+          document.getElementById("base_url").innerHTML = enbedJs ? window.GPTMysite.getBaseLocation() +
             '/launch.js' : null;
 
           baseUrlConsole = event_data.detail.appConfigs.dashboardUrl ? event_data.detail.appConfigs
@@ -614,8 +614,8 @@
       }
     });
 
-    window.Tiledesk('onInit', function (event_data) {
-      console.log("onInit Tiledesk FN", event_data);
+    window.GPTMysite('onInit', function (event_data) {
+      console.log("onInit GPTMysite FN", event_data);
       setTimeout(() => {
         initLang();
         initDefaultSettings();
@@ -626,98 +626,98 @@
       //open widget after 3s if is closed
       // setTimeout(() => {
       //     if(event_data && event_data.detail && event_data.detail.global && !event_data.detail.global.isOpen){
-      //         window.Tiledesk('open')
+      //         window.GPTMysite('open')
       //     }
       // }, 3000);
     });
 
-    window.Tiledesk('onAuthStateChanged', function (event_data) {
-      console.log("onAuthStateChanged Tiledesk FN", event_data);
+    window.GPTMysite('onAuthStateChanged', function (event_data) {
+      console.log("onAuthStateChanged GPTMysite FN", event_data);
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onAuthStateChanged --> FIRED! ' + event_data.detail.event + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onNewConversationComponentInit', function (event_data) {
-      console.log("onNewConversationComponentInit Tiledesk FN", event_data);
+    window.GPTMysite('onNewConversationComponentInit', function (event_data) {
+      console.log("onNewConversationComponentInit GPTMysite FN", event_data);
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onNewConversationComponentInit --> FIRED! ' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onBeforeMessageSend', function (event_data) {
+    window.GPTMysite('onBeforeMessageSend', function (event_data) {
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onBeforeMessageSend --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onAfterMessageSend', function (event_data) {
+    window.GPTMysite('onAfterMessageSend', function (event_data) {
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onAfterMessageSend --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onMessageCreated', function (event_data) {
+    window.GPTMysite('onMessageCreated', function (event_data) {
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onMessageCreated --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onOpen', function (event_data) {
+    window.GPTMysite('onOpen', function (event_data) {
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onOpen --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onClose', function (event_data) {
+    window.GPTMysite('onClose', function (event_data) {
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onClose --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onOpenEyeCatcher', function (event_data) {
+    window.GPTMysite('onOpenEyeCatcher', function (event_data) {
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onOpenEyeCatcher --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onClosedEyeCatcher', function (event_data) {
+    window.GPTMysite('onClosedEyeCatcher', function (event_data) {
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onClosedEyeCatcher --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onNewConversation', function (event_data) {
+    window.GPTMysite('onNewConversation', function (event_data) {
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onNewConversation --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onConversationUpdated', function (event_data) {
+    window.GPTMysite('onConversationUpdated', function (event_data) {
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onConversationUpdated --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onCloseMessagePreview', function (event_data) {
+    window.GPTMysite('onCloseMessagePreview', function (event_data) {
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onCloseMessagePreview --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
       }
     });
 
-    window.Tiledesk('onBeforeDepartmentsFormRender', function (event_data) {
+    window.GPTMysite('onBeforeDepartmentsFormRender', function (event_data) {
       if (document.getElementById('events')) {
         document.getElementById('events').value += 'onBeforeDepartmentsFormRender --> FIRED!' + '\n'
         document.getElementById('events').scrollTop = document.getElementById('events').scrollHeight
@@ -727,7 +727,7 @@
   </script>
 
   <script type="application/javascript">
-    var baseUrlConsole = "https://console.tiledesk.com/v2/dashboard/";
+    var baseUrlConsole = "https://console.GPTMysite.com/v2/dashboard/";
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var urlToConsole = urlParams.get('goToConsole');
@@ -766,7 +766,7 @@
 
     function shareOnTelegram() {
       var TelegramShareUrl = "tg://msg_url?url=" + encodeURIComponent(currentUrl);
-      // console.log('TelegramShareUrl ', TelegramShareUrl ) 
+      // console.log('TelegramShareUrl ', TelegramShareUrl )
       window.open(
         TelegramShareUrl,
         '_blank'
@@ -783,11 +783,11 @@
 
     function goToConsole() {
       var url = new URL(currentUrl);
-      var tiledesk_projectid = url.searchParams.get("tiledesk_projectid");
+      var GPTMysite_projectid = url.searchParams.get("GPTMysite_projectid");
       var project_name = url.searchParams.get("project_name");
 
-      var urlConsole = baseUrlConsole + "#/project/" + tiledesk_projectid + "/home";
-      //var urlConsole = "dashboard/#/project/"+tiledesk_projectid+"/home";
+      var urlConsole = baseUrlConsole + "#/project/" + GPTMysite_projectid + "/home";
+      //var urlConsole = "dashboard/#/project/"+GPTMysite_projectid+"/home";
       window.open(
         urlConsole,
         '_blank'
@@ -823,7 +823,7 @@
               }
             }
             /** IFRAME TITLE**/
-            brandJson['COMMON'].COMPANY_LOGO ? document.getElementById('tiledeskiframe').title = brandJson['COMMON']
+            brandJson['COMMON'].COMPANY_LOGO ? document.getElementById('GPTMysiteiframe').title = brandJson['COMMON']
               .COMPANY_NAME + ' Widget' : null;
           }
         }
@@ -837,11 +837,11 @@
     function onClickTestButton(event) {
       console.log('onClickTestButton: event-->', event)
       if (event === 'hide') {
-        window.tiledesk.hide()
+        window.GPTMysite.hide()
       } else {
-        window.Tiledesk(event);
+        window.GPTMysite(event);
       }
-      window.Tiledesk('setParameter', {
+      window.GPTMysite('setParameter', {
         key: 'poweredBy',
         value: ''
       })
@@ -849,13 +849,13 @@
 
     function onClickSignInAnonymous() {
       console.log('onClickSignInAnonymous: event-->')
-      window.Tiledesk('signInAnonymous')
+      window.GPTMysite('signInAnonymous')
     }
 
     function onClickCustomToken() {
       let jwt = document.getElementById('jwt').value
       console.log('onClickCustomToken: event-->', jwt)
-      window.Tiledesk('signInWithCustomToken', jwt)
+      window.GPTMysite('signInWithCustomToken', jwt)
     }
 
     function onClickCustomPreChatForm() {
@@ -863,17 +863,17 @@
       console.log('onClickCustomPreChatForm: event-->', preChatForm)
       if (preChatForm !== '' && isJsonString(preChatForm) === true) {
         document.getElementById('preChatForm').style.color = '#555'
-        window.tiledeskSettings['preChatForm'] = true
-        window.Tiledesk('setAttributeParameter', ({
+        window.GPTMysiteSettings['preChatForm'] = true
+        window.GPTMysite('setAttributeParameter', ({
           key: 'userFullname',
           value: null
         }))
-        window.Tiledesk('setAttributeParameter', ({
+        window.GPTMysite('setAttributeParameter', ({
           key: 'userEmail',
           value: null
         }))
-        window.Tiledesk('setPreChatFormJson', JSON.parse(preChatForm))
-        // window.Tiledesk('restart')
+        window.GPTMysite('setPreChatFormJson', JSON.parse(preChatForm))
+        // window.GPTMysite('restart')
       } else {
         document.getElementById('preChatForm').style.color = 'red'
       }
@@ -882,13 +882,13 @@
 
     function onClickGetPreChatForm() {
       let preChatFormTextArea = document.getElementById('preChatFormGet')
-      let preChatFormJSON = window.Tiledesk('getPreChatFormJson')
+      let preChatFormJSON = window.GPTMysite('getPreChatFormJson')
       preChatFormTextArea.value = JSON.stringify(preChatFormJSON, null, 4)
     }
 
     function onClickOpenConversationById() {
       let request_id = document.getElementById('request_id').value
-      window.Tiledesk('openConversationById', request_id)
+      window.GPTMysite('openConversationById', request_id)
     }
 
     // function onClickParameter(elementName){
@@ -900,9 +900,9 @@
     //             // do whatever you want with the checked radio
     //             radioValue = radios[i].value;
     //             console.log('valueeeee', elementName, radioValue)
-    //             window.tiledeskSettings[elementName] = radioValue
-    //             console.log('settingss', window.tiledeskSettings)
-    //             window.Tiledesk('restart')
+    //             window.GPTMysiteSettings[elementName] = radioValue
+    //             console.log('settingss', window.GPTMysiteSettings)
+    //             window.GPTMysite('restart')
     //             // only one radio can be logically checked, don't check the rest
     //             break;
     //         }
@@ -940,37 +940,37 @@
       if (!value) {
         value = document.getElementById('disconnetTimeText').value;
       }!value ? value = -1 : '';
-      window.tiledeskSettings['disconnetTime'] = +value
-      console.log('onClickDisconnectTime: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['disconnetTime'] = +value
+      console.log('onClickDisconnectTime: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickStartFromHome() {
       let status = document.querySelector('input[name="startFromHome"]:checked').value
-      window.tiledeskSettings['startFromHome'] = stringToBoolean(status)
-      console.log('onClickStartFromHome: status-->', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['startFromHome'] = stringToBoolean(status)
+      console.log('onClickStartFromHome: status-->', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickOpen() {
       let status = document.querySelector('input[name="open"]:checked').value
-      window.tiledeskSettings['open'] = stringToBoolean(status)
-      console.log('onClickOpen: status-->', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['open'] = stringToBoolean(status)
+      console.log('onClickOpen: status-->', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickPreChatForm() {
       let status = document.querySelector('input[name="preChatForm"]:checked').value
-      window.tiledeskSettings['preChatForm'] = stringToBoolean(status)
-      console.log('onClickPreChatForm: status-->', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['preChatForm'] = stringToBoolean(status)
+      console.log('onClickPreChatForm: status-->', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickAlign() {
       let status = document.querySelector('input[name="align"]:checked').value
-      window.tiledeskSettings['align'] = status
-      console.log('onClickAlign: status-->', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['align'] = status
+      console.log('onClickAlign: status-->', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickCalloutTimer() {
@@ -980,51 +980,51 @@
       if (!value) {
         value = document.getElementById('calloutTimerText').value;
       }!value ? value = -1 : '';
-      window.tiledeskSettings['calloutTimer'] = +value
-      console.log('onClickCalloutTimer: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['calloutTimer'] = +value
+      console.log('onClickCalloutTimer: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickCalloutTitle() {
       let title = document.getElementById('calloutTitle').value
-      window.tiledeskSettings['calloutTitle'] = title
-      console.log('onClickCalloutTitle: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['calloutTitle'] = title
+      console.log('onClickCalloutTitle: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickCalloutMsg() {
       let msg = document.getElementById('calloutMsg').value
-      window.tiledeskSettings['calloutMsg'] = msg
-      console.log('onClickCalloutMsg: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['calloutMsg'] = msg
+      console.log('onClickCalloutMsg: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickWelcomeTitle() {
       let title = document.getElementById('welcomeTitle').value
-      window.tiledeskSettings['welcomeTitle'] = title
-      console.log('onClickWelcomeTitle: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['welcomeTitle'] = title
+      console.log('onClickWelcomeTitle: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickWelcomeMsg() {
       let msg = document.getElementById('welcomeMsg').value
-      window.tiledeskSettings['welcomeMsg'] = msg
-      console.log('onClickWelcomeMsg: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['welcomeMsg'] = msg
+      console.log('onClickWelcomeMsg: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickWidgetTitle() {
       let title = document.getElementById('widgetTitle').value
-      window.tiledeskSettings['widgetTitle'] = title
-      console.log('onClickWidgetTitle: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['widgetTitle'] = title
+      console.log('onClickWidgetTitle: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickLogoChat() {
       let url = document.getElementById('logoChat').value
-      window.tiledeskSettings['logoChat'] = url
-      console.log('onClickLogoChat: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['logoChat'] = url
+      console.log('onClickLogoChat: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickLang() {
@@ -1032,45 +1032,45 @@
       // if lang is not pre-translated, use English
       const selectedLanguage = JSON.parse(lang)
       selectedLanguage.type === '--- Needs own translation ---' ? lang = 'en' : lang = selectedLanguage.code
-      window.tiledeskSettings['lang'] = lang
-      console.log('onClickLang: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['lang'] = lang
+      console.log('onClickLang: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickSingleConversation() {
       let status = document.querySelector('input[name="singleConversation"]:checked').value
-      window.tiledeskSettings['singleConversation'] = stringToBoolean(status)
-      console.log('onClickSingleConversation: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['singleConversation'] = stringToBoolean(status)
+      console.log('onClickSingleConversation: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickRestartConversation() {
       let status = document.querySelector('input[name="restartConversation"]:checked').value
-      window.tiledeskSettings['restart'] = stringToBoolean(status)
-      console.log('onClickRestartConversation: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['restart'] = stringToBoolean(status)
+      console.log('onClickRestartConversation: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickHideSettings() {
       let status = document.querySelector('input[name="hideSettings"]:checked').value
-      window.tiledeskSettings['hideSettings'] = stringToBoolean(status)
-      console.log('onClickHideSettings: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['hideSettings'] = stringToBoolean(status)
+      console.log('onClickHideSettings: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickFullScreenMode() {
       let status = document.querySelector('input[name="fullscreenMode"]:checked').value
-      window.tiledeskSettings['fullscreenMode'] = stringToBoolean(status)
-      console.log('onClickFullScreenMode: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['fullscreenMode'] = stringToBoolean(status)
+      console.log('onClickFullScreenMode: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickThemeColor() {
       let color = document.getElementById('themeColor').value
       document.getElementById('themeColorText').value = color
-      window.tiledeskSettings['themeColor'] = color
-      console.log('onClickThemeColor: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['themeColor'] = color
+      console.log('onClickThemeColor: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onChangeThemeColor() {
@@ -1086,9 +1086,9 @@
     function onClickThemeColorOpacity() {
       let text = document.getElementById('themeColorOpacity').value
       text === "" ? text = 50 : text //set default value if user not write a value
-      window.tiledeskSettings['themeColorOpacity'] = +text
-      console.log('onClickThemeColorOpacity:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['themeColorOpacity'] = +text
+      console.log('onClickThemeColorOpacity:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onChangeThemeColorOpacity() {
@@ -1109,9 +1109,9 @@
     function onClickThemeForegroundColor() {
       let color = document.getElementById('themeForegroundColor').value
       document.getElementById('themeForegroundColorText').value = color
-      window.tiledeskSettings['themeForegroundColor'] = color
-      console.log('onClickThemeForegroundColor:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['themeForegroundColor'] = color
+      console.log('onClickThemeForegroundColor:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onChangeColor(parameter) {
@@ -1127,98 +1127,98 @@
     function onClickColor(parameter) {
       let color = document.getElementById(parameter).value
       document.getElementById(parameter).value = color
-      window.tiledeskSettings[parameter] = color
-      console.log('onClickColor:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings[parameter] = color
+      console.log('onClickColor:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickDepartmentId() {
       let text = document.getElementById('departmentID').value
-      window.tiledeskSettings['departmentID'] = text
-      console.log('onClickDepartmentId:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['departmentID'] = text
+      console.log('onClickDepartmentId:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickMarginX() {
       let text = document.getElementById('marginX').value
       text === "" ? text = '100px' : text
-      window.tiledeskSettings['marginX'] = text
-      console.log('onClickMarginX:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['marginX'] = text
+      console.log('onClickMarginX:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickMarginY() {
       let text = document.getElementById('marginY').value
       text === "" ? text = '50px' : text //set default value if user not write a value
-      window.tiledeskSettings['marginY'] = text
-      console.log('onClickMarginY:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['marginY'] = text
+      console.log('onClickMarginY:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickMobileMarginX() {
       let text = document.getElementById('mobileMarginX').value
       text === "" ? text = '100px' : text
-      window.tiledeskSettings['mobileMarginX'] = text
-      console.log('onClickMobileMarginX:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['mobileMarginX'] = text
+      console.log('onClickMobileMarginX:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickMobileMarginY() {
       let text = document.getElementById('mobileMarginY').value
       text === "" ? text = '50px' : text //set default value if user not write a value
-      window.tiledeskSettings['mobileMarginY'] = text
-      console.log('onClickMobileMarginY:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['mobileMarginY'] = text
+      console.log('onClickMobileMarginY:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickAutoStart() {
       let status = document.querySelector('input[name="autoStart"]:checked').value
-      window.tiledeskSettings['autoStart'] = stringToBoolean(status)
-      console.log('onClickAutoStart:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['autoStart'] = stringToBoolean(status)
+      console.log('onClickAutoStart:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickStartHidden() {
       let status = document.querySelector('input[name="startHidden"]:checked').value
-      window.tiledeskSettings['startHidden'] = stringToBoolean(status)
-      console.log('onClickStartHidden:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['startHidden'] = stringToBoolean(status)
+      console.log('onClickStartHidden:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickPersistence() {
       let status = document.querySelector('input[name="persistence"]:checked').value
-      window.tiledeskSettings['persistence'] = status
-      console.log('onClickPersistence:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['persistence'] = status
+      console.log('onClickPersistence:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickShowWaitTime() {
       let status = document.querySelector('input[name="showWaitTime"]:checked').value
-      window.tiledeskSettings['showWaitTime'] = stringToBoolean(status)
-      console.log('onClickShowWaitTime:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['showWaitTime'] = stringToBoolean(status)
+      console.log('onClickShowWaitTime:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickShowAvailableAgents() {
       let status = document.querySelector('input[name="showAvailableAgents"]:checked').value
-      window.tiledeskSettings['showAvailableAgents'] = stringToBoolean(status)
-      console.log('onClickShowAvailableAgents', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['showAvailableAgents'] = stringToBoolean(status)
+      console.log('onClickShowAvailableAgents', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickShowAllConversations() {
       let status = document.querySelector('input[name="showAllConversations"]:checked').value
-      window.tiledeskSettings['showAllConversations'] = stringToBoolean(status)
-      console.log('onClickShowAllConversations:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['showAllConversations'] = stringToBoolean(status)
+      console.log('onClickShowAllConversations:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickLauncherWidth() {
       let text = document.getElementById('launcherWidth').value
       text === "" ? text = 60 : text //set default value if user not write a value
-      window.tiledeskSettings['launcherWidth'] = text + 'px'
-      console.log('onClickLauncherWidth:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['launcherWidth'] = text + 'px'
+      console.log('onClickLauncherWidth:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onChangeLauncherWidth() {
@@ -1234,16 +1234,16 @@
     function onClickLauncherHeight() {
       let text = document.getElementById('launcherHeight').value
       text === "" ? text = 60 : text //set default value if user not write a value
-      window.tiledeskSettings['launcherHeight'] = text + 'px'
-      console.log('onClickLauncherHeight', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['launcherHeight'] = text + 'px'
+      console.log('onClickLauncherHeight', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickBaloonImage() {
       let url = document.getElementById('baloonImage').value
-      window.tiledeskSettings['baloonImage'] = url
-      console.log('onClickMarginY', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['baloonImage'] = url
+      console.log('onClickMarginY', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickBaloonShape() {
@@ -1262,9 +1262,9 @@
       } else if (percentage) {
         value = percentage
       }
-      window.tiledeskSettings['baloonShape'] = value
-      console.log('onClickBaloonShape', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['baloonShape'] = value
+      console.log('onClickBaloonShape', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onBallonShapeInput() {
@@ -1291,163 +1291,163 @@
 
     function onClickDynamicWaitTimeReply() {
       let status = document.querySelector('input[name="dynamicWaitTimeReply"]:checked').value
-      window.tiledeskSettings['dynamicWaitTimeReply'] = stringToBoolean(status)
-      console.log('onClickDynamicWaitTimeReply:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['dynamicWaitTimeReply'] = stringToBoolean(status)
+      console.log('onClickDynamicWaitTimeReply:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickOpenExternalLinkButton() {
       let status = document.querySelector('input[name="openExternalLinkButton"]:checked').value
-      window.tiledeskSettings['openExternalLinkButton'] = stringToBoolean(status)
-      console.log('onClickOpenExternalLinkButton:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['openExternalLinkButton'] = stringToBoolean(status)
+      console.log('onClickOpenExternalLinkButton:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickIsLogEnabled() {
       let status = document.querySelector('input[name="isLogEnabled"]:checked').value
-      window.tiledeskSettings['isLogEnabled'] = stringToBoolean(status)
-      console.log('onClickIsLogEnabled:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['isLogEnabled'] = stringToBoolean(status)
+      console.log('onClickIsLogEnabled:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickLogLevel() {
       let status = document.getElementById('logLevel').value
-      window.tiledeskSettings['logLevel'] = status
-      console.log('onClickLogLevel:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['logLevel'] = status
+      console.log('onClickLogLevel:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickNativeRating() {
       let status = document.querySelector('input[name="nativeRating"]:checked').value
-      window.tiledeskSettings['nativeRating'] = stringToBoolean(status)
-      console.log('onClickNativeRating:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['nativeRating'] = stringToBoolean(status)
+      console.log('onClickNativeRating:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickWhatsappNumber() {
       let status = document.getElementById('whatsappNumber').value
-      window.tiledeskSettings['whatsappNumber'] = status
-      console.log('onClickWhatsappNumber:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['whatsappNumber'] = status
+      console.log('onClickWhatsappNumber:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickMessangerPageTitle() {
       let status = document.getElementById('messangerPageTitle').value
-      window.tiledeskSettings['messangerPageTitle'] = status
-      console.log('onClickMessangerPageTitle:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['messangerPageTitle'] = status
+      console.log('onClickMessangerPageTitle:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickTelegramUsername() {
       let status = document.getElementById('telegramUsername').value
-      window.tiledeskSettings['telegramUsername'] = status
-      console.log('onClickTelegramUsername:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['telegramUsername'] = status
+      console.log('onClickTelegramUsername:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickHideHeaderCloseButton() {
       let status = document.querySelector('input[name="hideHeaderCloseButton"]:checked').value
-      window.tiledeskSettings['hideHeaderCloseButton'] = stringToBoolean(status)
-      console.log('onClickHideHeaderCloseButton: status-->', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['hideHeaderCloseButton'] = stringToBoolean(status)
+      console.log('onClickHideHeaderCloseButton: status-->', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickHideHeaderConversationOptionsMenu() {
       let status = document.querySelector('input[name="hideHeaderConversationOptionsMenu"]:checked').value
-      window.tiledeskSettings['hideHeaderConversationOptionsMenu'] = stringToBoolean(status)
-      console.log('onClickHideHeaderConversationOptionsMenu:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['hideHeaderConversationOptionsMenu'] = stringToBoolean(status)
+      console.log('onClickHideHeaderConversationOptionsMenu:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickHideCloseConversationOptionMenu() {
       let status = document.querySelector('input[name="hideCloseConversationOptionMenu"]:checked').value
-      window.tiledeskSettings['hideCloseConversationOptionMenu'] = stringToBoolean(status)
-      console.log('onClickHideCloseConversationOptionMenu:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['hideCloseConversationOptionMenu'] = stringToBoolean(status)
+      console.log('onClickHideCloseConversationOptionMenu:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickHideRestartConversationOptionsMenu() {
       let status = document.querySelector('input[name="hideRestartConversationOptionsMenu"]:checked').value
-      window.tiledeskSettings['hideRestartConversationOptionsMenu'] = stringToBoolean(status)
-      console.log('onClickHideRestartConversationOptionsMenu:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['hideRestartConversationOptionsMenu'] = stringToBoolean(status)
+      console.log('onClickHideRestartConversationOptionsMenu:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickAllowTranscriptDownload() {
       let status = document.querySelector('input[name="allowTranscriptDownload"]:checked').value
-      window.tiledeskSettings['allowTranscriptDownload'] = stringToBoolean(status)
-      console.log('onClickAllowTranscriptDownload:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['allowTranscriptDownload'] = stringToBoolean(status)
+      console.log('onClickAllowTranscriptDownload:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickAllowReopen() {
       let status = document.querySelector('input[name="allowReopen"]:checked').value
-      window.tiledeskSettings['allowReopen'] = stringToBoolean(status)
-      console.log('onClickAllowReopen:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['allowReopen'] = stringToBoolean(status)
+      console.log('onClickAllowReopen:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickContinueConversationBeforeTime() {
       let text = document.getElementById('continueConversationBeforeTime').value
-      window.tiledeskSettings['continueConversationBeforeTime'] = text
-      console.log('onClickContinueConversationBeforeTime:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['continueConversationBeforeTime'] = text
+      console.log('onClickContinueConversationBeforeTime:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickRecipientId() {
       let text = document.getElementById('recipientId').value
-      window.tiledeskSettings['recipientId'] = text
-      console.log('onClickRecipientId:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['recipientId'] = text
+      console.log('onClickRecipientId:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickSoundEnabled() {
       let status = document.querySelector('input[name="soundEnabled"]:checked').value
-      window.tiledeskSettings['soundEnabled'] = stringToBoolean(status)
-      console.log('onClickSoundEnabled:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['soundEnabled'] = stringToBoolean(status)
+      console.log('onClickSoundEnabled:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickTypingLocation() {
       let status = document.querySelector('input[name="typingLocation"]:checked').value
-      window.tiledeskSettings['typingLocation'] = status
-      console.log('onClickTypingLocation:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['typingLocation'] = status
+      console.log('onClickTypingLocation:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickCustomAttributes() {
       let text = document.getElementById('customAttributes').value
-      window.tiledeskSettings['customAttributes'] = JSON.parse(text)
-      console.log('onClickCustomAttributes:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['customAttributes'] = JSON.parse(text)
+      console.log('onClickCustomAttributes:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
     function onClickShowInfoMessage() {
       let text = document.getElementById('showInfoMessage').value
-      window.tiledeskSettings['showInfoMessage'] = text
-      console.log('onClickShowInfoMessage:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['showInfoMessage'] = text
+      console.log('onClickShowInfoMessage:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickParticipants() {
       let text = document.getElementById('participants').value
-      window.tiledeskSettings['participants'] = text
-      console.log('onClickParticipants:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['participants'] = text
+      console.log('onClickParticipants:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickFileUploadAccept() {
       let text = document.getElementById('fileUploadAccept').value
-      window.tiledeskSettings['fileUploadAccept'] = text
-      console.log('onClickFileUploadAccept:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['fileUploadAccept'] = text
+      console.log('onClickFileUploadAccept:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
     function onClickShowAttachmentButton() {
       let status = document.querySelector('input[name="showAttachmentButton"]:checked').value
-      window.tiledeskSettings['showAttachmentButton'] = stringToBoolean(status)
-      console.log('onClickShowAttachmentButton:', window.tiledeskSettings)
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['showAttachmentButton'] = stringToBoolean(status)
+      console.log('onClickShowAttachmentButton:', window.GPTMysiteSettings)
+      window.GPTMysite('restart')
     }
 
 
@@ -1457,18 +1457,18 @@
     function onClickFontSize() {
       let text = document.getElementById('fontSize').value
       text === "" ? text = '1.4em' : text
-      window.tiledeskSettings['fontSize'] = text
-      console.log('onClickFontSize:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['fontSize'] = text
+      console.log('onClickFontSize:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
 
     function onClickButtonFontSize() {
       let text = document.getElementById('buttonFontSize').value
       text === "" ? text = '15px' : text
-      window.tiledeskSettings['buttonFontSize'] = text
-      console.log('onClickButtonFontSize:', window.tiledeskSettings);
-      window.Tiledesk('restart')
+      window.GPTMysiteSettings['buttonFontSize'] = text
+      console.log('onClickButtonFontSize:', window.GPTMysiteSettings);
+      window.GPTMysite('restart')
     }
 
 
@@ -1493,12 +1493,12 @@
         if (elementType === 'radio') {
           let element = document.querySelector('input[name="' + elementName + '"]:checked');
           if (element) {
-            window.tiledeskSettings[elementName] = stringToBoolean(element.value)
+            window.GPTMysiteSettings[elementName] = stringToBoolean(element.value)
           }
         } else if (elementType === 'text') {
           let element = document.getElementById(elementName)
           if (element && element.value && elementName !== 'baloonShape') {
-            window.tiledeskSettings[elementName] = element.value
+            window.GPTMysiteSettings[elementName] = element.value
           } else if (elementName === 'baloonShape') {
             let top = document.getElementById('top').value
             let bottom = document.getElementById('bottom').value
@@ -1515,24 +1515,24 @@
             } else if (percentage) {
               value = percentage
             }
-            window.tiledeskSettings[elementName] = value
+            window.GPTMysiteSettings[elementName] = value
           } else if (elementName === 'calloutTimer') {
             let element = document.getElementById('calloutTimerText')
-            window.tiledeskSettings[elementName] = element.value
+            window.GPTMysiteSettings[elementName] = element.value
           }
 
         } else if (elementType === 'range') {
           let element = document.getElementById(elementName)
-          window.tiledeskSettings[elementName] = element.value + 'px'
+          window.GPTMysiteSettings[elementName] = element.value + 'px'
         }
       }
       inputs = document.getElementsByClassName('select');
       for (index = 0; index < inputs.length; ++index) {
         const elementName = inputs[index].name
         const element = document.getElementById(elementName)
-        window.tiledeskSettings[elementName] = element.value
+        window.GPTMysiteSettings[elementName] = element.value
       }
-      window.Tiledesk('restart')
+      window.GPTMysite('restart')
     }
 
     function onClickClearHistory() {
@@ -1542,14 +1542,14 @@
 
 
     var url = new URL(currentUrl);
-    var tiledesk_projectid = url.searchParams.get("tiledesk_projectid");
+    var GPTMysite_projectid = url.searchParams.get("GPTMysite_projectid");
     var project_name = url.searchParams.get("project_name");
-    var urlConsole = baseUrlConsole + "#/projects/" + tiledesk_projectid + "/home";
-    // console.log('tiledesk_projectid: ', tiledesk_projectid);
+    var urlConsole = baseUrlConsole + "#/projects/" + GPTMysite_projectid + "/home";
+    // console.log('GPTMysite_projectid: ', GPTMysite_projectid);
     // console.log('project_name: ', project_name);
 
     // window.onload = function() {
-    //     document.getElementById("project_id").innerHTML = '"' + tiledesk_projectid + '"';
+    //     document.getElementById("project_id").innerHTML = '"' + GPTMysite_projectid + '"';
     //     document.getElementById("project_name").innerHTML = project_name;
     // }
 
@@ -2553,15 +2553,15 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <img src="tiledesk_widget_files/logo.png" id="header-logo">
+            <img src="GPTMysite_widget_files/logo.png" id="header-logo">
           </div>
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <!-- <ul class="nav navbar-nav docs">
-              <li><a href="https://developer.tiledesk.com/widget/web-sdk" target="_blank">WEB SDK &amp;
+              <li><a href="https://developer.GPTMysite.com/widget/web-sdk" target="_blank">WEB SDK &amp;
                   Docs<span></span></a></li>
-              <li><a href="https://www.tiledesk.com/pricing-cloud/" target="_blank">Pricing<span></span></a></li>
-              <li><a href="https://www.tiledesk.com/blog/" target="_blank">Blog<span></span></a></li>
+              <li><a href="https://www.GPTMysite.com/pricing-cloud/" target="_blank">Pricing<span></span></a></li>
+              <li><a href="https://www.GPTMysite.com/blog/" target="_blank">Blog<span></span></a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -2662,7 +2662,7 @@
           <div>
             <h3 style="line-height: 0.3;">MANAGE <em><strong>widget settings</strong></em></h3>
           </div>
-          <div class="docs">Select an option for Tiledesk settings parameter</div>
+          <div class="docs">Select an option for GPTMysite settings parameter</div>
           <div class="row">
             <div class="col-md-5 formElement"><span><em><strong>disconnectTime</strong></em></span></div>
             <div class="col-md-5">
@@ -3175,7 +3175,7 @@
           <div>
             <h3 style="line-height: 0.3;">MANAGE <em><strong>SOCIAL CHANNELS</strong></em></h3>
           </div>
-          <div class="docs"> (parameter accepted only in window.tiledeskSettings object)</div>
+          <div class="docs"> (parameter accepted only in window.GPTMysiteSettings object)</div>
 
           <div class="row">
             <div class="col-md-5 formElement"><span><em><strong>whatsappNumber</strong></em></span></div>
@@ -3555,7 +3555,7 @@
           <div class="b_integrations_agent_links">
             <a href="" data-toggle="modal" data-target="#embedModal" id="enbed" style="display: none;"><i
                 class="fa-code fa"></i>Embed</a>
-            <!-- <a href="mailto:?subject=Tiledesk%20widget%20test%20page"><i class="fa-envelope-o fa" target="_blank"></i>Email</a> -->
+            <!-- <a href="mailto:?subject=GPTMysite%20widget%20test%20page"><i class="fa-envelope-o fa" target="_blank"></i>Email</a> -->
             <a href="" data-toggle="modal" data-target="#shareModal" id="share"><i class="fa-reply fa"></i>Share</a>
           </div>
         </div>
@@ -3576,7 +3576,7 @@
             <div class="modal-body" style="font-family: monospace;font-size: 12px;">
               <span style="margin-bottom: 0px; border:none !important">
                 &lt;script type=&quot;application/javascript&quot;&gt; <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;window.tiledeskSettings = <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;window.GPTMysiteSettings = <br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;projectid: </span>
               <span id="project_id"> </span>
@@ -3587,7 +3587,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var w=window; var d=document; var
                 i=function() { i.c(arguments); };<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i.q=[]; i.c=function(args){ i.q.push(args);
-                }; w.Tiledesk=i;<br>
+                }; w.GPTMysite=i;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var js,
                 fjs=d.getElementsByTagName(s)[0];<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (d.getElementById(id)) return;<br>
@@ -3595,7 +3595,7 @@
                 js.async=true;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;js.src="<span id="base_url"></span>";<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fjs.parentNode.insertBefore(js, fjs);<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}(document, &#39;script&#39;, &#39;tiledesk-jssdk&#39;));<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}(document, &#39;script&#39;, &#39;GPTMysite-jssdk&#39;));<br>
                 &lt;/script&gt;
               </span>
               <!-- <pre id="preid"> </pre> -->
@@ -3616,27 +3616,27 @@
 
               <a onclick="shareOnFacebook()" style="cursor: pointer;text-decoration: none;">
 
-                <img src="./tiledesk_widget_files/facebook.png" alt="Facebook">
+                <img src="./GPTMysite_widget_files/facebook.png" alt="Facebook">
               </a>
 
               <!-- Twitter -->
               <a onclick="shareOnTwitter()" style="cursor: pointer;text-decoration: none;">
-                <img src="./tiledesk_widget_files/twitter.png" alt="Twitter">
+                <img src="./GPTMysite_widget_files/twitter.png" alt="Twitter">
               </a>
 
               <!-- LinkedIn -->
               <a onclick="shareOnLinkedin()" style="cursor: pointer;text-decoration: none;">
-                <img src="./tiledesk_widget_files/linkedin.png" alt="LinkedIn">
+                <img src="./GPTMysite_widget_files/linkedin.png" alt="LinkedIn">
               </a>
 
               <!-- telegram -->
               <a onclick="shareOnTelegram()" style="cursor: pointer;text-decoration: none;">
-                <img src="./tiledesk_widget_files/telegram.png" alt="Telegram">
+                <img src="./GPTMysite_widget_files/telegram.png" alt="Telegram">
               </a>
 
               <!-- whatsapp -->
               <!-- <a onclick="shareOnWhatsapp()" style="cursor: pointer">
-                                <img src="./tiledesk_widget_files/whatsapp.png" alt="Whatsapp">
+                                <img src="./GPTMysite_widget_files/whatsapp.png" alt="Whatsapp">
                             </a> -->
 
             </div>
@@ -3648,10 +3648,10 @@
 
   <footer id="footer">
     <div class="b-agent-demo_powered_by">
-      <a href="https://console.tiledesk.com/" target="_blank" style="cursor: pointer;text-decoration: none;"
+      <a href="https://console.GPTMysite.com/" target="_blank" style="cursor: pointer;text-decoration: none;"
         id="footer-link">
         <span style="position: relative; top: 2px;">Powered by</span>
-        <img src="./tiledesk_widget_files/logo@2x-black.png" id="footer-logo">
+        <img src="./GPTMysite_widget_files/logo@2x-black.png" id="footer-logo">
       </a>
     </div>
   </footer>
@@ -3682,10 +3682,10 @@
 
 
   <div>
-    <link href="./tiledesk_widget_files/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <!-- <link href="./tiledesk_widget_files/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="./tiledesk_widget_files/website-poly.min.css" rel="stylesheet" type="text/css">
-    <!-- <link href="./tiledesk_widget_files/css" rel="stylesheet" type="text/css"> -->
+    <link href="./GPTMysite_widget_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="./GPTMysite_widget_files/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="./GPTMysite_widget_files/website-poly.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="./GPTMysite_widget_files/css" rel="stylesheet" type="text/css"> -->
   </div>
 </body>
 

@@ -37,7 +37,7 @@ import { LoggerService } from 'src/chat21-core/providers/abstract/logger.service
 import { TypingService } from 'src/chat21-core/providers/abstract/typing.service';
 import { CustomTranslateService } from 'src/chat21-core/providers/custom-translate.service';
 import { LoggerInstance } from 'src/chat21-core/providers/logger/loggerInstance';
-import { TiledeskRequestsService } from 'src/chat21-core/providers/tiledesk/tiledesk-requests.service';
+import { GPTMysiteRequestsService } from 'src/chat21-core/providers/GPTMysite/GPTMysite-requests.service';
 import { ConversationContentComponent } from '../conversation-content/conversation-content.component';
 // import { TranslateService } from '@ngx-translate/core';
 
@@ -80,7 +80,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
   conversationWith: string;
   isMenuShow = false;
   isEmojiiPickerShow: boolean = false;
-  
+
   isButtonsDisabled = true;
   // isConversationArchived = false;
   hideFooterTextReply: boolean = false;
@@ -127,7 +127,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
   isIE = /msie\s|trident\//i.test(window.navigator.userAgent);
   firstScroll = true;
 
-  // ========== begin:: DRAG & DROP =======  
+  // ========== begin:: DRAG & DROP =======
   isHovering: boolean = false
   dropEvent: Event
   // ========== end:: DRAG & DROP =======
@@ -154,7 +154,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
 
   public isButtonUrl: boolean = false;
   public buttonClicked: any;
-  public startTime: Date = new Date(); 
+  public startTime: Date = new Date();
   private logger: LoggerService = LoggerInstance.getInstance();
 
   constructor(
@@ -169,7 +169,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
     private customTranslateService: CustomTranslateService,
     private chatManager: ChatManager,
     public typingService: TypingService,
-    private tiledeskRequestService: TiledeskRequestsService,
+    private GPTMysiteRequestService: GPTMysiteRequestsService,
     private changeDetectorRef: ChangeDetectorRef,
     private elementRef: ElementRef,
     private events: EventsService
@@ -207,8 +207,8 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
       //'ARRAY_DAYS',
       //'LABEL_ACTIVE_NOW',
       'LABEL_WRITING',
-      'BUTTON_CLOSE_TO_ICON', 
-      'OPTIONS', 
+      'BUTTON_CLOSE_TO_ICON',
+      'OPTIONS',
       'PREV_CONVERSATIONS',
       'SOUND_OFF',
       'SOUND_ON',
@@ -248,13 +248,13 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
     ];
 
     const keysPreview= [
-      'BACK', 
+      'BACK',
       'CLOSE',
       'LABEL_PLACEHOLDER',
       'LABEL_PREVIEW'
     ];
 
-    
+
     this.translationMapHeader = this.customTranslateService.translateLanguage(keysHeader);
     this.translationMapFooter = this.customTranslateService.translateLanguage(keysFooter);
     this.translationMapContent = this.customTranslateService.translateLanguage(keysContent);
@@ -264,7 +264,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
   ngAfterViewInit() {
     this.logger.debug('[CONV-COMP] --------ngAfterViewInit: conversation-------- ');
     // this.storageService.setItem('activeConversation', this.conversation.uid);
-    
+
     // --------------------------- //
     // after animation intro
     setTimeout(() => {
@@ -300,9 +300,9 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
       // this.scrollToBottom();
     }
     // CHECK if conversationId is changed and re-build component
-    if(changes && 
-        changes['conversationId'] && 
-        changes['conversationId'].previousValue !== undefined && 
+    if(changes &&
+        changes['conversationId'] &&
+        changes['conversationId'].previousValue !== undefined &&
         (changes['conversationId'].previousValue !== changes['conversationId'].currentValue) &&
         changes['conversationId'].currentValue
       ){
@@ -367,10 +367,10 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
   /**
    * @description get detail of conversation by uid and then return callback with conversation status
    * @param callback
-   * @returns isConversationArchived (status conversation archived: boolean) 
+   * @returns isConversationArchived (status conversation archived: boolean)
    */
   getConversationDetail(callback:(isConversationArchived: boolean)=>void){
-    // if(!this.isConversationArchived){ 
+    // if(!this.isConversationArchived){
     //get conversation from 'conversations' firebase node
     this.logger.debug('[CONV-COMP] getConversationDetail: isConversationArchived???', this.isConversationArchived, this.conversationWith)
     this.conversationsHandlerService.getConversationDetail(this.conversationWith, (conv)=>{
@@ -405,30 +405,30 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
     //     if(conv){
     //       this.conversation = conv;
     //       this.isConversationArchived = true;
-    //       callback(this.isConversationArchived) 
+    //       callback(this.isConversationArchived)
     //     }
     //     if(!conv){
     //       this.conversationsHandlerService.getConversationDetail(this.conversationId, (conv)=>{
     //         this.logger.debug('[CONV-COMP] conversationsHandlerService getConversationDetail', this.conversationId, conv, this.isConversationArchived)
-    //         conv? this.isConversationArchived = false : null  
+    //         conv? this.isConversationArchived = false : null
     //         this.conversation = conv;
-    //         callback(this.isConversationArchived) 
+    //         callback(this.isConversationArchived)
     //       })
     //     }
     //   })
     // }
-    
+
     // if(!this.isConversationArchived){ //get conversation from 'conversations' firebase node
     //   this.conversationsHandlerService.getConversationDetail(this.conversationId, (conv)=>{
     //     this.logger.debug('[CONV-COMP] conversationsHandlerService getConversationDetail', this.conversationId, conv)
     //     this.conversation = conv;
-    //     callback(this.isConversationArchived)    
+    //     callback(this.isConversationArchived)
     //   })
     // }else { //get conversation from 'conversations' firebase node
     //   this.archivedConversationsHandlerService.getConversationDetail(this.conversationId, (conv)=>{
     //     this.logger.debug('[CONV-COMP] archivedConversationsHandlerService getConversationDetail', this.conversationId, conv)
-    //     this.conversation = conv;   
-    //     callback(this.isConversationArchived)   
+    //     this.conversation = conv;
+    //     callback(this.isConversationArchived)
     //   })
     // }
     // this.updateConversationBadge()
@@ -512,7 +512,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
     recipientIdTEMP = this.appStorageService.getItem(senderId);
     if (!recipientIdTEMP) {
       // questa deve essere sincrona!!!!
-      // recipientIdTEMP = UID_SUPPORT_GROUP_MESSAGES + uuidv4(); >>>>>OLD 
+      // recipientIdTEMP = UID_SUPPORT_GROUP_MESSAGES + uuidv4(); >>>>>OLD
       recipientIdTEMP = UID_SUPPORT_GROUP_MESSAGES + this.g.projectid + '-' + uuidv4().replace(/-/g, '');
       this.logger.debug('[CONV-COMP] recipitent', recipientIdTEMP)
       //recipientIdTEMP = this.messagingService.generateUidConversation(senderId);
@@ -565,8 +565,8 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
       this.conversationHandlerService.connect();
       this.logger.debug('[CONV-COMP] DETTAGLIO CONV - NEW handler **************', this.conversationHandlerService);
       this.messages = this.conversationHandlerService.messages;
-      
-      /* SEND FIRST MESSAGE if preChatForm has 'firstMessage' key */ 
+
+      /* SEND FIRST MESSAGE if preChatForm has 'firstMessage' key */
       this.sendFirstMessagePreChatForm()
       // this.sendLivePage()
 
@@ -612,7 +612,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
         this.logger.debug('[CONV-COMP] sendFirstMessage: messages + attributes ',this.messages, this.g.attributes)
         if(this.g.attributes && this.g.attributes.preChatForm && this.g.attributes.preChatForm.firstMessage){
           const firstMessage = this.g.attributes.preChatForm.firstMessage
-          this.conversationFooter.sendMessage(firstMessage, TYPE_MSG_TEXT, this.g.attributes) 
+          this.conversationFooter.sendMessage(firstMessage, TYPE_MSG_TEXT, this.g.attributes)
         }
       }
     }, 1000);
@@ -632,7 +632,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
       this.logger.debug('[CONV-COMP] sendLivePage --> attributes+message', attributes, message)
       this.conversationFooter.sendMessage(message, TYPE_MSG_TEXT, null, attributes);
     }, 1000);
-    
+
   }
 
 
@@ -641,7 +641,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
     this.membersConversation.push(this.senderId)
     //this.setSubscriptions();
     this.typingService.isTyping(this.conversationId, this.senderId, this.isDirect);
-    
+
   }
 
   /** */
@@ -874,7 +874,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
       // check if sender can reply --> set footer active/disabled
       if(msg.attributes && msg.attributes['disableInputMessage']){
         this.hideFooterTextReply = msg.attributes['disableInputMessage']
-        
+
       } else if (msg.attributes && !msg.attributes['disableInputMessage']) {
         this.hideFooterTextReply = false
       }
@@ -886,7 +886,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
         this.footerMessagePlaceholder = '';
       }
 
-      //check if redirect message is present inside message object 
+      //check if redirect message is present inside message object
       if(msg.type === 'redirect' && isJustRecived(this.startTime.getTime(), msg.timestamp)){
         let button = { link: msg.metadata.src, target: msg.metadata.target}
         this.openLink(button)
@@ -929,7 +929,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
     this.appStorageService.setItem('attributes', JSON.stringify(this.g.attributes));
   }
 
-  
+
 
  scrollToBottom() {
   this.conversationContent.scrollToBottom();
@@ -977,7 +977,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
   /** CALLED BY: conv-header component */
   onCloseChat(event){
     this.logger.debug('[CONV-COMP] close chat with uid ', this.conversation.uid)
-    this.tiledeskRequestService.closeSupportGroup(this.conversation.uid).then(data => {
+    this.GPTMysiteRequestService.closeSupportGroup(this.conversation.uid).then(data => {
       if(data === 'closed'){
         this.isMenuShow = false
         this.logger.debug('[CONV-COMP] chat closed successfully with uid ', this.conversation.uid)
@@ -992,11 +992,11 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
   }
   /** CALLED BY: conv-header component */
   onWidgetHeightChange(mode){
-    var tiledeskDiv = this.g.windowContext.window.document.getElementById('tiledeskdiv') 
+    var GPTMysiteDiv = this.g.windowContext.window.document.getElementById('GPTMysitediv')
     if(mode==='max'){
-      tiledeskDiv.style.maxHeight = 'unset'
+      GPTMysiteDiv.style.maxHeight = 'unset'
     }else if(mode==='min'){
-      tiledeskDiv.style.maxHeight = '620px'
+      GPTMysiteDiv.style.maxHeight = '620px'
     }
     this.isMenuShow = false;
   }
@@ -1060,7 +1060,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
       this.messagesBadgeCount = 0;
       this.updateConversationBadge();
     }
-    
+
   }
 
   /** CALLED BY: conv-internal-frame component */
@@ -1086,7 +1086,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
     this.conversationFooter.isFilePendingToUpload = false;
     this.logger.debug('[CONV-COMP] onCloseModalPreview::::', this.isOpenAttachmentPreview, this.conversationFooter)
   }
-  
+
   /** CALLED BY: conv-footer conv-content component */
   onEmojiiPickerShow(event:boolean){
     this.isEmojiiPickerShow = event
@@ -1095,11 +1095,11 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
   onBeforeMessangeSentFN(messageModel){
     this.onBeforeMessageSent.emit(messageModel)
   }
-  /** CALLED BY: conv-footer component */ 
+  /** CALLED BY: conv-footer component */
   onAfterSendMessageFN(message: MessageModel){
     this.onAfterSendMessage.emit(message)
   }
-  /** CALLED BY: conv-footer component */ 
+  /** CALLED BY: conv-footer component */
   onChangeTextArea(event){
     if(event && event.textAreaEl){
       const scrollDiv = this.conversationContent.scrollMe
@@ -1132,10 +1132,10 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
   onBackButton(event: boolean){
     this.hideTextAreaContent = event;
     try{
-      const tiledeskDiv = document.getElementById('chat21-footer')
-      tiledeskDiv.classList.remove('maximize-width')
-      // tiledeskDiv.style.width = '376px'
-      // tiledeskDiv.style.maxHeight = '620px'
+      const GPTMysiteDiv = document.getElementById('chat21-footer')
+      GPTMysiteDiv.classList.remove('maximize-width')
+      // GPTMysiteDiv.style.width = '376px'
+      // GPTMysiteDiv.style.maxHeight = '620px'
     }catch(e){
       this.logger.error('[CONV-COMP] onBackButton > Error :' + e);
     }
@@ -1189,12 +1189,12 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
 
   private onIncreaseWith(){
     try{
-      const tiledeskDiv = this.g.windowContext.window.document.getElementById('tiledeskdiv') 
-      tiledeskDiv.classList.add('increaseSize')
+      const GPTMysiteDiv = this.g.windowContext.window.document.getElementById('GPTMysitediv')
+      GPTMysiteDiv.classList.add('increaseSize')
       const chat21conversations = document.getElementById('chat21-conversations')
       chat21conversations.style.borderRadius = '16px'
-      // tiledeskDiv.style.width = '696px'
-      // tiledeskDiv.style.maxHeight = '712px'
+      // GPTMysiteDiv.style.width = '696px'
+      // GPTMysiteDiv.style.maxHeight = '712px'
     }catch(e){
       this.logger.error('[CONV-COMP] onIncreaseWith > Error :' + e);
     }
@@ -1202,16 +1202,16 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
 
   private restoreDefaultWidgetSize(){
     try{
-      const tiledeskDiv = this.g.windowContext.window.document.getElementById('tiledeskdiv') 
-      tiledeskDiv.classList.remove('increaseSize')
-      tiledeskDiv.classList.remove('decreaseSize')
-      // tiledeskDiv.style.width = '376px'
-      // tiledeskDiv.style.maxHeight = '620px'
+      const GPTMysiteDiv = this.g.windowContext.window.document.getElementById('GPTMysitediv')
+      GPTMysiteDiv.classList.remove('increaseSize')
+      GPTMysiteDiv.classList.remove('decreaseSize')
+      // GPTMysiteDiv.style.width = '376px'
+      // GPTMysiteDiv.style.maxHeight = '620px'
     }catch(e){
       this.logger.error('[CONV-COMP] restoreDefaultWidgetSize > Error :' + e);
     }
   }
-  
+
 
   /** */
   private openLink(event: any) {
@@ -1222,7 +1222,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
       // window.open(link, '_self');
       this.isButtonUrl= true;
       this.buttonClicked = event
-      
+
     } else if (target === 'parent') {
       window.open(link, '_parent');
     } else {
@@ -1286,7 +1286,7 @@ export class ConversationComponent implements OnInit, AfterViewInit, OnChanges {
       //   this.presentToast(this.translationsMap.get('FAILED_TO_UPLOAD_THE_FORMAT_IS_NOT_SUPPORTED'), 'danger','toast-custom-class', 5000 )
       //   // this.presentToastOnlyImageFilesAreAllowedToDrag()
       // }
-      
+
     }
   }
 

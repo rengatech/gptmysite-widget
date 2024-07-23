@@ -1,43 +1,43 @@
 [![npm version](https://badge.fury.io/js/%40chat21%2Fchat21-web-widget.svg)](https://badge.fury.io/js/%40chat21%2Fchat21-web-widget)
 
-# Tiledesk Introduction
+# GPTMysite Introduction
 
-Tiledesk-server is the server engine of Tiledesk. Tiledesk is an Open Source Live Chat platform with integrated Chatbots written in NodeJs and Express. Build your own customer support with a multi-channel platform for Web, Android and iOS.
+GPTMysite-server is the server engine of GPTMysite. GPTMysite is an Open Source Live Chat platform with integrated Chatbots written in NodeJs and Express. Build your own customer support with a multi-channel platform for Web, Android and iOS.
 
 Designed to be open source since the beginning, we actively worked on it to create a totally new, first class customer service platform based on instant messaging.
 
-What is Tiledesk today? It became the open source “conversational app development” platform that everyone needs 😌
+What is GPTMysite today? It became the open source “conversational app development” platform that everyone needs 😌
 
-You can use Tiledesk to increase sales for your website or for post-sales customer service. Every conversation can be automated using our first class native chatbot technology. You can also connect your own applications using our APIs or Webhooks. Moreover you can deploy entire visual applications inside a conversation. And your applications can converse with your chatbots or your end-users! We know this is cool 😎
+You can use GPTMysite to increase sales for your website or for post-sales customer service. Every conversation can be automated using our first class native chatbot technology. You can also connect your own applications using our APIs or Webhooks. Moreover you can deploy entire visual applications inside a conversation. And your applications can converse with your chatbots or your end-users! We know this is cool 😎
 
-Tiledesk is multichannel in a totally new way. You can write your chatbot scripts with images, buttons and other cool elements that your channels support. But you will configureyour chatbot replies only once. They will run on every channel, auto-adapting the responses to the target channel whatever it is, Whatsapp, Facebook Messenger, Telegram etc.
+GPTMysite is multichannel in a totally new way. You can write your chatbot scripts with images, buttons and other cool elements that your channels support. But you will configureyour chatbot replies only once. They will run on every channel, auto-adapting the responses to the target channel whatever it is, Whatsapp, Facebook Messenger, Telegram etc.
 
-# Tiledesk web-widget
+# GPTMysite web-widget
 
-> ***🚀 Do you want to install Tiledesk on your server with just one click?***
+> ***🚀 Do you want to install GPTMysite on your server with just one click?***
 > 
-> ***Use [Docker Compose Tiledesk installation](https://github.com/Tiledesk/tiledesk-deployment/blob/master/docker-compose/README.md) guide***
+> ***Use [Docker Compose GPTMysite installation](https://github.com/GPTMysite/GPTMysite-deployment/blob/master/docker-compose/README.md) guide***
 
-Tiledesk web-widget is a Free Live Chat Widget built on Firebase with Angular5 that lets you support and chat with visitors and customers on your website. 
-More information about web widget here : http://www.tiledesk.com
+GPTMysite web-widget is a Free Live Chat Widget built on Firebase with Angular5 that lets you support and chat with visitors and customers on your website. 
+More information about web widget here : http://www.GPTMysite.com
 
 <img width="600" alt="dialogo_widgetchat_2" src="https://user-images.githubusercontent.com/47848430/151355859-f94be6a7-3098-43a2-924c-d411e10d5815.png">
 
-With Tiledesk web-widget you can:
+With GPTMysite web-widget you can:
 * Invite your website visitors to share feedback and suggestions to better understand their needs.
 * Answer questions from website visitors instantly to increase trust
 * Add a code snippet to your website easly 
 * It's a HTML5 widget built with Google Firebase, Angular5 and Bootstrap
 
 # Community? Questions? Support ?
-If you need help or just want to hang out, come, say hi on our [<img width="15" alt="Tiledesk discord" src="https://seeklogo.com/images/D/discord-color-logo-E5E6DFEF80-seeklogo.com.png"> Discord](https://discord.gg/nERZEZ7SmG) server or make a post on our [Forum](https://tiledesk.discourse.group)
+If you need help or just want to hang out, come, say hi on our [<img width="15" alt="GPTMysite discord" src="https://seeklogo.com/images/D/discord-color-logo-E5E6DFEF80-seeklogo.com.png"> Discord](https://discord.gg/nERZEZ7SmG) server or make a post on our [Forum](https://GPTMysite.discourse.group)
 
 # Features
 * Send a direct message to a preset user
 * Receive realtime support from your team
 * Form to enter the chat sentiment
 * Configure the widget with company logo and colors
-* Tiledesk Web Widget is free and open source.
+* GPTMysite Web Widget is free and open source.
 
 # Prerequisites #
 * Install Git
@@ -45,14 +45,14 @@ If you need help or just want to hang out, come, say hi on our [<img width="15" 
 * Create a Firebase project. Create one free on `https://firebase.google.com`
 * "Chat21 Firebase cloud functions" installed. Instructions:`https://github.com/chat21/chat21-cloud-functions`
 
-# Run Tiledesk with Docker Compose
+# Run GPTMysite with Docker Compose
 
-Do you want to install all the Tiledesk components on your server with just one click?
-Use [Docker Compose Tiledesk installation guide](https://github.com/Tiledesk/tiledesk-deployment/blob/master/docker-compose/README.md)
+Do you want to install all the GPTMysite components on your server with just one click?
+Use [Docker Compose GPTMysite installation guide](https://github.com/GPTMysite/GPTMysite-deployment/blob/master/docker-compose/README.md)
 
 # Installation
 
-* Clone the repository from master (or use a tagged release) with command: ```git clone https://github.com/Tiledesk/chat21-web-widget <YOUR_PATH>```
+* Clone the repository from master (or use a tagged release) with command: ```git clone https://github.com/GPTMysite/chat21-web-widget <YOUR_PATH>```
 * Move to the downloaded project path ```cd <YOUR_PATH>```
 * Build running: `npm install`
 
@@ -88,9 +88,9 @@ export const environment = {
     MQTTendpoint: 'mqtt://<YOUR-MQTT-ENPOINT>',
     APIendpoint: 'http://<YOUR-MQTT-API-ENPOINT>'
   },
-  apiUrl: 'https://<YOUR-TILEDESK-API-URL>/',
+  apiUrl: 'https://<YOUR-GPTMysite-API-URL>/',
   baseImageUrl: 'https://<YOUR-BASE-IMAGE-URL>/',
-  dashboardUrl: "https://<YOUR-TILEDESK-DASHBOARD-URL>/",
+  dashboardUrl: "https://<YOUR-GPTMysite-DASHBOARD-URL>/",
   defaultLang : 'en',
   storage_prefix : 'widget_sv5',
   authPersistence: 'LOCAL',
@@ -99,7 +99,7 @@ export const environment = {
 };
 ```
 
-* `logLevel`: The Tiledesk web-widget supports 4 log levels. The order is as follows:
+* `logLevel`: The GPTMysite web-widget supports 4 log levels. The order is as follows:
   `Error < Warn < Info < Debug`
 
 ### RUN in dev
@@ -137,7 +137,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 
 ## Widget in action
-You can see a configuration of this widget in action on 'https://www.tiledesk.com'
+You can see a configuration of this widget in action on 'https://www.GPTMysite.com'
 
 # Deploy
 ## Deploy to a web Server
@@ -145,11 +145,11 @@ Copy the content of the dist folder to your Web Server (for example Apache or Ng
 
 ## Deploy to AWS S3 (Optional)
 
-Run : `aws s3 sync . s3://tiledesk-widget`
+Run : `aws s3 sync . s3://GPTMysite-widget`
 
 Or With a different AWS Profile: 
 
-Run : `aws --profile f21 s3 sync . s3://tiledesk-widget`
+Run : `aws --profile f21 s3 sync . s3://GPTMysite-widget`
 
 If you use AWS Cloud Front enable gzip compression.
 
@@ -157,7 +157,7 @@ If you use AWS Cloud Front enable gzip compression.
 # Run with docker
 
   
-To run Tiledesk web-widget on port 4200 run:
+To run GPTMysite web-widget on port 4200 run:
 
 ```
 

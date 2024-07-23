@@ -39,17 +39,17 @@ export class Globals {
   BUILD_VERSION: String;
   baseLocation: string;
   availableAgents: Array<UserAgent> = [];
-  
+
   attributes: any;
   preChatFormJson: any; // *******  new ********
   token: string;
-  tiledeskToken: string;
+  GPTMysiteToken: string;
   firebaseToken: string;
   lang: string;
   conversationsBadge: number;
   /**@deprecated */
   activeConversation: ConversationModel;
-  
+
   isOpenStartRating: boolean;
   departments: DepartmentModel[];
   departmentSelected: DepartmentModel;
@@ -125,7 +125,7 @@ export class Globals {
   isOpen: boolean;
   startFromHome: boolean;
   projectid: string;
-  preChatForm: boolean; 
+  preChatForm: boolean;
   align: string;
   calloutTimer: number;
   calloutTitle: string;
@@ -224,7 +224,7 @@ export class Globals {
    */
   initDefafultParameters() {
     let wContext: any = window;
-    if (window.frameElement && window.frameElement.getAttribute('tiledesk_context') === 'parent') {
+    if (window.frameElement && window.frameElement.getAttribute('GPTMysite_context') === 'parent') {
       wContext = window.parent;
     }
     const windowcontextFromWindow = getParameterByName(window, 'windowcontext');
@@ -235,7 +235,7 @@ export class Globals {
     this.windowContext = wContext;
 
     // ============ BEGIN: SET EXTERNAL PARAMETERS ==============//
-    this.baseLocation = 'https://widget.tiledesk.com/v2';
+    this.baseLocation = 'https://widget.GPTMysite.com/v2';
     this.autoStart = true;
     this.startHidden = false;
     /** start Authentication and startUI */
@@ -250,8 +250,8 @@ export class Globals {
     this.isOpenStartRating = false;
     /** show/hide all rating chat */
     this.projectid = '';
-    /** The TileDesk project id. Find your TileDesk ProjectID in the
-    TileDesk Dashboard under the Widget menu. */
+    /** The GPTMysite project id. Find your GPTMysite ProjectID in the
+    GPTMysite Dashboard under the Widget menu. */
     this.preChatForm = false;
     /** You can require customers to enter information like name and email
     before sending a chat message by enabling the Pre-Chat form. Permitted
@@ -277,11 +277,11 @@ export class Globals {
     email address.  */
     this.widgetTitle = '';
     /** Set the widget title label shown in the widget header. Value type : string.
-    The default value is Tiledesk. */
-    this.dynamicWaitTimeReply = true;  
-    /** The user can decide whether or not to share the 
-     * average response time of his team (if 'dynamicWaitTimeReply' is 
-     * false the WAITING_TIME_NOT_FOUND will always be displayed) 
+    The default value is GPTMysite. */
+    this.dynamicWaitTimeReply = true;
+    /** The user can decide whether or not to share the
+     * average response time of his team (if 'dynamicWaitTimeReply' is
+     * false the WAITING_TIME_NOT_FOUND will always be displayed)
      * is set to true for backward compatibility with old projects */
     this.hideHeaderCloseButton = false;
     /** Hide the close button in the widget header. Permitted values: true,
@@ -295,7 +295,7 @@ export class Globals {
     other minor elements). Permitted values: Hex color
     codes, e.g. #87BC65 and RGB color codes, e.g. rgb(135,188,101) */
     this.themeColorOpacity = 100
-    /**allows you to change opacity in background headers component 
+    /**allows you to change opacity in background headers component
      * Permitted values: [0..1] */
     this.themeForegroundColor = convertColorToRGBA('#ffffff', 100);
     /** allows you to change text and icons' color.
@@ -421,7 +421,7 @@ export class Globals {
     // this.parameters.push({'tenant': environment.tenant});
 
     /** Set the widget title label shown in the widget header. Value type : string.
-    The default value is Tiledesk. */
+    The default value is GPTMysite. */
                                                         /** name tenant ex: tilechat */
     this.channelType = CHANNEL_TYPE.GROUP;
     // this.parameters['channelType'] = CHANNEL_TYPE.GROUP;
@@ -505,7 +505,7 @@ export class Globals {
       'allowTranscriptDownload': this.allowTranscriptDownload,
       'autoStart': this.autoStart,
       'baloonShape': this.baloonShape, 'baloonImage': this.baloonImage,
-      'bubbleSentBackground' : this.bubbleSentBackground, 'bubbleSentTextColor': this.bubbleSentTextColor,   
+      'bubbleSentBackground' : this.bubbleSentBackground, 'bubbleSentTextColor': this.bubbleSentTextColor,
       'bubbleReceivedBackground': this.bubbleReceivedBackground, 'bubbleReceivedTextColor': this.bubbleReceivedTextColor,
       'buttonBackgroundColor': this.buttonBackgroundColor, 'buttonTextColor': this.buttonTextColor, 'buttonFontSize': this.buttonFontSize,
       'buttonHoverBackgroundColor': this.buttonHoverBackgroundColor, 'buttonHoverTextColor': this.buttonHoverTextColor,
@@ -513,7 +513,7 @@ export class Globals {
       'calloutTimer': this.calloutTimer, 'calloutStaus': this.calloutStaus,
       'channelType': this.channelType,
       'dynamicWaitTimeReply': this.dynamicWaitTimeReply,
-      'fontSize': this.fontSize, 'fontFamily': this.fontFamily, 
+      'fontSize': this.fontSize, 'fontFamily': this.fontFamily,
       'fullscreenMode': this.fullscreenMode,
       'filterByRequester': this.filterByRequester,
       'hideHeaderConversationOptionsMenu': this.hideHeaderConversationOptionsMenu, 'hideHeaderCloseButton': this.hideHeaderCloseButton,
@@ -524,12 +524,12 @@ export class Globals {
       'jwt': this.jwt,
       'logLevel': this.logLevel,
       'logoChat': this.logoChat,
-      'lang': this.lang, 
+      'lang': this.lang,
       'lancherWidth': this.launcherWidth, 'lancherHeight': this.launcherHeight,
       'marginX': this.marginX, 'marginY': this.marginY,
       'mobileMarginX': this.mobileMarginX, 'mobileMarginY': this.mobileMarginY,
       'nativeRating': this.nativeRating,
-      'openExternalLinkButton': this.openExternalLinkButton, 
+      'openExternalLinkButton': this.openExternalLinkButton,
       'participants':this.participants,
       'persistence': this.persistence,
       'poweredBy': this.poweredBy,
@@ -538,17 +538,17 @@ export class Globals {
       'recipientId': this.recipientId,
       'restartConversation': this.restartConversation,
       'singleConversation': this.singleConversation,
-      'showInfoMessage': this.showInfoMessage, 'showAllConversations': this.showAllConversations, 
+      'showInfoMessage': this.showInfoMessage, 'showAllConversations': this.showAllConversations,
       'showWaitTime': this.showWaitTime, 'showAvailableAgents': this.showAvailableAgents,
       'showLogoutOption': this.showLogoutOption, 'showAttachmentButton': this.showAttachmentButton,
-      'soundEnabled': this.soundEnabled, 
-      'startHidden': this.startHidden, 'startFromHome': this.startFromHome, 
-      'tenant': this.tenant, 
+      'soundEnabled': this.soundEnabled,
+      'startHidden': this.startHidden, 'startFromHome': this.startFromHome,
+      'tenant': this.tenant,
       'themeColor': this.themeColor, 'themeColorOpacity': this.themeColorOpacity, 'themeForegroundColor': this.themeForegroundColor,
-      'typingLocation': this.typingLocation, 
-      'userEmail': this.userEmail, 'userFullname': this.userFullname, 
+      'typingLocation': this.typingLocation,
+      'userEmail': this.userEmail, 'userFullname': this.userFullname,
       'widgetTitle': this.widgetTitle,
-      'welcomeMsg': this.welcomeMsg, 'welcomeTitle': this.welcomeTitle, 
+      'welcomeMsg': this.welcomeMsg, 'welcomeTitle': this.welcomeTitle,
     };
   }
 
@@ -578,17 +578,17 @@ export class Globals {
   }
 
   setElementStyle(isOpen: boolean){
-    const divTiledeskWidget = this.windowContext.document.getElementById('tiledeskdiv');
+    const divGPTMysiteWidget = this.windowContext.document.getElementById('GPTMysitediv');
     const chat21conversationsEL = document.getElementById('chat21-conversations')
 
-    //customize shadow for 'tiledeskdiv' and 'chat21-conversations'
-    if(isOpen && divTiledeskWidget){
+    //customize shadow for 'GPTMysitediv' and 'chat21-conversations'
+    if(isOpen && divGPTMysiteWidget){
       setTimeout(() => {
-        divTiledeskWidget.classList.add('shadow')
+        divGPTMysiteWidget.classList.add('shadow')
         chat21conversationsEL.classList.add('shadow')
       }, 1000);
-    } else if(!isOpen && divTiledeskWidget){
-      divTiledeskWidget.classList.remove('shadow')
+    } else if(!isOpen && divGPTMysiteWidget){
+      divGPTMysiteWidget.classList.remove('shadow')
       chat21conversationsEL.classList.remove('shadow')
     }
 
@@ -601,23 +601,23 @@ export class Globals {
     }
 
 
-    //customize position for 'tiledeskdiv' for mobile
-    if(isOpen && this.isMobile && divTiledeskWidget){
-      divTiledeskWidget.style.right = '0px'
-      divTiledeskWidget.style.bottom = '0px'
-    } else if(!isOpen && this.isMobile && divTiledeskWidget){
-      divTiledeskWidget.style.bottom = this.marginY
-      this.align === 'left'?  divTiledeskWidget.style.left = this.mobileMarginX : divTiledeskWidget.style.right = this.mobileMarginX; 
+    //customize position for 'GPTMysitediv' for mobile
+    if(isOpen && this.isMobile && divGPTMysiteWidget){
+      divGPTMysiteWidget.style.right = '0px'
+      divGPTMysiteWidget.style.bottom = '0px'
+    } else if(!isOpen && this.isMobile && divGPTMysiteWidget){
+      divGPTMysiteWidget.style.bottom = this.marginY
+      this.align === 'left'?  divGPTMysiteWidget.style.left = this.mobileMarginX : divGPTMysiteWidget.style.right = this.mobileMarginX;
     }
 
 
   }
 
   setWidgetPreviewContainerSize(width: number, height: number){
-    const divTiledeskWidget = this.windowContext.document.querySelector('.messagePreview');
-    
+    const divGPTMysiteWidget = this.windowContext.document.querySelector('.messagePreview');
+
     let headerPadding = 10
-    let style = getComputedStyle(divTiledeskWidget)
+    let style = getComputedStyle(divGPTMysiteWidget)
     // console.log('computedddd', style.getPropertyValue('--messagePreviewHeight'))
     let currentHeight = +style.getPropertyValue('--messagePreviewHeight').substring(0, style.getPropertyValue('--messagePreviewHeight').length -2)
     this.windowContext.document.documentElement.style.setProperty('--messagePreviewHeight', currentHeight + height + headerPadding + 'px');

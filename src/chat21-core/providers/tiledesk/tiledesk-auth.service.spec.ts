@@ -2,15 +2,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { AppStorageService } from '../abstract/app-storage.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { TiledeskAuthService } from './tiledesk-auth.service';
+import { GPTMysiteAuthService } from './GPTMysite-auth.service';
 import { NGXLogger } from 'ngx-logger';
 import { CustomLogger } from '../logger/customLogger';
 import { LoggerInstance } from '../logger/loggerInstance';
 
-describe('TiledeskAuthService', () => {
+describe('GPTMysiteAuthService', () => {
   // let httpClientMock;
   let httpMock: HttpTestingController;
-  let service : TiledeskAuthService;
+  let service : GPTMysiteAuthService;
   let appStorage: AppStorageService;
   let ngxlogger: NGXLogger;
   let customLogger = new CustomLogger(ngxlogger)
@@ -18,7 +18,7 @@ describe('TiledeskAuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        TiledeskAuthService,
+        GPTMysiteAuthService,
         AppStorageService,
         // {provide: HttpClient, useValue: httpClientMock}
       ],
@@ -27,7 +27,7 @@ describe('TiledeskAuthService', () => {
 
     // httpClientMock = jasmine.createSpyObj(['getAllObjects']);
     httpMock = TestBed.inject(HttpTestingController);
-    service = TestBed.inject(TiledeskAuthService);
+    service = TestBed.inject(GPTMysiteAuthService);
     appStorage = TestBed.inject(AppStorageService)
 
     LoggerInstance.setInstance(customLogger)
@@ -50,9 +50,9 @@ describe('TiledeskAuthService', () => {
     const base_url = 'http://localhost:3000/'
     service.initialize(base_url)
     expect(service['SERVER_BASE_URL']).toEqual(base_url);
-    expect(service['URL_TILEDESK_SIGNIN']).not.toBeUndefined()
-    expect(service['URL_TILEDESK_SIGNIN_ANONYMOUSLY']).not.toBeUndefined()
-    expect(service['URL_TILEDESK_SIGNIN_WITH_CUSTOM_TOKEN']).not.toBeUndefined();
+    expect(service['URL_GPTMysite_SIGNIN']).not.toBeUndefined()
+    expect(service['URL_GPTMysite_SIGNIN_ANONYMOUSLY']).not.toBeUndefined()
+    expect(service['URL_GPTMysite_SIGNIN_WITH_CUSTOM_TOKEN']).not.toBeUndefined();
   })
 
   const dummyResponseSignInAnonymously = {
@@ -66,11 +66,11 @@ describe('TiledeskAuthService', () => {
     }
   }
 
-  // it('signInAnonymously api return tiledeskToken', (done) => {
-  //   const base_url = 'https://tiledesk-server-pre.herokuapp.com/'
+  // it('signInAnonymously api return GPTMysiteToken', (done) => {
+  //   const base_url = 'https://GPTMysite-server-pre.herokuapp.com/'
   //   const projectId = '6013ec749b32000045be650e'
   //   service.appStorage = appStorage
-    
+
   //   service.initialize(base_url)
   //   service.signInAnonymously(projectId).then(response => {
   //     console.log('response', response)

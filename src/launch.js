@@ -1,7 +1,7 @@
 /** */
 ready(function() {
     console.log('DOM is ready, call initWidget');
-    if(!window.tileDeskAsyncInit){
+    if(!window.GPTMysiteAsyncInit){
       initAysncEvents();
     }
     initWidget();
@@ -30,7 +30,7 @@ function ready(callbackFunction){
       }else{
         window.addEventListener('load',callbackFunction,false);
       }
-      
+
       document.removeEventListener('scroll', start);
       document.removeEventListener('mousedown', start);
       document.removeEventListener('mousemove', start);
@@ -38,54 +38,54 @@ function ready(callbackFunction){
       document.removeEventListener('keydown', start);
     }
 
-    
+
 }
-       
+
 
 /** */
-function loadIframe(tiledeskScriptBaseLocation) {
+function loadIframe(GPTMysiteScriptBaseLocation) {
     var dev = window.location.hostname.includes('localhost')? true: false;
 
     var containerDiv = document.createElement('div');
-    containerDiv.setAttribute('id','tiledesk-container');
+    containerDiv.setAttribute('id','GPTMysite-container');
     containerDiv.classList.add("closed");
     document.body.appendChild(containerDiv);
-    
+
     var iDiv = document.createElement('div');
-    iDiv.setAttribute('id','tiledeskdiv');
+    iDiv.setAttribute('id','GPTMysitediv');
     containerDiv.appendChild(iDiv);
 
     var ifrm = document.createElement("iframe");
     ifrm.setAttribute("frameborder", "0");
     ifrm.setAttribute("border", "0");
-    ifrm.setAttribute("title", "Tiledesk Widget")
-       
-    var srcTileDesk = '<html lang="en">';
-    srcTileDesk += '<head>';
-    srcTileDesk += '<meta charset="utf-8">';
-    srcTileDesk += '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />';
-    srcTileDesk += '<title>Tilechat Widget</title>';
-    srcTileDesk += '<base href="'+tiledeskScriptBaseLocation+ '/">';
-    srcTileDesk += '<link rel="icon" type="image/x-icon" href="favicon.ico">';
-    srcTileDesk += '<link rel="stylesheet" type="text/css" href="' + tiledeskScriptBaseLocation +'/assets/styles/tiledesk_v1.scss" media="all">';
-    srcTileDesk += '</head>';
-    srcTileDesk += '<body>';
-    srcTileDesk += '<chat-root></chat-root>';
-    srcTileDesk += '<script async type="text/javascript" src="'+tiledeskScriptBaseLocation+'/runtime.js"></script>';
-    srcTileDesk += '<script async type="text/javascript" src="'+tiledeskScriptBaseLocation+'/polyfills.js"></script>';
-    srcTileDesk += '<script async type="text/javascript" src="'+tiledeskScriptBaseLocation+'/vendor.js"></script>';
-    srcTileDesk += '<script async type="text/javascript" src="'+tiledeskScriptBaseLocation+'/main.js"></script>';
-    srcTileDesk += '<link type="text/css" rel="stylesheet" href="'+tiledeskScriptBaseLocation+'/styles.css" media="all"></link>';
-    srcTileDesk += '</body>';
-    srcTileDesk += '</html>';
-    
-    ifrm.setAttribute('id','tiledeskiframe');
-    ifrm.setAttribute('tiledesk_context','parent');
-   
+    ifrm.setAttribute("title", "GPTMysite Widget")
+
+    var srcGPTMysite = '<html lang="en">';
+    srcGPTMysite += '<head>';
+    srcGPTMysite += '<meta charset="utf-8">';
+    srcGPTMysite += '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />';
+    srcGPTMysite += '<title>Tilechat Widget</title>';
+    srcGPTMysite += '<base href="'+GPTMysiteScriptBaseLocation+ '/">';
+    srcGPTMysite += '<link rel="icon" type="image/x-icon" href="favicon.ico">';
+    srcGPTMysite += '<link rel="stylesheet" type="text/css" href="' + GPTMysiteScriptBaseLocation +'/assets/styles/GPTMysite_v1.scss" media="all">';
+    srcGPTMysite += '</head>';
+    srcGPTMysite += '<body>';
+    srcGPTMysite += '<chat-root></chat-root>';
+    srcGPTMysite += '<script async type="text/javascript" src="'+GPTMysiteScriptBaseLocation+'/runtime.js"></script>';
+    srcGPTMysite += '<script async type="text/javascript" src="'+GPTMysiteScriptBaseLocation+'/polyfills.js"></script>';
+    srcGPTMysite += '<script async type="text/javascript" src="'+GPTMysiteScriptBaseLocation+'/vendor.js"></script>';
+    srcGPTMysite += '<script async type="text/javascript" src="'+GPTMysiteScriptBaseLocation+'/main.js"></script>';
+    srcGPTMysite += '<link type="text/css" rel="stylesheet" href="'+GPTMysiteScriptBaseLocation+'/styles.css" media="all"></link>';
+    srcGPTMysite += '</body>';
+    srcGPTMysite += '</html>';
+
+    ifrm.setAttribute('id','GPTMysiteiframe');
+    ifrm.setAttribute('GPTMysite_context','parent');
+
     /** */
-    window.tiledesk.on('onInit', function(event_data) {
-        // console.log("launch onInit isopen", tiledeskScriptBaseLocation, window.tiledesk.angularcomponent.component.g.isOpen);
-        if (window.tiledesk.angularcomponent.component.g.isOpen) {
+    window.GPTMysite.on('onInit', function(event_data) {
+        // console.log("launch onInit isopen", GPTMysiteScriptBaseLocation, window.GPTMysite.angularcomponent.component.g.isOpen);
+        if (window.GPTMysite.angularcomponent.component.g.isOpen) {
             containerDiv.classList.add("open");
             containerDiv.classList.remove("closed");
             iDiv.classList.remove("callout");
@@ -93,46 +93,46 @@ function loadIframe(tiledeskScriptBaseLocation) {
             containerDiv.classList.add("closed");
             containerDiv.classList.remove("open");
             iDiv.classList.remove("messagePreview");
-        }         
+        }
     });
     /** */
-    window.tiledesk.on('onOpen', function(event_data) {
+    window.GPTMysite.on('onOpen', function(event_data) {
         containerDiv.classList.add("open");
         containerDiv.classList.remove("closed");
         iDiv.classList.remove("callout");
         iDiv.classList.remove("messagePreview");
     });
     /** */
-    window.tiledesk.on('onClose', function(event_data) {
+    window.GPTMysite.on('onClose', function(event_data) {
         containerDiv.classList.add("closed");
         containerDiv.classList.remove("open");
     });
 
     /** */
-    window.tiledesk.on('onOpenEyeCatcher', function(event_data) {
+    window.GPTMysite.on('onOpenEyeCatcher', function(event_data) {
         iDiv.classList.add("callout");
     });
     /** */
-    window.tiledesk.on('onClosedEyeCatcher', function(event_data) {
+    window.GPTMysite.on('onClosedEyeCatcher', function(event_data) {
         iDiv.classList.remove("callout");
     });
 
     /** */
-    window.tiledesk.on('onConversationUpdated', function(event_data) {
-        const messagePreview = window.tiledesk.angularcomponent.component.g.isOpenNewMessage
-        const isOpen = window.tiledesk.angularcomponent.component.g.isOpen
+    window.GPTMysite.on('onConversationUpdated', function(event_data) {
+        const messagePreview = window.GPTMysite.angularcomponent.component.g.isOpenNewMessage
+        const isOpen = window.GPTMysite.angularcomponent.component.g.isOpen
         try {
             if (!isOpen && messagePreview) {
                 iDiv.classList.add("messagePreview");
                 iDiv.classList.remove("callout");
                 // ----------------------------//
-            }  
+            }
         } catch(er) {
             console.error("onConversationUpdated > error: " + er);
         }
     });
 
-    window.tiledesk.on('onCloseMessagePreview', function(event_data) {
+    window.GPTMysite.on('onCloseMessagePreview', function(event_data) {
         try {
             iDiv.classList.remove("messagePreview");
         } catch(er) {
@@ -143,23 +143,23 @@ function loadIframe(tiledeskScriptBaseLocation) {
 
     /**** BEGIN EVENST ****/
     /** */
-    window.tiledesk.on('onNewConversation', function(event_data) {
+    window.GPTMysite.on('onNewConversation', function(event_data) {
         // console.log("test-custom-auth.html onNewConversation >>>",event_data);
-        const tiledeskToken = window.tiledesk.angularcomponent.component.g.tiledeskToken;
-        // console.log(">>>> tiledeskToken >>>> ",event_data.detail.appConfigs.apiUrl+event_data.detail.default_settings.projectid);
-        if(tiledeskToken) {
+        const GPTMysiteToken = window.GPTMysite.angularcomponent.component.g.GPTMysiteToken;
+        // console.log(">>>> GPTMysiteToken >>>> ",event_data.detail.appConfigs.apiUrl+event_data.detail.default_settings.projectid);
+        if(GPTMysiteToken) {
           var httpRequest = createCORSRequest('POST', event_data.detail.appConfigs.apiUrl+event_data.detail.default_settings.projectid+'/events',true); //set async to false because loadParams must return when the get is complete
           httpRequest.setRequestHeader('Content-type', 'application/json');
-          httpRequest.setRequestHeader('Authorization',tiledeskToken);
+          httpRequest.setRequestHeader('Authorization',GPTMysiteToken);
           httpRequest.send(JSON.stringify({ "name":"new_conversation",
                                             "attributes": {
-                                              "request_id":event_data.detail.newConvId, 
-                                              "department": event_data.detail.global.departmentSelected.id, 
-                                              "participants": event_data.detail.global.participants, 
-                                              "language": event_data.detail.global.lang, 
-                                              "subtype":"info", 
-                                              "fullname":event_data.detail.global.attributes.userFullname, 
-                                              "email":event_data.detail.global.attributes.userEmail, 
+                                              "request_id":event_data.detail.newConvId,
+                                              "department": event_data.detail.global.departmentSelected.id,
+                                              "participants": event_data.detail.global.participants,
+                                              "language": event_data.detail.global.lang,
+                                              "subtype":"info",
+                                              "fullname":event_data.detail.global.attributes.userFullname,
+                                              "email":event_data.detail.global.attributes.userEmail,
                                               "attributes":event_data.detail.global.attributes
                                             }
                                           }
@@ -168,46 +168,46 @@ function loadIframe(tiledeskScriptBaseLocation) {
     });
 
     /** @deprecated event */
-    window.tiledesk.on('onLoggedIn', function(event_data) {
+    window.GPTMysite.on('onLoggedIn', function(event_data) {
         // console.log("test-custom-auth.html onLoggedIn",event_data);
-        const tiledeskToken = window.tiledesk.angularcomponent.component.g.tiledeskToken;
-        // console.log("------------------->>>> tiledeskToken: ",window.tiledesk.angularcomponent.component.g);
-        if(tiledeskToken) {
+        const GPTMysiteToken = window.GPTMysite.angularcomponent.component.g.GPTMysiteToken;
+        // console.log("------------------->>>> GPTMysiteToken: ",window.GPTMysite.angularcomponent.component.g);
+        if(GPTMysiteToken) {
             var httpRequest = createCORSRequest('POST', event_data.detail.appConfigs.apiUrl+event_data.detail.default_settings.projectid+'/events',true); //set async to false because loadParams must return when the get is complete
             httpRequest.setRequestHeader('Content-type','application/json');
-            httpRequest.setRequestHeader('Authorization',tiledeskToken);
+            httpRequest.setRequestHeader('Authorization',GPTMysiteToken);
             httpRequest.send(JSON.stringify({"name":"logged_in","attributes": {"fullname":event_data.detail.global.attributes.userFullname, "email":event_data.detail.global.attributes.userEmail, "language": event_data.detail.global.lang, "attributes":event_data.detail.global.attributes}}));
         }
     });
 
     /** */
-    window.tiledesk.on('onAuthStateChanged', function(event_data) {
+    window.GPTMysite.on('onAuthStateChanged', function(event_data) {
         // console.log("test-custom-auth.html onAuthStateChanged",event_data);
-        const tiledeskToken = window.tiledesk.angularcomponent.component.g.tiledeskToken;
-        // console.log("------------------->>>> tiledeskToken: ",window.tiledesk.angularcomponent.component.g);
-        if(tiledeskToken) {
+        const GPTMysiteToken = window.GPTMysite.angularcomponent.component.g.GPTMysiteToken;
+        // console.log("------------------->>>> GPTMysiteToken: ",window.GPTMysite.angularcomponent.component.g);
+        if(GPTMysiteToken) {
             var httpRequest = createCORSRequest('POST', event_data.detail.appConfigs.apiUrl+event_data.detail.default_settings.projectid+'/events',true); //set async to false because loadParams must return when the get is complete
             httpRequest.setRequestHeader('Content-type','application/json');
-            httpRequest.setRequestHeader('Authorization',tiledeskToken);
-            httpRequest.send(JSON.stringify({"name":"auth_state_changed","attributes": {"user_id":event_data.detail.global.senderId, "isLogged":event_data.detail.global.isLogged, "event":event_data.detail.event, "subtype":"info", "fullname":event_data.detail.global.attributes.userFullname, "email":event_data.detail.global.attributes.userEmail, "language":event_data.detail.global.lang, "attributes":event_data.detail.global.attributes}}));  
+            httpRequest.setRequestHeader('Authorization',GPTMysiteToken);
+            httpRequest.send(JSON.stringify({"name":"auth_state_changed","attributes": {"user_id":event_data.detail.global.senderId, "isLogged":event_data.detail.global.isLogged, "event":event_data.detail.event, "subtype":"info", "fullname":event_data.detail.global.attributes.userFullname, "email":event_data.detail.global.attributes.userEmail, "language":event_data.detail.global.lang, "attributes":event_data.detail.global.attributes}}));
             httpRequest.onload = function(event) {
               if(event.target && event.target.status === 401){
-                window.tiledesk.hide()
-                window.tiledesk.dispose()
+                window.GPTMysite.hide()
+                window.GPTMysite.dispose()
               }
-            } 
+            }
           }
-    }); 
+    });
     /**** END EVENST ****/
 
     iDiv.appendChild(ifrm);
 
-    if(tiledeskScriptBaseLocation.includes('localhost')){
+    if(GPTMysiteScriptBaseLocation.includes('localhost')){
       ifrm.contentWindow.document.open();
-      ifrm.contentWindow.document.write(srcTileDesk);
+      ifrm.contentWindow.document.write(srcGPTMysite);
       ifrm.contentWindow.document.close();
     }else {
-      ifrm.srcdoc = srcTileDesk
+      ifrm.srcdoc = srcGPTMysite
     }
 
 
@@ -217,11 +217,11 @@ function loadIframe(tiledeskScriptBaseLocation) {
 function initAysncEvents() {
   console.log('INIT ASYNC EVENTS')
 
-  window.tileDeskAsyncInit = function() {  
-    // console.log('launch tiledeskAsyncInit:::', window.Tiledesk.q)
-    window.tiledesk.on('onLoadParams', function(event_data) {
-      if (window.Tiledesk && window.Tiledesk.q && window.Tiledesk.q.length>0) {
-        window.Tiledesk.q.forEach(f => {
+  window.GPTMysiteAsyncInit = function() {
+    // console.log('launch GPTMysiteAsyncInit:::', window.GPTMysite.q)
+    window.GPTMysite.on('onLoadParams', function(event_data) {
+      if (window.GPTMysite && window.GPTMysite.q && window.GPTMysite.q.length>0) {
+        window.GPTMysite.q.forEach(f => {
           if (f.length>=1) {
             var functionName = f[0];
             if (functionName==="onLoadParams") {
@@ -229,18 +229,18 @@ function initAysncEvents() {
               if (f.length==2) {
                 var functionCallback = f[1];
                 if(typeof functionCallback === "function") {
-                  window.tiledesk.on(functionName, functionCallback); 
+                  window.GPTMysite.on(functionName, functionCallback);
                   functionCallback(event_data);
                 } else {
                   console.error("initAysncEvents --> functionCallback is not a function.");
                 }
-              }   
+              }
             }else if(functionName=='setParameter'){
               //CALLING ONLY METHOD 'setParameter' AND CHECK IF IT HAS OBJECT ARG
               if (f.length==2) {
                 var functionArgs = f[1];
                 if(typeof functionArgs === "object") {
-                  window.tiledesk[functionName](functionArgs);
+                  window.GPTMysite[functionName](functionArgs);
                 } else {
                   console.error("initAysncEvents --> functionArgs is not a object.");
                 }
@@ -251,10 +251,10 @@ function initAysncEvents() {
       }
     });
 
-    window.tiledesk.on('onBeforeInit', function(event_data) {
-      if (window.Tiledesk && window.Tiledesk.q && window.Tiledesk.q.length>0) {
-        // console.log("w.q", window.Tiledesk.q);
-        window.Tiledesk.q.forEach(f => {
+    window.GPTMysite.on('onBeforeInit', function(event_data) {
+      if (window.GPTMysite && window.GPTMysite.q && window.GPTMysite.q.length>0) {
+        // console.log("w.q", window.GPTMysite.q);
+        window.GPTMysite.q.forEach(f => {
           if (f.length>=1) {
             var functionName = f[0];
             if (functionName==="onLoadParams" || functionName==="setParameter") {
@@ -264,41 +264,41 @@ function initAysncEvents() {
               if (f.length==2) {
                 var functionCallback = f[1];
                 if(typeof functionCallback === "function"){
-                  window.tiledesk.on(functionName, functionCallback); //potrei usare window.Tiledesk ?!?
+                  window.GPTMysite.on(functionName, functionCallback); //potrei usare window.GPTMysite ?!?
                   if (functionName==="onBeforeInit") {
                       functionCallback(event_data)
                   }
                 } else {
                   console.error("functionCallback is not a function.");
                 }
-              }   
+              }
             } else {
               //CALLING REMAININGS METHOD and CHECK IF CONTAINS ARG TO PASS THROUGH THE METHOD
               if (f.length==2) {
                 let args = f[1]
-                window.tiledesk[functionName](args);
+                window.GPTMysite[functionName](args);
               } else {
-                window.tiledesk[functionName](); 
+                window.GPTMysite[functionName]();
               }
             }
 
-          }   
+          }
         });
 
       }
 
       // RICHIAMATO DOPO L'INIT DEL WIDGET
-      window.Tiledesk = function() {
+      window.GPTMysite = function() {
         if (arguments.length>=1) {
           var functionName = arguments[0];
           if (arguments.length==2) {
               var functionCallback = arguments[1];
           }
-          var methodOrProperty = window.tiledesk[functionName];
-          if(typeof methodOrProperty==="function"){            
-            return window.tiledesk[functionName](functionCallback);            
+          var methodOrProperty = window.GPTMysite[functionName];
+          if(typeof methodOrProperty==="function"){
+            return window.GPTMysite[functionName](functionCallback);
           }else { //property
-            return window.tiledesk[functionName];
+            return window.GPTMysite[functionName];
           }
         }
       };
@@ -309,39 +309,39 @@ function initAysncEvents() {
 
 
 /**
- * 
+ *
  */
 function initWidget() {
-    var tiledeskroot = document.createElement('chat-root');
-    var tiledeskScriptLocation = document.getElementById("tiledesk-jssdk").src;
+    var GPTMysiteroot = document.createElement('chat-root');
+    var GPTMysiteScriptLocation = document.getElementById("GPTMysite-jssdk").src;
     //var currentScript = document.currentScript;
-    //var tiledeskScriptLocation = '';
+    //var GPTMysiteScriptLocation = '';
     //setInterval(function(){
-        //tiledeskScriptLocation = currentScript.src;
-        var tiledeskScriptBaseLocation = tiledeskScriptLocation.replace("/launch.js","");
-        window.tiledesk = new function() {
+        //GPTMysiteScriptLocation = currentScript.src;
+        var GPTMysiteScriptBaseLocation = GPTMysiteScriptLocation.replace("/launch.js","");
+        window.GPTMysite = new function() {
             //this.type = "macintosh";
-            this.tiledeskroot = tiledeskroot;
+            this.GPTMysiteroot = GPTMysiteroot;
             this.on = function (event_name, handler) {
-                tiledeskroot.addEventListener(event_name, handler);
+                GPTMysiteroot.addEventListener(event_name, handler);
             };
             this.getBaseLocation = function() {
-                return tiledeskScriptBaseLocation;
+                return GPTMysiteScriptBaseLocation;
             }
         }
 
         try {
-            window.tileDeskAsyncInit();
+            window.GPTMysiteAsyncInit();
         }catch(er) {
-            if (typeof window.tileDeskAsyncInit == "undefined") { 
-                console.log("tileDeskAsyncInit() doesn't exists");
+            if (typeof window.GPTMysiteAsyncInit == "undefined") {
+                console.log("GPTMysiteAsyncInit() doesn't exists");
             } else {
                 console.log(er);
             }
         }
-        document.body.appendChild(tiledeskroot);
-        initCSSWidget(tiledeskScriptBaseLocation);
-        loadIframe(tiledeskScriptBaseLocation);
+        document.body.appendChild(GPTMysiteroot);
+        initCSSWidget(GPTMysiteScriptBaseLocation);
+        loadIframe(GPTMysiteScriptBaseLocation);
     //},2000);
 }
 
@@ -349,7 +349,7 @@ function initWidget() {
 
 
 
-function initCSSWidget(tiledeskScriptBaseLocation) {
+function initCSSWidget(GPTMysiteScriptBaseLocation) {
     var cssId = 'iframeCss';  // you could encode the css path itself to generate id..
     // if (!document.getElementById(cssId))
     // {
@@ -358,7 +358,7 @@ function initCSSWidget(tiledeskScriptBaseLocation) {
         link.id   = cssId;
         link.rel  = 'stylesheet';
         link.type = 'text/css';
-        link.href = tiledeskScriptBaseLocation+'/iframe-style.css';
+        link.href = GPTMysiteScriptBaseLocation+'/iframe-style.css';
         link.media = 'print';
         link.onload = function(){
           link.media = 'all'
@@ -373,7 +373,7 @@ function signInWithCustomToken() {
     let json = JSON.stringify({
         "id_project": "5b55e806c93dde00143163dd"
     });
-	var httpRequest = createCORSRequest('POST', 'https://tiledesk-server-pre.herokuapp.com/auth/signinAnonymously',true); 
+	var httpRequest = createCORSRequest('POST', 'https://GPTMysite-server-pre.herokuapp.com/auth/signinAnonymously',true);
     if (!httpRequest) {
         throw new Error('CORS not supported');
     }
@@ -384,7 +384,7 @@ function signInWithCustomToken() {
         if (httpRequest.status === 200) {
                     try {
                         var response = JSON.parse(httpRequest.responseText);
-                        window.tiledesk.signInWithCustomToken(response);
+                        window.GPTMysite.signInWithCustomToken(response);
                     }
                     catch(err) {
                         console.error(err.message);

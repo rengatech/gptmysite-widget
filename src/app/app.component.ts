@@ -13,9 +13,9 @@ import { ConversationModel } from 'src/chat21-core/models/conversation';
 /** LOGGER SERVICES */
 import { LoggerService } from 'src/chat21-core/providers/abstract/logger.service';
 import { LoggerInstance } from 'src/chat21-core/providers/logger/loggerInstance';
-/** TILEDESK SERVICES */
-import { TiledeskAuthService } from 'src/chat21-core/providers/tiledesk/tiledesk-auth.service';
-import { TiledeskRequestsService } from 'src/chat21-core/providers/tiledesk/tiledesk-requests.service';
+/** GPTMysite SERVICES */
+import { GPTMysiteAuthService } from 'src/chat21-core/providers/GPTMysite/GPTMysite-auth.service';
+import { GPTMysiteRequestsService } from 'src/chat21-core/providers/GPTMysite/GPTMysite-requests.service';
 /** CONVERSATIONS - MESSAGE SERVICES */
 import { AppStorageService } from 'src/chat21-core/providers/abstract/app-storage.service';
 import { ArchivedConversationsHandlerService } from 'src/chat21-core/providers/abstract/archivedconversations-handler.service';
@@ -66,14 +66,14 @@ interface MessageObj {
   // providers: [AgentAvailabilityService, TranslatorService]
 })
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
-  
+
 
   // ========= begin:: sottoscrizioni ======= //
   subscriptions: Subscription[] = []; /** */
   // ========= end:: sottoscrizioni ======= //
 
   // ========= begin:: tabTitle and sounds ======= //
-  private tabTitle: string; 
+  private tabTitle: string;
   private audio: any;
   private setTimeoutSound: any;
   private setIntervalTime: any;
@@ -97,16 +97,16 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   listConversations: Array<ConversationModel>;
   archivedConversations: Array<ConversationModel>;
   lastConversation: ConversationModel;
-  
+
   @ViewChild(EyeeyeCatcherCardComponent, { static: false }) eyeeyeCatcherCardComponent: EyeeyeCatcherCardComponent
   styleMapConversation: Map<string, string> = new Map();
   marginBottom: number;
-  
+
   forceDisconnect: boolean = false;
 
   //network status
   isOnline: boolean = true;
-  
+
   private logger: LoggerService = LoggerInstance.getInstance();
   constructor(
     private el: ElementRef,
@@ -120,8 +120,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private translateService: CustomTranslateService,
     private scriptService: ScriptService,
     public chatManager: ChatManager,
-    private tiledeskRequestsService: TiledeskRequestsService,
-    public tiledeskAuthService: TiledeskAuthService,
+    private GPTMysiteRequestsService: GPTMysiteRequestsService,
+    public GPTMysiteAuthService: GPTMysiteAuthService,
     public messagingAuthService: MessagingAuthService,
     public conversationsHandlerService: ConversationsHandlerService,
     public archivedConversationsService: ArchivedConversationsHandlerService,
@@ -129,7 +129,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     public imageRepoService: ImageRepoService,
     public typingService: TypingService,
     public presenceService: PresenceService,
-    public uploadService: UploadService 
+    public uploadService: UploadService
   ){}
 
     ngOnInit(): void {
@@ -152,7 +152,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                     }
                     if (conversation.is_new && this.isInitialized) {
                         that.manageTabNotification(false, 'conv-added')
-                        // this.soundMessage(); 
+                        // this.soundMessage();
                     }
                     if(this.g.isOpen === false){
                         that.lastConversation = conversation;
@@ -170,7 +170,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                     this.onImageLoaded(conversation)
                     this.onConversationLoaded(conversation)
                 }
-                
+
             });
             this.subscriptions.push(subAddedConversation);
 
@@ -205,7 +205,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                             that.g.isOpenNewMessage = true;
                             that.logger.debug('[APP-COMP] lastconversationnn', that.lastConversation)
                         }
-                        
+
 
                         let badgeNewConverstionNumber = that.conversationsHandlerService.countIsNew()
                         that.g.setParameter('conversationsBadge', badgeNewConverstionNumber);
@@ -217,7 +217,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                     this.logger.debug('[APP-COMP] oBSconversationChanged null: errorrr')
                     return;
                 }
-                
+
                 // });
             });
             this.subscriptions.push(subChangedConversation);
@@ -245,8 +245,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
         });
         this.appStorageService.initialize(environment.storage_prefix, this.g.persistence, this.g.projectid)
-        this.tiledeskAuthService.initialize(this.appConfigService.getConfig().apiUrl)
-        this.tiledeskRequestsService.initialize(this.appConfigService.getConfig().apiUrl, this.g.projectid)
+        this.GPTMysiteAuthService.initialize(this.appConfigService.getConfig().apiUrl)
+        this.GPTMysiteRequestsService.initialize(this.appConfigService.getConfig().apiUrl, this.g.projectid)
         this.messagingAuthService.initialize();
         this.chatManager.initialize();
         this.uploadService.initialize();
@@ -261,7 +261,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.logger.setLoggerConfig(this.g.isLogEnabled, this.g.logLevel)
                 this.tabTitle = this.g.windowContext.window.document.title
                 this.appStorageService.initialize(environment.storage_prefix, this.g.persistence, this.g.projectid)
-                
+
                 //set visibility
                 if((this.g.isMobile && !this.g.displayOnMobile) || (!this.g.isMobile && !this.g.displayOnDesktop)){
                     this.disposeWidget()
@@ -278,7 +278,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                     this.g.setIsOpen(isOpen)
                     this.appStorageService.setItem('isOpen', isOpen)
                 }
-                
+
                 /**CHECK IF JWT IS IN URL PARAMETERS */
                 this.logger.debug('[APP-COMP] check if token is passed throw url: ', this.g.jwt);
                 if (this.g.jwt) {
@@ -286,10 +286,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                     // add JWY token to localstorage and authenticate with it           this.logger.debug('[APP-COMP] token from url. isShown:', this.g.isShown, 'autostart:', this.g.autoStart)
                     this.logger.debug('[APP-COMP]  ----------------  logging in with custom token from url ---------------- ');
                     //   this.g.autoStart = false;
-                    const storedTiledeskToken = this.appStorageService.getItem('tiledeskToken')
-                    storedTiledeskToken === this.g.jwt? null: this.appStorageService.setItem('tiledeskToken', this.g.jwt);
-                    this.g.tiledeskToken = this.g.jwt;
-                    // this.signInWithCustomToken(this.g.jwt) // moved to authenticate() in else(tiledeskToken)
+                    const storedGPTMysiteToken = this.appStorageService.getItem('GPTMysiteToken')
+                    storedGPTMysiteToken === this.g.jwt? null: this.appStorageService.setItem('GPTMysiteToken', this.g.jwt);
+                    this.g.GPTMysiteToken = this.g.jwt;
+                    // this.signInWithCustomToken(this.g.jwt) // moved to authenticate() in else(GPTMysiteToken)
                 }
 
                 /** INIT LABELS TRANSLATIONS */
@@ -309,7 +309,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                     /** SCRIPT LOAD */
                     that.loadCustomScript(this.appConfigService.getConfig())
                 })
-        
+
             }
         });
         this.subscriptions.push(obsSettingsService);
@@ -372,23 +372,23 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private async setAuthSubscription(){
         this.logger.debug('[APP-COMP] setLoginSubscription : ');
         const that = this;
-        
+
         const subAuthStateChanged = this.messagingAuthService.BSAuthStateChanged.subscribe(state => {
 
-            const tiledeskTokenTEMP = this.appStorageService.getItem('tiledeskToken')
-            if (tiledeskTokenTEMP && tiledeskTokenTEMP !== undefined) {
-                that.g.tiledeskToken = tiledeskTokenTEMP;
+            const GPTMysiteTokenTEMP = this.appStorageService.getItem('GPTMysiteToken')
+            if (GPTMysiteTokenTEMP && GPTMysiteTokenTEMP !== undefined) {
+                that.g.GPTMysiteToken = GPTMysiteTokenTEMP;
             }
 
             const autoStart = this.g.autoStart;
             that.stateLoggedUser = state;
             if (state && state === AUTH_STATE_ONLINE) {
                 /** sono loggato */
-                const user = that.tiledeskAuthService.getCurrentUser()
+                const user = that.GPTMysiteAuthService.getCurrentUser()
                 that.logger.info('[APP-COMP] ONLINE - LOGGED SUCCESSFULLY', user);
                 // that.g.wdLog([' anonymousAuthenticationInNewProject']);
                 // that.authService.resigninAnonymousAuthentication();
-                // confronto id utente tiledesk con id utente di firebase
+                // confronto id utente GPTMysite con id utente di firebase
                 // senderid deve essere == id di firebase
 
                 // const fullName = user.firstname + ' ' + user.lastname;
@@ -401,31 +401,31 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 that.g.setParameter('attributes', that.setAttributesFromStorageService());
                 // that.startUI();
                 this.initConversationsHandler(this.g.tenant, that.g.senderId);
-                
+
                 /* If singleConversation mode is active wait to startUI: do it later in initConversationsHandler */
                 that.g.singleConversation? null: that.startUI();
                 that.triggerOnAuthStateChanged(that.stateLoggedUser);
                 that.logger.debug('[APP-COMP]  1 - IMPOSTO STATO CONNESSO UTENTE ', autoStart);
-                
-                
+
+
 
                 new Promise(async (resolve, reject)=> {
                     that.typingService.initialize(this.g.tenant);
                     await that.presenceService.initialize(this.g.tenant);
                     resolve(null)
                 }).then(()=>{
-                    that.presenceService.setPresence(user.uid);    
+                    that.presenceService.setPresence(user.uid);
                 });
 
                 // this.initConversationsHandler(this.g.tenant, that.g.senderId);
                 /* If singleConversation mode is active wait to showWidget: do it later in initConversationsHandler */
-                if (autoStart && !that.g.singleConversation) { 
+                if (autoStart && !that.g.singleConversation) {
                     that.showWidget();
                 }
 
                 if(this.g.botsRules && !this.g.isOpen){
-                    const rules = new Rules(that.tiledeskRequestsService, that.appStorageService,that.g)
-                    rules.initRules(that.g.windowContext, that.g.tiledeskToken, user, that.generateNewUidConversation(), that.g.botsRules)
+                    const rules = new Rules(that.GPTMysiteRequestsService, that.appStorageService,that.g)
+                    rules.initRules(that.g.windowContext, that.g.GPTMysiteToken, user, that.generateNewUidConversation(), that.g.botsRules)
                 }
 
                 //if widget is closed subscribe to 'click' event and set a 60sec timer to disconnect if handler isn't fired
@@ -464,7 +464,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 that.logger.debug('[APP-COMP] sono nel caso logout -1');
                 // that.g.wdLog(['obsLoggedUser', obsLoggedUser);
                 // that.g.wdLog(['this.subscriptions', that.subscriptions);
-                that.g.tiledeskToken = null; //reset token to restart widget with different tildeskToken
+                that.g.GPTMysiteToken = null; //reset token to restart widget with different tildeskToken
                 that.g.setParameter('isLogged', false);
                 that.g.setParameter('isOpenPrechatForm', false);
                 that.g.setParameter('userFullname', null); //clar parameter to enable preChatForm on logout with other token
@@ -506,31 +506,31 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
          *  4 - controllo se esiste currentUser
          */
 
-        const tiledeskToken = this.g.tiledeskToken;
+        const GPTMysiteToken = this.g.GPTMysiteToken;
         const user = this.appStorageService.getItem('currentUser')
-        this.logger.debug('[APP-COMP] tiledesktokennn', tiledeskToken, user)
-        if (tiledeskToken) {
+        this.logger.debug('[APP-COMP] GPTMysitetokennn', GPTMysiteToken, user)
+        if (GPTMysiteToken) {
             //     //  SONO GIA' AUTENTICATO
             this.logger.debug('[APP-COMP]  ---------------- 13 ---------------- ');
             this.logger.debug('[APP-COMP]  ----------- sono già loggato ------- ');
-            this.signInWithCustomToken(tiledeskToken)
+            this.signInWithCustomToken(GPTMysiteToken)
 
         } else {
             //  AUTENTICAZIONE ANONIMA
             this.logger.debug('[APP-COMP]  ---------------- 14 ---------------- ');
             this.logger.debug('[APP-COMP]  authenticateFirebaseAnonymously');
-            this.tiledeskAuthService.signInAnonymously(this.g.projectid).then(token => {
+            this.GPTMysiteAuthService.signInAnonymously(this.g.projectid).then(token => {
                 this.messagingAuthService.createCustomToken(token)
-                const user = this.tiledeskAuthService.getCurrentUser();
-                //check if tiledesk_userFullname exist (passed from URL or tiledeskSettings) before update userFullname parameter
-                //if tiledesk_userFullname not exist--> update parameter with tiledesk user returned from auth
+                const user = this.GPTMysiteAuthService.getCurrentUser();
+                //check if GPTMysite_userFullname exist (passed from URL or GPTMysiteSettings) before update userFullname parameter
+                //if GPTMysite_userFullname not exist--> update parameter with GPTMysite user returned from auth
                 if ((user.firstname || user.lastname) && !this.g.userFullname) {
                     const fullName = user.firstname + ' ' + user.lastname;
                     this.g.setParameter('userFullname', fullName);
                     this.g.setAttributeParameter('userFullname', fullName);
                 }
-                //check if tiledesk_userEmail exist (passed from URL or tiledeskSettings) before update userEmail parameter
-                //if tiledesk_userEmail not exist--> update parameter with tiledesk user returned from auth
+                //check if GPTMysite_userEmail exist (passed from URL or GPTMysiteSettings) before update userEmail parameter
+                //if GPTMysite_userEmail not exist--> update parameter with GPTMysite user returned from auth
                 if (user.email && !this.g.userEmail) {
                     this.g.setParameter('userEmail', user.email);
                     this.g.setAttributeParameter('userEmail', user.email);
@@ -541,21 +541,21 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private signInWithCustomToken(token: string):Promise<UserModel> {
         const that = this;
-        const storedTiledeskToken = this.appStorageService.getItem('tiledeskToken');
-        storedTiledeskToken === token? null: this.appStorageService.removeItem('recipientId')
-        return this.tiledeskAuthService.signInWithCustomToken(token).then((user: UserModel) => {
+        const storedGPTMysiteToken = this.appStorageService.getItem('GPTMysiteToken');
+        storedGPTMysiteToken === token? null: this.appStorageService.removeItem('recipientId')
+        return this.GPTMysiteAuthService.signInWithCustomToken(token).then((user: UserModel) => {
             this.messagingAuthService.createCustomToken(token)
             this.logger.debug('[APP-COMP] signInWithCustomToken user::', user, this.g.userFullname)
-            //check if tiledesk_userFullname exist (passed from URL or tiledeskSettings) before update userFullname parameter
-            //if tiledesk_userFullname not exist--> update parameter with tiledesk user returned from auth
-            
+            //check if GPTMysite_userFullname exist (passed from URL or GPTMysiteSettings) before update userFullname parameter
+            //if GPTMysite_userFullname not exist--> update parameter with GPTMysite user returned from auth
+
             if ((user.firstname || user.lastname) && !this.g.userFullname) {
                 const fullName = user.firstname + ' ' + user.lastname;
                 this.g.setParameter('userFullname', fullName);
                 this.g.setAttributeParameter('userFullname', fullName);
             }
-            //check if tiledesk_userEmail exist (passed from URL or tiledeskSettings) before update userEmail parameter
-            //if tiledesk_userEmail not exist--> update parameter with tiledesk user returned from auth
+            //check if GPTMysite_userEmail exist (passed from URL or GPTMysiteSettings) before update userEmail parameter
+            //if GPTMysite_userEmail not exist--> update parameter with GPTMysite user returned from auth
             if (user.email && !this.g.userEmail) {
                 this.g.setParameter('userEmail', user.email);
                 this.g.setAttributeParameter('userEmail', user.email);
@@ -572,9 +572,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private signInAnonymous(): Promise<UserModel> {
         this.logger.debug('[APP-COMP] signInAnonymous');
-        return this.tiledeskAuthService.signInAnonymously(this.g.projectid).then((tiledeskToken) => {
-            this.messagingAuthService.createCustomToken(tiledeskToken)
-            const user = this.tiledeskAuthService.getCurrentUser();
+        return this.GPTMysiteAuthService.signInAnonymously(this.g.projectid).then((GPTMysiteToken) => {
+            this.messagingAuthService.createCustomToken(GPTMysiteToken)
+            const user = this.GPTMysiteAuthService.getCurrentUser();
             if (user.firstname || user.lastname) {
                 const fullName = user.firstname + ' ' + user.lastname;
                 this.g.setParameter('userFullname', fullName);
@@ -641,7 +641,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
             }
             this.g.setParameter('recipientId', this.g.recipientId);
             this.appStorageService.setItem('recipientId', this.g.recipientId)
-        }else if(recipientId){ 
+        }else if(recipientId){
             this.logger.debug('[APP-COMP]  conv da storagee', recipientId)
             if (this.g.isOpen) {
                 this.isOpenConversation = true;
@@ -682,7 +682,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 }
             }
         }
-      
+
         // visualizzo l'iframe!!!
         this.triggerOnViewInit();
         this.g.setParentBodyStyleMobile(this.g.isOpen, this.g.isMobile);
@@ -690,7 +690,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         // this.triggerOnAuthStateChanged(true)
         // mostro il widget
         // setTimeout(() => {
-        //     const divWidgetContainer = this.g.windowContext.document.getElementById('tiledesk-container');
+        //     const divWidgetContainer = this.g.windowContext.document.getElementById('GPTMysite-container');
         //     if (divWidgetContainer) {
         //         divWidgetContainer.style.display = 'block';
         //     }
@@ -706,7 +706,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private generateNewUidConversation() {
         this.logger.debug('[APP-COMP] generateUidConversation **************: senderId= ', this.g.senderId);
         return UID_SUPPORT_GROUP_MESSAGES + this.g.projectid + '-' + uuidv4().replace(/-/g, '');
-        // return UID_SUPPORT_GROUP_MESSAGES + uuidv4(); >>>>>OLD 
+        // return UID_SUPPORT_GROUP_MESSAGES + uuidv4(); >>>>>OLD
     }
 
     /**
@@ -720,7 +720,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         this.appStorageService.setItem('recipientId', newConvId)
         this.logger.debug('[APP-COMP]  recipientId: ', this.g.recipientId);
         this.isConversationArchived = false;
-        
+
         /** allow to start conversation with an hidden message (without publishing 'new_conversation' event) */
         this.logger.debug('[APP-COMP] AppComponent::startNewConversation hiddenMessage',this.g.hiddenMessage );
         if(this.g.hiddenMessage){
@@ -796,7 +796,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         try{
             const preChatForm = attributes['preChatForm']
             if(preChatForm && preChatForm.userEmail) this.g.userEmail = preChatForm.userEmail;
-            if(preChatForm && preChatForm.userFullname) this.g.userFullname = preChatForm.userFullname 
+            if(preChatForm && preChatForm.userFullname) this.g.userFullname = preChatForm.userFullname
         } catch(error){
             this.logger.debug('[APP-COMP] > Error is handled preChatForm: ', error);
         }
@@ -905,10 +905,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     /**
-     * @description 
-     * -if recipientId from tiledesk settings IS SET, not get last active conversation
+     * @description
+     * -if recipientId from GPTMysite settings IS SET, not get last active conversation
      * and call startUI() and showWidget() from current recipientId
-     * - if recipientId from tiledesk settings IS NOT SET, get last active
+     * - if recipientId from GPTMysite settings IS NOT SET, get last active
      * conversation from REST API call and then startUI() and showWidget()
      */
     manageWidgetSingleConversation(){
@@ -943,7 +943,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.startUI();
                 resolve('ok')
             }).then((res)=> { this.showWidget() });
-            
+
         });
     }
 
@@ -963,7 +963,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
             // this.g.setParameter('userEmail', null);
             this.appStorageService.clear();
             this.presenceService.removePresence();
-            this.tiledeskAuthService.logOut();
+            this.GPTMysiteAuthService.logOut();
             return this.messagingAuthService.logout();
             // this.authService.signOut(-2);
         }
@@ -978,7 +978,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private showWidget() {
         this.logger.debug('[APP-COMP] show widget--> autoStart:', this.g.autoStart, 'startHidden', this.g.startHidden, 'isShown', this.g.isShown)
         const startHidden = this.g.startHidden;
-        const divWidgetContainer = this.g.windowContext.document.getElementById('tiledesk-container');
+        const divWidgetContainer = this.g.windowContext.document.getElementById('GPTMysite-container');
         if (divWidgetContainer && startHidden === false) {
             divWidgetContainer.style.display = 'block';
             this.g.setParameter('isShown', true, true);
@@ -990,7 +990,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     /** hide widget */
     private hideWidget() {
-        const divWidgetContainer = this.g.windowContext.document.getElementById('tiledesk-container');
+        const divWidgetContainer = this.g.windowContext.document.getElementById('GPTMysite-container');
         if (divWidgetContainer) {
             divWidgetContainer.style.display = 'none';
         }
@@ -998,7 +998,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     private disposeWidget(){
-        const divWidgetContainer = this.g.windowContext.document.getElementById('tiledesk-container');
+        const divWidgetContainer = this.g.windowContext.document.getElementById('GPTMysite-container');
         if(divWidgetContainer){
             divWidgetContainer.remove()
         }
@@ -1007,7 +1007,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     /** */
     private sendMessage(msgObect: MessageObj) {
 
-        const tenant = msgObect.tenant 
+        const tenant = msgObect.tenant
         const senderId = msgObect.senderId
         const senderFullname = msgObect.senderFullname
         const message = msgObect.message
@@ -1020,7 +1020,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         const channelType = msgObect.channelType
 
 
-        this.logger.debug('[APP-COMP] sendMessage from window.tiledesk *********** ',tenant,senderId,senderFullname,
+        this.logger.debug('[APP-COMP] sendMessage from window.GPTMysite *********** ',tenant,senderId,senderFullname,
                                 message,type,metadata,recipientId,recipientFullname,
                                 attributes,projectid,channelType);
         const messageSent = this.initConversationHandler(recipientId).sendMessage(
@@ -1078,10 +1078,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     */
     private reInit() {
         // if (!firebase.auth().currentUser) {
-        if (!this.tiledeskAuthService.getCurrentUser()) {
+        if (!this.GPTMysiteAuthService.getCurrentUser()) {
             this.logger.debug('[APP-COMP] reInit ma NON SONO LOGGATO!');
         } else {
-            this.tiledeskAuthService.logOut();
+            this.GPTMysiteAuthService.logOut();
             this.messagingAuthService.logout();
             // this.authService.signOut(-2);
             /** ho fatto un reinit */
@@ -1089,7 +1089,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
             this.g.setParameter('isLogged', false);
             this.hideWidget();
             // that.g.setParameter('isShown', false, true);
-            this.appStorageService.removeItem('tiledeskToken');
+            this.appStorageService.removeItem('GPTMysiteToken');
             if (this.g.autoStart !== false) {
                 this.authenticate();
                 this.initAll();
@@ -1097,7 +1097,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
             this.appStorageService.clear();
         }
         const divWidgetRoot = this.g.windowContext.document.getElementsByTagName('chat-root')[0];
-        const divWidgetContainer = this.g.windowContext.document.getElementById('tiledesk-container');
+        const divWidgetContainer = this.g.windowContext.document.getElementById('GPTMysite-container');
         divWidgetContainer.remove();
         divWidgetRoot.remove();
         this.g.windowContext.initWidget();
@@ -1110,7 +1110,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     */
     private restart() {
         // if (!firebase.auth().currentUser) {
-        
+
         this.hideWidget();
         // that.triggerOnAuthStateChanged(resp);
         if (this.g.autoStart !== false) {
@@ -1118,7 +1118,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
             this.initAll();
         }
         const divWidgetRoot = this.g.windowContext.document.getElementsByTagName('chat-root')[0];
-        const divWidgetContainer = this.g.windowContext.document.getElementById('tiledesk-container');
+        const divWidgetContainer = this.g.windowContext.document.getElementById('GPTMysite-container');
         divWidgetContainer.remove();
         divWidgetRoot.remove();
         this.g.windowContext.initWidget();
@@ -1167,7 +1167,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     /**open widget in conversation when is closed */
     private _f21_open() {
         // const senderId = this.g.senderId;
-        // this.logger.debug('[APP-COMP] f21_open senderId' , senderId) 
+        // this.logger.debug('[APP-COMP] f21_open senderId' , senderId)
         // this.logger.printDebug()
         // this.g.wdLog(['f21_open senderId: ', senderId]);
         // if (senderId) {
@@ -1209,67 +1209,67 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     private addComponentToWindow(ngZone) {
         const that = this;
         const windowContext = this.g.windowContext;
-        if (windowContext && windowContext['tiledesk']) {
-            windowContext['tiledesk']['angularcomponent'] = { component: this, ngZone: ngZone };
+        if (windowContext && windowContext['GPTMysite']) {
+            windowContext['GPTMysite']['angularcomponent'] = { component: this, ngZone: ngZone };
 
             /** loggin with token */
-            windowContext['tiledesk'].signInWithCustomToken = function (response):Promise<UserModel> {
+            windowContext['GPTMysite'].signInWithCustomToken = function (response):Promise<UserModel> {
                 return ngZone.run(() => {
-                    return windowContext['tiledesk']['angularcomponent'].component.signInWithCustomToken(response); 
+                    return windowContext['GPTMysite']['angularcomponent'].component.signInWithCustomToken(response);
                 });
             };
             /** loggin anonymous */
-            windowContext['tiledesk'].signInAnonymous = function ():Promise<UserModel> {
+            windowContext['GPTMysite'].signInAnonymous = function ():Promise<UserModel> {
                 return ngZone.run(() => {
-                    return windowContext['tiledesk']['angularcomponent'].component.signInAnonymous();
+                    return windowContext['GPTMysite']['angularcomponent'].component.signInAnonymous();
                 });
             };
             /** show all widget */
-            windowContext['tiledesk'].show = function () {
+            windowContext['GPTMysite'].show = function () {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.showWidget();
+                    windowContext['GPTMysite']['angularcomponent'].component.showWidget();
                 });
             };
             /** hidden  widget */
-            windowContext['tiledesk'].hide = function () {
+            windowContext['GPTMysite'].hide = function () {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.hideWidget();
+                    windowContext['GPTMysite']['angularcomponent'].component.hideWidget();
                 });
             };
             /** dispose widget */
-            windowContext['tiledesk'].dispose = function () {
+            windowContext['GPTMysite'].dispose = function () {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.disposeWidget();
+                    windowContext['GPTMysite']['angularcomponent'].component.disposeWidget();
                 });
             };
             /** close window chat */
-            windowContext['tiledesk'].close = function () {
+            windowContext['GPTMysite'].close = function () {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.onCloseWidget();
+                    windowContext['GPTMysite']['angularcomponent'].component.onCloseWidget();
                 });
             };
             /** open window chat */
-            windowContext['tiledesk'].open = function () {
+            windowContext['GPTMysite'].open = function () {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.onOpenCloseWidget();
+                    windowContext['GPTMysite']['angularcomponent'].component.onOpenCloseWidget();
                 });
             };
             /** set state PreChatForm close/open */
-            windowContext['tiledesk'].setPreChatForm = function (state) {
+            windowContext['GPTMysite'].setPreChatForm = function (state) {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.setPreChatForm(state);
+                    windowContext['GPTMysite']['angularcomponent'].component.setPreChatForm(state);
                 });
             };
 
-            windowContext['tiledesk'].setPrivacyPolicy = function () {
+            windowContext['GPTMysite'].setPrivacyPolicy = function () {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.setPrivacyPolicy();
+                    windowContext['GPTMysite']['angularcomponent'].component.setPrivacyPolicy();
                 });
             };
 
             /** send first message */
-            windowContext['tiledesk'].sendMessage = function (msgObj: MessageObj) {
-                const _globals = windowContext['tiledesk'].angularcomponent.component.g;
+            windowContext['GPTMysite'].sendMessage = function (msgObj: MessageObj) {
+                const _globals = windowContext['GPTMysite'].angularcomponent.component.g;
 
                 let tenant = (msgObj.tenant? msgObj.tenant: null)
                 let senderId = (msgObj.senderId? msgObj.senderId: null)
@@ -1327,8 +1327,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                     }
                 }
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component
-                        .sendMessage({   
+                    windowContext['GPTMysite']['angularcomponent'].component
+                        .sendMessage({
                             tenant : tenant,
                             senderId :senderId,
                             senderFullname: senderFullname,
@@ -1346,15 +1346,15 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
             /** send custom message from html page */
-            windowContext['tiledesk'].sendSupportMessage = function (msgObj: MessageObj) {
-                const _globals = windowContext['tiledesk'].angularcomponent.component.g;
+            windowContext['GPTMysite'].sendSupportMessage = function (msgObj: MessageObj) {
+                const _globals = windowContext['GPTMysite'].angularcomponent.component.g;
                 let message = (msgObj.message? msgObj.message: null)
                 let recipientId = (msgObj.recipientId? msgObj.recipientId: null)
                 let recipientFullname = (msgObj.recipientFullname? msgObj.recipientFullname: null)
                 let type = (msgObj.type? msgObj.type: null)
                 let metadata = (msgObj.metadata? msgObj.metadata: null)
-                let additional_attributes = (msgObj.attributes? msgObj.attributes: null)             
-                
+                let additional_attributes = (msgObj.attributes? msgObj.attributes: null)
+
                 if (!message) {
                     message = 'hello';
                 }
@@ -1380,7 +1380,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                     }
                 }
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component
+                    windowContext['GPTMysite']['angularcomponent'].component
                         .sendMessage({
                             tenant: _globals.tenant,
                             senderId: _globals.senderId,
@@ -1398,81 +1398,81 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
             };
 
             /** start new conversation */
-            windowContext['tiledesk'].startConversation = function (text: string) {
+            windowContext['GPTMysite'].startConversation = function (text: string) {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.onNewConversation(text);
+                    windowContext['GPTMysite']['angularcomponent'].component.onNewConversation(text);
                 });
             };
 
             /** open widget with conversation ID */
-            windowContext['tiledesk'].openConversationById = function (request_id: string) {
+            windowContext['GPTMysite'].openConversationById = function (request_id: string) {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.openConversationById(request_id);
+                    windowContext['GPTMysite']['angularcomponent'].component.openConversationById(request_id);
                 });
             };
 
             /** set state reinit */
-            windowContext['tiledesk'].reInit = function () {
+            windowContext['GPTMysite'].reInit = function () {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.reInit();
+                    windowContext['GPTMysite']['angularcomponent'].component.reInit();
                 });
             };
 
             /** set state reStart */
-            windowContext['tiledesk'].restart = function () {
+            windowContext['GPTMysite'].restart = function () {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.restart();
+                    windowContext['GPTMysite']['angularcomponent'].component.restart();
                 });
             };
 
             /** set logout */
-            windowContext['tiledesk'].logout = function (): Promise<boolean> {
+            windowContext['GPTMysite'].logout = function (): Promise<boolean> {
                 return ngZone.run(() => {
-                    return windowContext['tiledesk']['angularcomponent'].component.logout();
+                    return windowContext['GPTMysite']['angularcomponent'].component.logout();
                 });
             };
 
              /** set logout */
-             windowContext['tiledesk'].clearStorage = function (): Promise<boolean> {
+             windowContext['GPTMysite'].clearStorage = function (): Promise<boolean> {
                 return ngZone.run(() => {
-                    return windowContext['tiledesk']['angularcomponent'].component.clearStorage();
+                    return windowContext['GPTMysite']['angularcomponent'].component.clearStorage();
                 });
             };
 
             /** show callout */
-            windowContext['tiledesk'].showCallout = function () {
+            windowContext['GPTMysite'].showCallout = function () {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.showCallout();
+                    windowContext['GPTMysite']['angularcomponent'].component.showCallout();
                 });
             };
 
             /** setPrechatForm  */
-            windowContext['tiledesk'].setPreChatFormJson = function (form: Array<any>) {
+            windowContext['GPTMysite'].setPreChatFormJson = function (form: Array<any>) {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.setPreChatFormJson(form);
+                    windowContext['GPTMysite']['angularcomponent'].component.setPreChatFormJson(form);
                 });
             };
 
             /** getPreChatForm  */
-            windowContext['tiledesk'].getPreChatFormJson = function () {
+            windowContext['GPTMysite'].getPreChatFormJson = function () {
                 let preChatForm = {}
                 ngZone.run(() => {
-                    preChatForm = windowContext['tiledesk']['angularcomponent'].component.getPreChatFormJson();
+                    preChatForm = windowContext['GPTMysite']['angularcomponent'].component.getPreChatFormJson();
                 });
                 return preChatForm
             };
 
             /** set a value to a parameter in widget  */
-            windowContext['tiledesk'].setParameter = function (parameterObj: {key: string, value: any}) {
+            windowContext['GPTMysite'].setParameter = function (parameterObj: {key: string, value: any}) {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.setParameter(parameterObj);
+                    windowContext['GPTMysite']['angularcomponent'].component.setParameter(parameterObj);
                 });
             };
 
             /** set a value to an attribute parameter in widget  */
-            windowContext['tiledesk'].setAttributeParameter = function (parameterObj: {key: string, value: any}) {
+            windowContext['GPTMysite'].setAttributeParameter = function (parameterObj: {key: string, value: any}) {
                 ngZone.run(() => {
-                    windowContext['tiledesk']['angularcomponent'].component.setAttributeParameter(parameterObj);
+                    windowContext['GPTMysite']['angularcomponent'].component.setAttributeParameter(parameterObj);
                 });
             };
 
@@ -1504,7 +1504,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     private manageTabNotification(canSound: boolean, calledby: string) {
         if (!this.isTabVisible) {
-            // TAB IS HIDDEN --> manage title and SOUND 
+            // TAB IS HIDDEN --> manage title and SOUND
             // this.g.windowContext.parent.title = "HIDDEN"
             // this.g.windowContext.title = "HIDDEN2"
 
@@ -1575,7 +1575,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.g.isOpen === false) {
             if(this.forceDisconnect){
                 this.logger.log('[FORCE] onOpenCloseWidget --> reconnect', this.forceDisconnect)
-                this.messagingAuthService.createCustomToken(this.g.tiledeskToken)
+                this.messagingAuthService.createCustomToken(this.g.GPTMysiteToken)
                 this.forceDisconnect = false;
             }
 
@@ -1637,7 +1637,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.isOpenSelectionDepartment = false;
                 this.isOpenConversation = true;
                 setTimeout(() => {
-                    this.isOpenHome = false 
+                    this.isOpenHome = false
                 }, 0);
                 // this.isOpenSelectionDepartment = false;
                 this.startNewConversation();
@@ -1658,7 +1658,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         }else{
             this.onCloseWidget()
         }
-        
+
     }
 
 
@@ -1692,7 +1692,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         }else{
             this.onCloseWidget()
         }
-        
+
         // this.settingsSaverService.setVariable('isOpenPrechatForm', false);
     }
 
@@ -1718,7 +1718,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
                 if(this.forceDisconnect){
                     this.logger.log('[FORCE] onSelectedConversation --> reconnect', this.forceDisconnect)
-                    this.messagingAuthService.createCustomToken(this.g.tiledeskToken)
+                    this.messagingAuthService.createCustomToken(this.g.GPTMysiteToken)
                     this.forceDisconnect = false;
                 }
                 //this.f21_open();
@@ -1805,7 +1805,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         message.participants = this.g.participants
         message.departmentid = this.g.attributes.departmentId
         // this.sendMessage(message)
-        this.tiledeskRequestsService.sendMessageToRequest(newConvId, this.g.tiledeskToken, message)
+        this.GPTMysiteRequestsService.sendMessageToRequest(newConvId, this.g.GPTMysiteToken, message)
         return;
     }
 
@@ -1820,7 +1820,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.g.isOpen === false) {
             this.f21_open();
         }
-        
+
     }
 
     /**
@@ -1867,11 +1867,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         this.isOpenConversation = false;
         // this.startNwConversation();
     }
-        
+
     /**
      * MODAL CONVERSATION:
      * conversation archived
-     * @param conversationId 
+     * @param conversationId
      * @description - if singleConversation is TRUE show new conv/load last active conversatio
      * - if singleConversation is FALSE -> back to Home component
      */
@@ -1890,14 +1890,14 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     onNewConversationButtonClicked(event){
         this.logger.debug('[APP-COMP] onNewConversationButtonClicked');
         this.g.setParameter('hiddenMessage', null)
-        
+
         this.isOpenConversation = false;
         this.g.singleConversation? this.isOpenHome = false: null;
         this.onNewConversation();
         // const departments = this.g.departments;
         // if (departments && departments.length > 1 && this.g.departmentID == null) {
         //     this.isOpenSelectionDepartment = true;
-        // } 
+        // }
         // // else {
         // //     this.isOpenConversation = true;
         // // }
@@ -1910,7 +1910,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         // }
         // setTimeout(() => {
         //     this.onNewConversation();
-        // }, 0); 
+        // }, 0);
     }
 
     /**
@@ -1950,7 +1950,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.logger.log('[CONVS-LIST-PAGE] HAS SENT AN IMAGE');
                 const SENT_AN_IMAGE = conversation['last_message_text'] = translationMap.get('SENT_AN_IMAGE')
                 conversation.last_message_text = SENT_AN_IMAGE;
-      
+
             // } else if (conversation.type !== "image" && conversation.type !== "text") {
             } else if (conversation.type === TYPE_MSG_FILE) {
                 this.logger.log('[CONVS-LIST-PAGE] HAS SENT FILE')
@@ -1963,7 +1963,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.logger.log('[CONVS-LIST-PAGE] HAS SENT AN IMAGE');
                 const SENT_AN_IMAGE = conversation['last_message_text'] = translationMap.get('SENT_AN_IMAGE')
                 conversation.last_message_text = SENT_AN_IMAGE;
-      
+
             // } else if (conversation.type !== "image" && conversation.type !== "text") {
             } else if (conversation.type === TYPE_MSG_FILE) {
                 this.logger.log('[CONVS-LIST-PAGE] HAS SENT FILE')
@@ -2025,22 +2025,22 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         const detailOBJ = { global: this.g, default_settings: this.g.default_settings, appConfigs: this.appConfigService.getConfig() }
         this.triggerHandler.triggerOnBeforeInit(detailOBJ)
     }
-    /** onInit */  
+    /** onInit */
     private triggerOnViewInit() {
         const detailOBJ = { global: this.g, default_settings: this.g.default_settings, appConfigs: this.appConfigService.getConfig() }
         this.triggerHandler.triggerOnViewInit(detailOBJ)
     }
-    /** onOpen */  
+    /** onOpen */
     private triggerOnOpenEvent() {
         const detailOBJ = { default_settings: this.g.default_settings }
         this.triggerHandler.triggerOnOpenEvent(detailOBJ)
     }
-    /** onClose */  
+    /** onClose */
     private triggerOnCloseEvent() {
         const detailOBJ = { default_settings: this.g.default_settings }
         this.triggerHandler.triggerOnCloseEvent(detailOBJ)
     }
-    /** onOpenEyeCatcher */  
+    /** onOpenEyeCatcher */
     private triggerOnOpenEyeCatcherEvent() {
         const detailOBJ = { default_settings: this.g.default_settings }
         this.triggerHandler.triggerOnOpenEyeCatcherEvent(detailOBJ)
@@ -2125,7 +2125,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         const that = this
         let clickTimeout = setTimeout(() => {
             that.logger.log('[FORCE] --> NO INTERACTION: disconnection... <--- ')
-            //disconnect 
+            //disconnect
             that.forceDisconnect = true
             that.messagingAuthService.logout()
         }, that.g.disconnetTime * 1000);
@@ -2145,8 +2145,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     ngOnDestroy() {
         this.logger.debug('[APP-COMP] this.subscriptions', this.subscriptions);
         const windowContext = this.g.windowContext;
-        if (windowContext && windowContext['tiledesk']) {
-            windowContext['tiledesk']['angularcomponent'] = null;
+        if (windowContext && windowContext['GPTMysite']) {
+            windowContext['GPTMysite']['angularcomponent'] = null;
             // this.g.setParameter('windowContext', windowContext);
             this.g.windowContext = windowContext;
         }

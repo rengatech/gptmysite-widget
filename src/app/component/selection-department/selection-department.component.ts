@@ -43,11 +43,11 @@ export class SelectionDepartmentComponent implements OnInit, AfterViewInit {
         this.elementRef.nativeElement.querySelector('#chat21-selection-department').style.setProperty('--textColor', this.g.themeColor);
         this.elementRef.nativeElement.querySelector('#chat21-selection-department').style.setProperty('--hoverBackgroundColor', this.g.themeColor);
         this.elementRef.nativeElement.querySelector('#chat21-selection-department').style.setProperty('--hoverTextColor', this.g.themeForegroundColor);
-        
+
         if ( this.g.departments && this.g.departments.length > 0 ) {
-            if (this.g.windowContext && this.g.windowContext.tiledesk && this.g.windowContext.tiledesk['beforeDepartmentsFormRender'] ) {
+            if (this.g.windowContext && this.g.windowContext.GPTMysite && this.g.windowContext.GPTMysite['beforeDepartmentsFormRender'] ) {
                 this.departments = this.g.departments;
-                this.departments = this.g.windowContext.tiledesk['beforeDepartmentsFormRender'](this.g.departments);
+                this.departments = this.g.windowContext.GPTMysite['beforeDepartmentsFormRender'](this.g.departments);
                 // console.log('departments: ', this.departments);
             } else {
                 this.departments = JSON.parse(JSON.stringify(this.g.departments));
@@ -186,8 +186,8 @@ export class SelectionDepartmentComponent implements OnInit, AfterViewInit {
         // this.logger.printDebug(' ---------------- beforeDepartmentsFormRender ---------------- ', this.departments]);
         // const onOpen = new CustomEvent('onBeforeDepartmentsFormRender', { detail: { departments: this.departments } });
         // const windowContext = this.g.windowContext;
-        // if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-        //     windowContext.tiledesk.tiledeskroot.dispatchEvent(onOpen);
+        // if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+        //     windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onOpen);
         //     this.g.windowContext = windowContext;
         // } else {
         //     this.el.nativeElement.dispatchEvent(onOpen);

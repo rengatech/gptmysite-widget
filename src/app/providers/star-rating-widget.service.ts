@@ -50,7 +50,7 @@ export class StarRatingWidgetService {
   }
 
   httpSendRate(rate, message): Observable<string> {
-    const token = this.g.tiledeskToken;
+    const token = this.g.GPTMysiteToken;
     const projectId = this.g.projectid;
     const recipientId = this.g.recipientId;
     if (rate && token && projectId && recipientId) {
@@ -60,7 +60,7 @@ export class StarRatingWidgetService {
         Authorization: token,
       });
       // const url = this.API_URL + this.projectid + '/requests/' + this.requestid;
-      // const url = this.API_URL + 'chat/support/tilechat/requests/' + recipientId + '/rate?token=chat21-secret-orgAa,&rating=' 
+      // const url = this.API_URL + 'chat/support/tilechat/requests/' + recipientId + '/rate?token=chat21-secret-orgAa,&rating='
       // tslint:disable-next-line:max-line-length
       const url = this.API_URL + projectId + '/requests/' + recipientId + '/rating';
       // 'chat/support/tilechat/requests/' + recipientId + '/rate?token=chat21-secret-orgAa,&rating=' + rate + '&rating_message=' + message;

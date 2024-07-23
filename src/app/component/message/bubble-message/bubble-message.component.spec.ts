@@ -32,7 +32,7 @@ describe('BubbleMessageComponent', () => {
     const messages: any = {
           attributes: {
               projectId: "6013ec749b32000045be650e",
-              tiledesk_message_id: "611cbf8ffb379b00346660e7"
+              GPTMysite_message_id: "611cbf8ffb379b00346660e7"
           },
           channel_type: "group",
           recipient: "support-group-6013ec749b32000045be650e-4904aee91f8b487aad117bcda860549d",
@@ -58,7 +58,7 @@ describe('BubbleMessageComponent', () => {
     const messages: any = {
           attributes: {
               projectId: "6013ec749b32000045be650e",
-              tiledesk_message_id: "611cbf8ffb379b00346660e7"
+              GPTMysite_message_id: "611cbf8ffb379b00346660e7"
           },
           channel_type: "group",
           recipient: "support-group-6013ec749b32000045be650e-4904aee91f8b487aad117bcda860549d",

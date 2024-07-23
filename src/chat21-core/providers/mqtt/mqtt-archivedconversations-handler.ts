@@ -18,7 +18,7 @@ import { LoggerInstance } from '../logger/loggerInstance';
 // @Injectable({ providedIn: 'root' })
 @Injectable()
 export class MQTTArchivedConversationsHandler extends ArchivedConversationsHandlerService {
- 
+
     // BehaviorSubject
     BSConversationDetail: BehaviorSubject<ConversationModel> = new BehaviorSubject<ConversationModel>(null);
     archivedConversationAdded: BehaviorSubject<ConversationModel> = new BehaviorSubject<ConversationModel>(null);
@@ -169,7 +169,7 @@ export class MQTTArchivedConversationsHandler extends ArchivedConversationsHandl
      * 1 -  completo la conversazione con i parametri mancanti
      * 2 -  verifico che sia una conversazione valida
      * 3 -  salvo stato conversazione (false) nell'array delle conversazioni chiuse
-     * 4 -  aggiungo alla pos 0 la nuova conversazione all'array di conversazioni 
+     * 4 -  aggiungo alla pos 0 la nuova conversazione all'array di conversazioni
      *      o sostituisco la conversazione con quella preesistente
      * 5 -  salvo la conversazione nello storage
      * 6 -  ordino l'array per timestamp
@@ -209,7 +209,7 @@ export class MQTTArchivedConversationsHandler extends ArchivedConversationsHandl
     /**
      * 1 -  completo la conversazione con i parametri mancanti
      * 2 -  verifico che sia una conversazione valida
-     * 3 -  aggiungo alla pos 0 la nuova conversazione all'array di conversazioni 
+     * 3 -  aggiungo alla pos 0 la nuova conversazione all'array di conversazioni
      * 4 -  salvo la conversazione nello storage
      * 5 -  ordino l'array per timestamp
      * 6 -  pubblico conversations:update
@@ -278,12 +278,12 @@ export class MQTTArchivedConversationsHandler extends ArchivedConversationsHandl
         this.isConversationClosingMap.delete(conversationId);
     }
 
-    archiveConversation(conversationId: string) { 
+    archiveConversation(conversationId: string) {
         // da implementare
     }
-    
+
     // ---------------------------------------------------------- //
-    // BEGIN FUNCTIONS 
+    // BEGIN FUNCTIONS
     // ---------------------------------------------------------- //
     /**
      * Completo conversazione aggiungendo:
@@ -399,9 +399,9 @@ export class MQTTArchivedConversationsHandler extends ArchivedConversationsHandl
     //             // console.log('****** then *****');
     //         })
     //         .catch(function() {
-    //             // console.log('***//tiledesk-dashboard/chat*');
+    //             // console.log('***//GPTMysite-dashboard/chat*');
     //         });
-    //     }, 1000);       
+    //     }, 1000);
     // }
 
 
@@ -413,7 +413,7 @@ export class MQTTArchivedConversationsHandler extends ArchivedConversationsHandl
         this.logger.debug('[MQTTArchivedConversationsHandler] checking uid of', convToCheck)
         this.logger.debug('[MQTTArchivedConversationsHandler] conversation.uid', convToCheck.uid)
         this.logger.debug('[MQTTArchivedConversationsHandler] channel_type is:', convToCheck.channel_type)
-        
+
         if (!this.isValidField(convToCheck.uid)) {
             this.logger.error('[MQTTArchivedConversationsHandler] ChatConversationsHandler::isValidConversation:: "uid is not valid" ');
             return false;

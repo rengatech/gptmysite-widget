@@ -14,7 +14,7 @@ import { BrandResources } from "../utils/BrandResources";
 
 @Injectable()
 export class BrandService {
-  // "brandSrc":"https://tiledeskbrand.nicolan74.repl.co/mybrand",
+  // "brandSrc":"https://GPTMysitebrand.nicolan74.repl.co/mybrand",
 
   public brand: any;
 
@@ -22,22 +22,22 @@ export class BrandService {
     DASHBOARD: {
       META_TITLE: "GPT Support Dashboard",
       FAVICON_URL:
-        "https://tiledesk.com/wp-content/uploads/2022/07/tiledesk_v13-300x300.png",
-      company_name: "Tiledesk",
-      company_site_name: "tiledesk.com",
-      company_site_url: "https://www.tiledesk.com",
+        "https://GPTMysite.com/wp-content/uploads/2022/07/GPTMysite_v13-300x300.png",
+      company_name: "GPTMysite",
+      company_site_name: "GPTMysite.com",
+      company_site_url: "https://www.GPTMysite.com",
       company_logo_white__url:
-        "assets/img/logos/tiledesk-logo_white_orange.svg",
+        "assets/img/logos/GPTMysite-logo_white_orange.svg",
       company_logo_black__url:
-        "assets/img/logos/tiledesk_3.0_logo_black_v2_no_version.svg",
+        "assets/img/logos/GPTMysite_3.0_logo_black_v2_no_version.svg",
       company_logo_allwhite__url:
-        "assets/img/logos/tiledesk_3.0_logo_all_white_v2_no_version.svg",
-      company_logo_no_text__url: "assets/img/logos/tiledesk-solo-logo.png",
+        "assets/img/logos/GPTMysite_3.0_logo_all_white_v2_no_version.svg",
+      company_logo_no_text__url: "assets/img/logos/GPTMysite-solo-logo.png",
       privacy_policy_link_text: "Privacy Policy",
-      privacy_policy_url: "https://www.tiledesk.com/privacy.html",
+      privacy_policy_url: "https://www.GPTMysite.com/privacy.html",
       display_terms_and_conditions_link: true,
-      terms_and_conditions_url: "https://www.tiledesk.com/termsofservice.html",
-      contact_us_email: "support@tiledesk.com",
+      terms_and_conditions_url: "https://www.GPTMysite.com/termsofservice.html",
+      contact_us_email: "support@GPTMysite.com",
       footer: {
         display_terms_and_conditions_link: true,
         display_contact_us_email: true,
@@ -49,13 +49,13 @@ export class BrandService {
         display_terms_and_conditions_link: true,
       },
       handle_invitation_page: {
-        company_logo_45x45: "assets/img/logos/tiledesk-solo-logo.png",
+        company_logo_45x45: "assets/img/logos/GPTMysite-solo-logo.png",
       },
       wizard_create_project_page: {
         logo_x_rocket: "assets/img/logos/logo_x_rocket4x4.svg",
       },
       wizard_install_widget_page: {
-        logo_on_rocket: "assets/img/logos/tiledesk-solo-logo.png",
+        logo_on_rocket: "assets/img/logos/GPTMysite-solo-logo.png",
       },
     },
     CHAT: {},
@@ -78,17 +78,17 @@ export class BrandService {
       ],
     },
     COMMON: {
-      COMPANY_LOGO: "assets/logos/tiledesk_logo.svg",
-      COMPANY_LOGO_NO_TEXT: "assets/logos/tiledesk_logo.svg",
-      BASE_LOGO: "assets/logos/tiledesk_logo.svg",
-      BASE_LOGO_NO_TEXT: "assets/logos/tiledesk_logo.svg",
-      BASE_LOGO_WHITE: "assets/logos/tiledesk-logo_new_white.svg",
+      COMPANY_LOGO: "assets/logos/GPTMysite_logo.svg",
+      COMPANY_LOGO_NO_TEXT: "assets/logos/GPTMysite_logo.svg",
+      BASE_LOGO: "assets/logos/GPTMysite_logo.svg",
+      BASE_LOGO_NO_TEXT: "assets/logos/GPTMysite_logo.svg",
+      BASE_LOGO_WHITE: "assets/logos/GPTMysite-logo_new_white.svg",
       BASE_LOGO_WHITE_NO_TEXT: "",
-      COMPANY_NAME: "Tiledesk",
-      BRAND_NAME: "Tiledesk",
-      COMPANY_SITE_NAME: "tiledesk.com",
-      COMANY_SITE_URL: "https://www.tiledesk.com",
-      CONTACT_US_EMAIL: "support@tiledesk.com",
+      COMPANY_NAME: "GPTMysite",
+      BRAND_NAME: "GPTMysite",
+      COMPANY_SITE_NAME: "GPTMysite.com",
+      COMANY_SITE_URL: "https://www.GPTMysite.com",
+      CONTACT_US_EMAIL: "support@GPTMysite.com",
       COMPANY_PRIMARY_COLOR: "",
       DOCS: true,
     },

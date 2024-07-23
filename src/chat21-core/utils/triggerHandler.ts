@@ -11,7 +11,7 @@ export class Triggerhandler {
     private el: ElementRef;
     private windowContext;
     private logger: LoggerService = LoggerInstance.getInstance()
-    
+
     constructor() { }
 
     public setElement(el: ElementRef){
@@ -28,8 +28,8 @@ export class Triggerhandler {
         try {
             const onBeforeMessageSend = new CustomEvent('onBeforeMessageSend', { detail: { message: messageModel } });
             const windowContext = this.windowContext;
-            if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-                windowContext.tiledesk.tiledeskroot.dispatchEvent(onBeforeMessageSend);
+            if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+                windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onBeforeMessageSend);
                 this.windowContext = windowContext;
             } else {
               this.el.nativeElement.dispatchEvent(onBeforeMessageSend);
@@ -45,8 +45,8 @@ export class Triggerhandler {
         try {
             const onAfterMessageSend = new CustomEvent('onAfterMessageSend', { detail: { message: messageSent } });
             const windowContext = this.windowContext;
-            if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-                windowContext.tiledesk.tiledeskroot.dispatchEvent(onAfterMessageSend);
+            if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+                windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onAfterMessageSend);
                 this.windowContext = windowContext;
             } else {
               this.el.nativeElement.dispatchEvent(onAfterMessageSend);
@@ -61,8 +61,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnNewConversationComponentInit ---------------- ', detailObj);
         const onNewConversation = new CustomEvent('onNewConversationComponentInit', { detail: detailObj });
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onNewConversation);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onNewConversation);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onNewConversation);
@@ -75,8 +75,8 @@ export class Triggerhandler {
         try {
           const beforeMessageRender = new CustomEvent('beforeMessageRender', { detail: detailObj });
           const windowContext = this.windowContext;
-          if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(beforeMessageRender);
+          if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(beforeMessageRender);
             this.windowContext = windowContext;
           } else {
             this.el.nativeElement.dispatchEvent(beforeMessageRender);
@@ -92,8 +92,8 @@ export class Triggerhandler {
         try {
             const afterMessageRender = new CustomEvent('afterMessageRender', { detail: detailObj });
             const windowContext = this.windowContext;
-            if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-                windowContext.tiledesk.tiledeskroot.dispatchEvent(afterMessageRender);
+            if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+                windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(afterMessageRender);
                 this.windowContext = windowContext;
             } else {
                 this.el.nativeElement.dispatchEvent(afterMessageRender);
@@ -108,21 +108,21 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnMessageCreated ---------------- ', message);
         const onMessageCreated = new CustomEvent('onMessageCreated', { detail: { message: message } });
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onMessageCreated);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onMessageCreated);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onMessageCreated);
         }
     }
 
-    /**APP-COMPONENT.component */  
+    /**APP-COMPONENT.component */
     public triggerOnViewInit(detailObj: {}) {
         this.logger.debug(' ---------------- triggerOnInit ---------------- ', detailObj);
         const onInit = new CustomEvent('onInit', { detail: detailObj });
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onInit);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onInit);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onInit);
@@ -134,8 +134,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnOpenEvent ---------------- ', detailObj);
         const onOpen = new CustomEvent('onOpen', { detail: detailObj });
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onOpen);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onOpen);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onOpen);
@@ -147,8 +147,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnCloseEvent ---------------- ', detailObj);
         const onClose = new CustomEvent('onClose', { detail: detailObj });
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onClose);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onClose);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onClose);
@@ -160,8 +160,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnOpenEyeCatcherEvent ---------------- ', detailObj);
         const onOpenEyeCatcher = new CustomEvent('onOpenEyeCatcher', { detail: detailObj });
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onOpenEyeCatcher);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onOpenEyeCatcher);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onOpenEyeCatcher);
@@ -173,8 +173,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnClosedEyeCatcherEvent ---------------- ');
         const onClosedEyeCatcher = new CustomEvent('onClosedEyeCatcher', { detail: { } });
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onClosedEyeCatcher);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onClosedEyeCatcher);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onClosedEyeCatcher);
@@ -188,8 +188,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnLoggedIn ---------------- ', detailObj);
         const onLoggedIn = new CustomEvent('onLoggedIn', { detail: detailObj});
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onLoggedIn);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onLoggedIn);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onLoggedIn);
@@ -201,8 +201,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnLoggedOut ---------------- ', detailObj);
         const onLoggedOut = new CustomEvent('onLoggedOut', { detail: detailObj});
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onLoggedOut);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onLoggedOut);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onLoggedOut);
@@ -214,8 +214,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnAuthStateChanged ---------------- ', detailObj);
         const onAuthStateChanged = new CustomEvent('onAuthStateChanged', { detail: detailObj});
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onAuthStateChanged);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onAuthStateChanged);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onAuthStateChanged);
@@ -226,8 +226,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerNewConversationEvent ---------------- ', detailObj);
         const onNewConversation = new CustomEvent('onNewConversation', { detail: detailObj });
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onNewConversation);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onNewConversation);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onNewConversation);
@@ -241,8 +241,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnLoadParamsEvent ---------------- ', detailObj);
         const onLoadParams = new CustomEvent('onLoadParams', { detail: detailObj });
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onLoadParams);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onLoadParams);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onLoadParams);
@@ -253,8 +253,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnBeforeInitEvent ---------------- ', detailObj);
         const onBeforeInit = new CustomEvent('onBeforeInit', { detail: detailObj });
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onBeforeInit);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onBeforeInit);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onBeforeInit);
@@ -267,8 +267,8 @@ export class Triggerhandler {
         try {
             const triggerConversationUpdated = new CustomEvent('onConversationUpdated', { detail: { conversation: conversation } });
             const windowContext = this.windowContext;
-            if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-                windowContext.tiledesk.tiledeskroot.dispatchEvent(triggerConversationUpdated);
+            if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+                windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(triggerConversationUpdated);
                 this.windowContext = windowContext;
             } else {
                 this.el.nativeElement.dispatchEvent(triggerConversationUpdated);
@@ -284,8 +284,8 @@ export class Triggerhandler {
         try {
             const triggerCloseMessagePreview = new CustomEvent('onCloseMessagePreview', { detail: { } });
             const windowContext = this.windowContext;
-            if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-                windowContext.tiledesk.tiledeskroot.dispatchEvent(triggerCloseMessagePreview);
+            if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+                windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(triggerCloseMessagePreview);
                 this.windowContext = windowContext;
             } else {
                 this.el.nativeElement.dispatchEvent(triggerCloseMessagePreview);
@@ -300,8 +300,8 @@ export class Triggerhandler {
         this.logger.debug(' ---------------- triggerOnbeforeDepartmentsFormRender ---------------- ');
         const onOpen = new CustomEvent('onBeforeDepartmentsFormRender', { detail: { departments: departments } });
         const windowContext = this.windowContext;
-        if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-            windowContext.tiledesk.tiledeskroot.dispatchEvent(onOpen);
+        if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+            windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(onOpen);
             this.windowContext = windowContext;
         } else {
             this.el.nativeElement.dispatchEvent(onOpen);
@@ -314,8 +314,8 @@ export class Triggerhandler {
         try {
             const triggerGetImageUrlThumb = new CustomEvent('getImageUrlThumb', { detail: { message: message } });
             const windowContext = this.windowContext;
-            if (windowContext.tiledesk && windowContext.tiledesk.tiledeskroot) {
-                windowContext.tiledesk.tiledeskroot.dispatchEvent(triggerGetImageUrlThumb);
+            if (windowContext.GPTMysite && windowContext.GPTMysite.GPTMysiteroot) {
+                windowContext.GPTMysite.GPTMysiteroot.dispatchEvent(triggerGetImageUrlThumb);
             } else {
                 // this.el.nativeElement.dispatchEvent(triggerGetImageUrlThumb);
             }
@@ -324,5 +324,5 @@ export class Triggerhandler {
         }
       }
 
-    
+
 }

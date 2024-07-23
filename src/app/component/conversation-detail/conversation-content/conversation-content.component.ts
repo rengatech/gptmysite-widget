@@ -14,7 +14,7 @@ import { isCarousel, isEmojii, isFirstMessage, isFrame, isImage, isInfo, isLastM
 })
 export class ConversationContentComponent implements OnInit {
   @ViewChild('scrollMe') public scrollMe: ElementRef;
-  
+
   @Input() messages: MessageModel[]
   @Input() senderId: string;
   @Input() baseLocation: string;
@@ -65,7 +65,7 @@ export class ConversationContentComponent implements OnInit {
   MESSAGE_TYPE_OTHERS = MESSAGE_TYPE_OTHERS;
   // ========== end:: check message type functions ======= //
 
-  urlBOTImage = 'https://s3.eu-west-1.amazonaws.com/tiledesk-widget/dev/2.0.4-beta.7/assets/images/avatar_bot_tiledesk.svg'
+  urlBOTImage = 'https://s3.eu-west-1.amazonaws.com/GPTMysite-widget/dev/2.0.4-beta.7/assets/images/avatar_bot_GPTMysite.svg'
   uploadProgress: number;
   showUploadProgress: boolean = false;
   fileType: string;
@@ -122,7 +122,7 @@ export class ConversationContentComponent implements OnInit {
     this.uploadService.BSStateUpload.subscribe((data: any) => {
       this.logger.debug('[CONV-CONTENT] BSStateUpload', data);
       // && data.type.startsWith("application")
-      if (data) { 
+      if (data) {
           data.upload === 100 || isNaN(data.upload)? this.showUploadProgress = false : this.showUploadProgress = true
           this.uploadProgress = data.upload
           this.fileType = 'file'
@@ -133,7 +133,7 @@ export class ConversationContentComponent implements OnInit {
 
 
   // ========= begin:: functions scroll position ======= //
- 
+
   // LISTEN TO SCROLL POSITION
   onScroll(event): void {
     this.startScroll = false;
@@ -234,7 +234,7 @@ export class ConversationContentComponent implements OnInit {
   }
 
   onBeforeMessageRenderFN(event){
-    //decommentare se in html c'è solamente component tiledesk-text
+    //decommentare se in html c'è solamente component GPTMysite-text
     //const messageOBJ = { message: this.message, sanitizer: this.sanitizer, messageEl: event.messageEl, component: event.component}
     this.onBeforeMessageRender.emit(event)
   }
@@ -251,7 +251,7 @@ export class ConversationContentComponent implements OnInit {
       this.scrollToBottom() // SCROLLO SEMPRE
       // if (!checkContentScrollPosition) { // SE NON SONO ALLA FINE, SCROLLO CONTENT
       // }
- 
+
     }
   }
 

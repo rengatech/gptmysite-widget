@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AppStorageService } from 'src/chat21-core/providers/abstract/app-storage.service';
 import { LoggerService } from 'src/chat21-core/providers/abstract/logger.service';
 import { LoggerInstance } from 'src/chat21-core/providers/logger/loggerInstance';
-import { TiledeskRequestsService } from 'src/chat21-core/providers/tiledesk/tiledesk-requests.service';
+import { GPTMysiteRequestsService } from 'src/chat21-core/providers/GPTMysite/GPTMysite-requests.service';
 import { getDateDifference } from 'src/chat21-core/utils/utils';
 import { Rule } from 'src/models/rule';
 import { UserModel } from './../../chat21-core/models/user';
@@ -15,22 +15,22 @@ import { Globals } from './globals';
 export class Rules {
 
     private windowContext:Window = window
-    private tiledeskToken: string;
+    private GPTMysiteToken: string;
     private currentUser: UserModel;
     private request_id: string;
     private rules: Rule[]
     private logger: LoggerService = LoggerInstance.getInstance()
     constructor(
-        private tiledeskRequestsService: TiledeskRequestsService,
+        private GPTMysiteRequestsService: GPTMysiteRequestsService,
         private appStorageService: AppStorageService,
         private g: Globals
     ){}
 
 
-    initRules(context: Window, tiledeskToken: string, currentUser: UserModel, request_id: string, rules:Rule[]){
+    initRules(context: Window, GPTMysiteToken: string, currentUser: UserModel, request_id: string, rules:Rule[]){
         this.logger.info('[RULES] initRules',context, currentUser, rules)
         this.windowContext = context
-        this.tiledeskToken = tiledeskToken
+        this.GPTMysiteToken = GPTMysiteToken
         this.currentUser = currentUser
         this.request_id = request_id
         this.rules = rules
@@ -46,7 +46,7 @@ export class Rules {
                     exit = true
                     return;
                 }
-                
+
             }
         })
     }
@@ -61,7 +61,7 @@ export class Rules {
             message[0]['message'].sourcePage = this.g.attributes['sourcePage']
             message[0]['message'].language = this.g.lang
             message[0]['message'].departmentid = this.g.attributes.departmentId
-            this.tiledeskRequestsService.sendMessageToRequest(this.request_id, this.tiledeskToken, message[0]['message'])
+            this.GPTMysiteRequestsService.sendMessageToRequest(this.request_id, this.GPTMysiteToken, message[0]['message'])
         }
     }
 
@@ -80,7 +80,7 @@ export class Rules {
         }else{
             canHandleAction = true
             storedRules[rule.uid]= Date.now()
-            
+
         }
         this.appStorageService.setItem('_rules', JSON.stringify(storedRules))
         return canHandleAction

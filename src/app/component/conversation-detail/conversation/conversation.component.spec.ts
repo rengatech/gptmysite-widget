@@ -1,4 +1,4 @@
-import { TiledeskRequestsService } from './../../../../chat21-core/providers/tiledesk/tiledesk-requests.service';
+import { GPTMysiteRequestsService } from './../../../../chat21-core/providers/GPTMysite/GPTMysite-requests.service';
 import { StarRatingWidgetService } from './../../../providers/star-rating-widget.service';
 import { StarRatingWidgetComponent } from './../../star-rating-widget/star-rating-widget.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -20,7 +20,7 @@ import { AppStorageService } from '../../../../chat21-core/providers/abstract/ap
 
 import { CustomTranslateService } from '../../../../chat21-core/providers/custom-translate.service';
 import { MessagingAuthService } from '../../../../chat21-core/providers/abstract/messagingAuth.service';
-import { TiledeskAuthService } from '../../../../chat21-core/providers/tiledesk/tiledesk-auth.service';
+import { GPTMysiteAuthService } from '../../../../chat21-core/providers/GPTMysite/GPTMysite-auth.service';
 import { PresenceService } from '../../../../chat21-core/providers/abstract/presence.service';
 import { ConversationsHandlerService } from '../../../../chat21-core/providers/abstract/conversations-handler.service';
 import { ArchivedConversationsHandlerService } from '../../../../chat21-core/providers/abstract/archivedconversations-handler.service';
@@ -61,7 +61,7 @@ describe('ConversationComponent', () => {
         AppStorageService,
         CustomTranslateService,
         MessagingAuthService,
-        TiledeskAuthService,
+        GPTMysiteAuthService,
         PresenceService,
         ConversationsHandlerService,
         ArchivedConversationsHandlerService,
@@ -71,7 +71,7 @@ describe('ConversationComponent', () => {
         ImageRepoService,
         UploadService,
         StarRatingWidgetService,
-        TiledeskRequestsService,
+        GPTMysiteRequestsService,
         NGXLogger
       ],
       schemas: [NO_ERRORS_SCHEMA]

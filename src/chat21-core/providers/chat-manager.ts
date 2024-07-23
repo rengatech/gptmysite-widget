@@ -24,12 +24,12 @@ export class ChatManager {
   // tenant = environment.firebaseConfig.tenant;
 
   private currentUser: UserModel;
-  private tiledeskToken: string;
+  private GPTMysiteToken: string;
 
   private handlers: ConversationHandlerService[];
   public openInfoConversation: boolean;
   private logger: LoggerService = LoggerInstance.getInstance();
-  
+
   constructor(
     // public chatContactsSynchronizer: ChatContactsSynchronizer,
     public conversationsHandlerService: ConversationsHandlerService,
@@ -46,17 +46,17 @@ export class ChatManager {
   }
 
   /**
-   * setTiledeskToken
+   * setGPTMysiteToken
    */
-  public setTiledeskToken(tiledeskToken: string) {
-    this.tiledeskToken = tiledeskToken;
+  public setGPTMysiteToken(GPTMysiteToken: string) {
+    this.GPTMysiteToken = GPTMysiteToken;
   }
 
   /**
-   * return tiledeskToken
+   * return GPTMysiteToken
    */
-  public getTiledeskToken(): string {
-    return this.tiledeskToken;
+  public getGPTMysiteToken(): string {
+    return this.GPTMysiteToken;
   }
 
   /**
@@ -123,7 +123,7 @@ export class ChatManager {
   // }
 
 
-  
+
 
   /** */
   // loadCurrentUserDetail() {
@@ -195,7 +195,7 @@ export class ChatManager {
     //   return handler.conversationWith === conversationId;
     // });
 
-   
+
     // if (resultArray.length === 0) {
     //   return null;
     // }

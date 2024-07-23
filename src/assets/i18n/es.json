@@ -34,7 +34,7 @@
     "BUTTON_CLOSE_TO_ICON": "Minimiza el chat",
     "BUTTON_EDIT_PROFILE": "Actualización del perfil",
     "RATE_CHAT": "Califica el chat",
-    "WELCOME_TITLE": "Hola, bienvenido a Tiledesk 👋",
+    "WELCOME_TITLE": "Hola, bienvenido a GPTMysite 👋",
     "WELCOME_MSG": "¿Cómo podemos ayudar?",
     "WELCOME": "Podemos",
     "OPTIONS": "opciones",
@@ -66,25 +66,25 @@
     "INFO_SUPPORT_MEMBER_LEFT_GROUP":"eliminado del grupo",
     "INFO_SUPPORT_MEMBER_ABANDONED_GROUP":"abandonó la conversación",
     "INFO_A_NEW_SUPPORT_REQUEST_HAS_BEEN_ASSIGNED_TO_YOU": "Se le ha asignado una nueva solicitud de soporte",
-    
+
     "LABEL_PRECHAT_USER_FULLNAME": "Nombre completo",
     "LABEL_PRECHAT_USER_EMAIL": "Correo electrónico",
     "LABEL_PRECHAT_USER_EMAIL_ERROR": "Dirección de correo electrónico no válida",
     "LABEL_PRECHAT_USER_PHONE": "Teléfono",
     "LABEL_PRECHAT_USER_PHONE_ERROR": "Se requiere teléfono",
     "LABEL_PRECHAT_FIRST_MESSAGE": "Tu mensaje para el equipo de soporte",
-    "LABEL_PRECHAT_STATIC_TERMS_PRIVACY": "Antes de continuar con la conversación, acepte nuestros <a href='https://tiledesk.com/termsofservice/' target='_blank'>Términos</a> y <a href='https:/ /tiledesk.com/privacy.html' target='_blank'>Política de privacidad</a>",
+    "LABEL_PRECHAT_STATIC_TERMS_PRIVACY": "Antes de continuar con la conversación, acepte nuestros <a href='https://GPTMysite.com/termsofservice/' target='_blank'>Términos</a> y <a href='https:/ /GPTMysite.com/privacy.html' target='_blank'>Política de privacidad</a>",
     "LABEL_PRECHAT_ACCEPT_TERMS_PRIVACY": "Acepto",
     "PRECHAT_REQUIRED_ERROR": "Este campo es obligatorio",
-    
+
     "TICKET_TAKING":"La solicitud ha sido recibida y el personal de asistencia está tratando con ella. \nPara agregar más comentarios, responda a este correo electrónico.",
-    
+
     "LABEL_TODAY": "hoy",
     "LABEL_TOMORROW": "ayer",
     "LABEL_LAST_ACCESS": "ultimo acceso",
     "LABEL_TO": "a",
     "ARRAY_DAYS": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
-    
+
     "SENT_AN_ATTACHMENT": "envió un archivo adjunto",
     "SENT_AN_IMAGE": "envió una imagen",
 

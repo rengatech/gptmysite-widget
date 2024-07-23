@@ -5,7 +5,7 @@
 
     @Author Andrea Sponziello
     @Member Gabriele Panico
-    (c) Tiledesk 2020
+    (c) GPTMysite 2020
 */
 
 let mqtt = require('./mqtt/4.2.6/mqtt.min.js');
@@ -25,20 +25,20 @@ class Chat21Client {
         this.reconnections = 0 // just to check how many reconnections
         this.client_id = this.uuidv4();
         this.log = options.log ? true : false;
-    
+
         if (options && options.MQTTendpoint) {
             if (options.MQTTendpoint.startsWith('/')) {
                 if (this.log) {
                     console.log("MQTTendpoint relative url");
                 }
                 var loc = window.location, new_uri;
-                if(window.frameElement && window.frameElement.getAttribute('tiledesk_context') === 'parent'){
+                if(window.frameElement && window.frameElement.getAttribute('GPTMysite_context') === 'parent'){
                     loc = window.parent.location
                 }
                 if (loc.protocol === "https:") {
                     // new_uri = "wss:";
                     new_uri = "mqtt:";
-                    
+
                 } else {
                     // new_uri = "ws:";
                     new_uri = "mqtt:";
@@ -50,7 +50,7 @@ class Chat21Client {
             } else {
                 this.endpoint = options.MQTTendpoint
             }
-            
+
         }
         else {
             this.endpoint = "ws://34.253.207.0:15675/ws"
@@ -63,10 +63,10 @@ class Chat21Client {
         this.user_id = null;
         this.jwt = null;
         this.last_handler = 0;
-        
+
         // this.onMessageCallbacks = new Map();
         // this.onConnectCallbacks = new Map();
-        
+
         this.onConversationAddedCallbacks = new Map();
         this.onConversationUpdatedCallbacks = new Map();
         this.onConversationDeletedCallbacks = new Map();
@@ -207,8 +207,8 @@ class Chat21Client {
     groupCreate(name, group_id, members, callback) {
         // example:
         // {
-        //     "group_id":"group-tiledeskteam",
-        //     "group_name":"Tiledesk Team",
+        //     "group_id":"group-GPTMysiteteam",
+        //     "group_name":"GPTMysite Team",
         //     "group_members":{
         //         "608bc83b3d0b3e494f4d0578":1,
         //         "608bc81f3d0b3e494f4d0575":1,
@@ -420,7 +420,7 @@ class Chat21Client {
     }
 
     archiveConversation(conversWith, callback) {
-        // callback - function (err) 
+        // callback - function (err)
         if (this.log) {
             console.log("archiving conversation with:", conversWith)
         }
@@ -566,7 +566,7 @@ class Chat21Client {
                 const conversWith = _topic.conversWith
                 try {
                     const message_json = JSON.parse(message.toString())
-                    
+
 
                     // TEMPORARILY DISABLED, ADDED-CONVERSATIONS ARE OBSERVED BY NEW MESSAGES.
                     // MOVED TO: this.onMessageAddedCallbacks
@@ -639,7 +639,7 @@ class Chat21Client {
                         // console.log("Observing conversations added from messages", message_json);
                         // if (this.onConversationAddedCallbacks) {
                         let update_conversation = true;
-                        
+
                         if (message_json.attributes && message_json.attributes.updateconversation == false) {
                             update_conversation = false
                         }
@@ -698,7 +698,7 @@ class Chat21Client {
                             }
                         }
                     })
-                    
+
                     // if (topic.includes("/messages/") && topic.endsWith(_CLIENTUPDATED)) {
                     //     this.onMessageUpdatedInConversationCallbacks.forEach((obj, handler, map) => {
                     //         if (conversWith === obj.conversWith) {
@@ -706,7 +706,7 @@ class Chat21Client {
                     //         }
                     //     });
                     // }
-                    
+
 
                 }
                 catch (err) {
@@ -715,7 +715,7 @@ class Chat21Client {
             })
             subscribedCallback();
         })
-        
+
         // console.log("HANDLER_:", this.on_message_handler)
     }
 
@@ -812,7 +812,7 @@ class Chat21Client {
             console.log("getting conversation detail:", URL);
             console.log("conversWith:", conversWith);
         }
-        
+
         let options = {
             url: URL,
             headers: {
@@ -832,7 +832,7 @@ class Chat21Client {
                 callback(null, null);
             }
         }, this.log);
-        
+
         // var xmlhttp = new XMLHttpRequest();
         // xmlhttp.open("GET", URL, true);
         // xmlhttp.setRequestHeader("authorization", this.jwt);
@@ -959,7 +959,7 @@ class Chat21Client {
             //     }
             // );
         }
-        
+
     }
 
     connect(user_id, jwt, callback) {
@@ -970,7 +970,7 @@ class Chat21Client {
             console.log("connecting user_id:", user_id)
             console.log("using jwt token:", jwt)
         }
-        
+
         if (this.client) {
             this.client.end()
         }
@@ -997,7 +997,7 @@ class Chat21Client {
         // client = mqtt.connect('mqtt://127.0.0.1:15675/ws',options)
         //console.log("starting mqtt connection with LWT on:", this.presence_topic, this.endpoint)
         this.client = mqtt.connect(this.endpoint,options)
-        
+
         this.client.on('connect', // TODO if token is wrong it must reply with an error!
             () => {
                 if (this.log) {

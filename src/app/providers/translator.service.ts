@@ -32,12 +32,12 @@ export class TranslatorService {
   ) {
 
     let windowContext: Window = window;
-    if (window.frameElement && window.frameElement.getAttribute('tiledesk_context') === 'parent') {
+    if (window.frameElement && window.frameElement.getAttribute('GPTMysite_context') === 'parent') {
       windowContext = window.parent;
     }
 
-    if (windowContext['tiledesk']) {
-      this.baseLocation = windowContext['tiledesk'].getBaseLocation();
+    if (windowContext['GPTMysite']) {
+      this.baseLocation = windowContext['GPTMysite'].getBaseLocation();
       // console.log(`»»»» initI18n baseLocation`, this.baseLocation);
     }
 
@@ -77,7 +77,7 @@ export class TranslatorService {
               // this.http.get(this.baseLocation + `/assets/i18n/${browserLang}.json`).subscribe(data=> console.log('ress lang', data))
           }
       }
-  
+
   }
 
 
@@ -316,13 +316,13 @@ export class TranslatorService {
       globals.CLOSED = res['CLOSED'];
       globals.LABEL_PREVIEW = res['LABEL_PREVIEW']
       globals.LABEL_ERROR_FIELD_REQUIRED= res['LABEL_ERROR_FIELD_REQUIRED']
-      
-      
+
+
       if(globals.WELCOME_TITLE === 'WELLCOME_TITLE') globals.WELCOME_TITLE = res['WELCOME_TITLE']
       if (!globals.welcomeTitle) {
         globals.welcomeTitle = globals.WELCOME_TITLE;   /** Set the widget welcome message. Value type : string */
       }
-      
+
       if(globals.WELCOME_MSG === 'WELLCOME_MSG') globals.WELCOME_MSG = res['WELCOME_MSG']
       if (!globals.welcomeMsg) {
         globals.welcomeMsg = globals.WELCOME_MSG;       /** Set the widget welcome message. Value type : string */

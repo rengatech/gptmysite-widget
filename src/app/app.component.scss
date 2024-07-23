@@ -11,7 +11,7 @@ input, select:focus, textarea {
     font-size: 16px !important;
 }
 // IE
-// #scroll-me { 
+// #scroll-me {
 //     color:black;
 //     scrollbar-face-color:#05B7FF;
 //     scrollbar-arrow-color:#05B7FF;
@@ -29,16 +29,16 @@ input, select:focus, textarea {
 // }
 /* Track */
 // ::-webkit-scrollbar-track {
-//    background: transparent; 
+//    background: transparent;
 // }
 /* Handle */
 // ::-webkit-scrollbar-thumb {
-//     background: transparent; 
+//     background: transparent;
 //     border-radius: 6px;
 // }
 // /* Handle on hover */
 // ::-webkit-scrollbar-thumb:hover {
-//     background: #777; 
+//     background: #777;
 // }
 
 :host {
@@ -171,7 +171,7 @@ body {
 
 
 textarea::placeholder {
-    color: var(--gray);  
+    color: var(--gray);
     font-weight: 300;
   }
 
@@ -205,7 +205,7 @@ textarea::placeholder {
             font-weight: normal!important;
         }
     }
-    
+
 }
 
 
@@ -226,7 +226,7 @@ textarea::placeholder {
     width: auto;
     background:rgb(255, 255, 255);
     border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3); 
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
     box-sizing: border-box;
     opacity: 0;
@@ -255,7 +255,7 @@ textarea::placeholder {
     color: black;
     padding: 3px 8px;
     background:rgb(255, 255, 255);
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3); 
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
     border-radius: 10px;
     z-index: 1000;
@@ -314,7 +314,7 @@ chat-root {
     display: block;
     width: 100%;
     height: 100%;
-    
+
     // ========= BEGIN: RESET CSS TAG ========= //
     *:focus {
         outline: none;
@@ -343,8 +343,8 @@ chat-root {
         padding: 0px;
         margin: 0px;
     }
-    
-    #tiledesk-container {
+
+    #GPTMysite-container {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -442,7 +442,7 @@ chat-root {
 
         // === CSS LINKS === //
         /* .messages.msg_receive a */
-        .msg_receive a { 
+        .msg_receive a {
             color: var(--bck-msg-sent);
         }
 
@@ -467,7 +467,7 @@ chat-root {
 
             cursor: pointer;
             .c21-label-button {
-                margin-left: 8px; 
+                margin-left: 8px;
                 font-weight: 400;
                 font-size: 0.9em;
             }
@@ -593,16 +593,16 @@ chat-root {
             40% { -webkit-transform: scale(1.0) }
         }
         @keyframes sk-bouncedelay {
-            0%, 80%, 100% { 
+            0%, 80%, 100% {
             -webkit-transform: scale(0);
             transform: scale(0);
-            } 40% { 
+            } 40% {
             -webkit-transform: scale(1.0);
             transform: scale(1.0);
             }
         }
         // ========= END: GENERIC CSS ========= //
-   
+
         /* CSS BOX CONTAINER */
         #chat21-conversations {
             position: absolute;
@@ -638,7 +638,7 @@ chat-root {
         }
 
 
-        #tiledesk-image-preview {
+        #GPTMysite-image-preview {
             border-radius: 16px;
         }
 
@@ -665,7 +665,7 @@ chat-root {
             background-color: transparent;
             opacity: 0;
             display: none;
-        
+
             &.active {
                 display: inline-block;
                 opacity: 1;
@@ -714,7 +714,7 @@ chat-root {
 
 
 
-    
+
     }
 
 
@@ -784,7 +784,7 @@ chat-root {
                         // margin: 10px;
                     }
 
-                    
+
                 }
 
                 .c21-title {
@@ -803,7 +803,7 @@ chat-root {
                     font-weight: 500;
                     white-space: nowrap;
                     overflow: hidden;
-                    text-overflow: ellipsis;             
+                    text-overflow: ellipsis;
                 }
             }
         }
@@ -822,7 +822,7 @@ chat-root {
         padding: 0px;
         margin: 0px auto;
         overflow: auto;
-        
+
         .c21-body-container {
             position: absolute;
             top: 0;
@@ -856,8 +856,8 @@ chat-root {
             }
 
         }
-        
-        
+
+
 
         //     .c21-message-field {
         //         padding: 0;
@@ -869,7 +869,7 @@ chat-root {
         //         word-wrap: break-word;
         //     }
         // }
-       
+
     }
     // ========= END: CSS STANDARD PAGE ========= //
 
@@ -877,7 +877,7 @@ chat-root {
 
 
     /**************
-    // nk: .chat21-sheet CUSTOM DIMENSIONS WHEN THE WINDOW WIDTH IS < 451PX 
+    // nk: .chat21-sheet CUSTOM DIMENSIONS WHEN THE WINDOW WIDTH IS < 451PX
     ***************/
 
     // @media (width: 376px){
@@ -888,7 +888,7 @@ chat-root {
     // }
 
     @media (max-width: 451px) {
-        #tiledesk-container {
+        #GPTMysite-container {
             .header-button.close {
                 display: flex;
             }

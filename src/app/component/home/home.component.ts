@@ -1,4 +1,4 @@
-import { TiledeskAuthService } from './../../../chat21-core/providers/tiledesk/tiledesk-auth.service';
+import { GPTMysiteAuthService } from './../../../chat21-core/providers/GPTMysite/GPTMysite-auth.service';
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { CustomTranslateService } from 'src/chat21-core/providers/custom-translate.service';
 import { ConversationModel } from '../../../chat21-core/models/conversation';
@@ -43,12 +43,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // ========= end:: component variables ======= //
 
   convertColorToRGBA = convertColorToRGBA
-  
+
   private logger: LoggerService = LoggerInstance.getInstance();
-  
+
   constructor(
     public g: Globals,
-    private tiledeskAuthService : TiledeskAuthService,
+    private GPTMysiteAuthService : GPTMysiteAuthService,
     private customTranslateService: CustomTranslateService,
   ) {
 
@@ -99,14 +99,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   private segmentLogoClick(){
     let that = this
-    let user = this.tiledeskAuthService.getCurrentUser()
+    let user = this.GPTMysiteAuthService.getCurrentUser()
     if(window['analytics']){
       try {
         window['analytics'].page("Widget Home Page, LogoClick", {});
       } catch (err) {
         this.logger.error('Event:Signed In [page] error', err);
       }
-  
+
       try {
         window['analytics'].identify(user.uid, {
           name: user.firstname + ' ' + user.lastname,
@@ -130,10 +130,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
 
-  
 
 
-  
+
+
 
 
   // ========= begin:: ACTIONS ============//
@@ -157,7 +157,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }else if(platform=== 'messanger'){
       window.open('https://m.me/'+this.g.messangerPageTitle, '_blank')
     }
-    
+
   }
 
   onConversationSelectedFN(conversation: ConversationModel) {
@@ -220,7 +220,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  
+
 
 }
 

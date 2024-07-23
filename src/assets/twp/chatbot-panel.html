@@ -100,7 +100,7 @@
       width: 109px;
       height: 39px;
       background-repeat: no-repeat;
-      background-image: url(./tiledesk_widget_files/logo@2x-black.png);
+      background-image: url(./GPTMysite_widget_files/logo@2x-black.png);
       background-size: contain;
       position: absolute;
       top: 50%;
@@ -546,16 +546,16 @@
   <meta property="og:title" content="Try GPT now!" />
   <meta property="og:description"
     content="Qualify your leads to increase your sales faster. It's really easy to do it with the GPT conversational form builder" />
-  <meta property="og:image" content="https://tiledesk.com/wp-content/uploads/2022/12/6029654-02-min.png" />
+  <meta property="og:image" content="https://GPTMysite.com/wp-content/uploads/2022/12/6029654-02-min.png" />
   <meta property="og:locale" content="en">
 
-  <link rel="icon" type="image/png" href="./tiledesk_widget_files/logo-short.png">
+  <link rel="icon" type="image/png" href="./GPTMysite_widget_files/logo-short.png">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <script defer="" src="./tiledesk_widget_files/jquery.min.js"></script>
-  <script defer="" src="./tiledesk_widget_files/bootstrap.min.js"></script>
+  <script defer="" src="./GPTMysite_widget_files/jquery.min.js"></script>
+  <script defer="" src="./GPTMysite_widget_files/bootstrap.min.js"></script>
 
   <!-- <script type="application/javascript">
-        window.tiledeskSettings = {
+        window.GPTMysiteSettings = {
             marginX: "100px",
             marginY: "50px"
         };
@@ -563,13 +563,13 @@
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id; //js.async=!0;
-        js.src = "../../launch.js"; 
+        js.src = "../../launch.js";
         fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'tiledesk-jssdk'));
+        }(document, 'script', 'GPTMysite-jssdk'));
 
     </script> -->
   <script type="application/javascript">
-    window.tiledeskSettings = {
+    window.GPTMysiteSettings = {
       marginX: "100px",
       marginY: "50px",
       // calloutTimer: 1,
@@ -595,7 +595,7 @@
       i.c = function (args) {
         i.q.push(args);
       };
-      w.Tiledesk = i;
+      w.GPTMysite = i;
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s);
@@ -603,21 +603,21 @@
       js.async = true;
       js.src = "../../launch.js";
       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'tiledesk-jssdk'));
+    }(document, 'script', 'GPTMysite-jssdk'));
 
     window.addEventListener('load', (event) => {
       document.dispatchEvent(new Event('mousemove'))
     })
 
-    window.Tiledesk('onLoadParams', function (event_data) {
-      console.log("onLoadParams Tiledesk FN", event_data);
-      // window.Tiledesk('signInWithCustomToken', 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDliOGVmYTg3MzJlYjAwMTQxNzYzZDlfNWU0ZWNiOThiNzhlZTQwMDE3NDA2MTEwIiwiZmlyc3RuYW1lIjoiS2VsbHkiLCJsYXN0bmFtZSI6IkdyYWNlIiwiZW1haWwiOiJncmFjZUBlbWFpbG5hLmNvIiwic3ViIjoidXNlcmV4dGVybmFsIiwiYXVkIjoiaHR0cHM6Ly90aWxlZGVzay5jb20vcHJvamVjdHMvNjA5YjhlZmE4NzMyZWIwMDE0MTc2M2Q5IiwiaWF0IjoxNjQxODAzODk0fQ.p0reTwd25p93CsDTyQa8tkihgFxThAI4DXloNc6vbXw')
+    window.GPTMysite('onLoadParams', function (event_data) {
+      console.log("onLoadParams GPTMysite FN", event_data);
+      // window.GPTMysite('signInWithCustomToken', 'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDliOGVmYTg3MzJlYjAwMTQxNzYzZDlfNWU0ZWNiOThiNzhlZTQwMDE3NDA2MTEwIiwiZmlyc3RuYW1lIjoiS2VsbHkiLCJsYXN0bmFtZSI6IkdyYWNlIiwiZW1haWwiOiJncmFjZUBlbWFpbG5hLmNvIiwic3ViIjoidXNlcmV4dGVybmFsIiwiYXVkIjoiaHR0cHM6Ly90aWxlZGVzay5jb20vcHJvamVjdHMvNjA5YjhlZmE4NzMyZWIwMDE0MTc2M2Q5IiwiaWF0IjoxNjQxODAzODk0fQ.p0reTwd25p93CsDTyQa8tkihgFxThAI4DXloNc6vbXw')
       //                 .then(response => console.log('signInWithCustomToken: user_logged -> ', response))
       //                 .catch((error)=> console.error('signInWithCustomToken: error', error))
     });
 
-    window.Tiledesk('onBeforeInit', function (event_data) {
-      // console.log("onBeforeInit Tiledesk FN", event_data);
+    window.GPTMysite('onBeforeInit', function (event_data) {
+      // console.log("onBeforeInit GPTMysite FN", event_data);
       var brandSrc = event_data.detail.appConfigs.brandSrc ? getBrandResources(event_data.detail.appConfigs
         .brandSrc) : null;
 
@@ -632,15 +632,15 @@
       //open widget after 3s if is closed
       setTimeout(() => {
         if (event_data && event_data.detail && event_data.detail.global && !event_data.detail.global.isOpen) {
-          window.Tiledesk('open')
+          window.GPTMysite('open')
         }
       }, 1000);
 
     });
 
-    window.Tiledesk('onInit', function (event_data) {
-      // console.log("onInit Tiledesk FN", event_data); 
-      window.Tiledesk('setParameter', {
+    window.GPTMysite('onInit', function (event_data) {
+      // console.log("onInit GPTMysite FN", event_data);
+      window.GPTMysite('setParameter', {
         key: 'poweredBy',
         value: ''
       })
@@ -650,39 +650,39 @@
       //open widget after 3s if is closed
       // setTimeout(() => {
       //     if(event_data && event_data.detail && event_data.detail.global && !event_data.detail.global.isOpen){
-      //         window.Tiledesk('open')
+      //         window.GPTMysite('open')
       //     }
       // }, 3000);
     });
 
-    window.Tiledesk('onAuthStateChanged', function (event_data) {
+    window.GPTMysite('onAuthStateChanged', function (event_data) {
       // console.log("AUTHENTICATED!", event_data);
       // if(event_data.detail.isLogged){
       // 	console.log("isLogged!!!!", event_data);
-      // 	window.Tiledesk('show')
+      // 	window.GPTMysite('show')
       // }
     });
 
-    window.Tiledesk('onMessageCreated', function (event_data) {
+    window.GPTMysite('onMessageCreated', function (event_data) {
       // console.log("onMessageCreated!", event_data);
       window.parent.postMessage(event_data.detail, '*')
       // if(event_data.detail.isLogged){
       // 	console.log("isLogged!!!!", event_data);
-      // 	window.Tiledesk('show')
+      // 	window.GPTMysite('show')
       // }
     });
 
     window.addEventListener('message', (event_data) => {
       if (event_data && event_data.data && event_data.data.action === 'restart') {
-        window.Tiledesk('startConversation', event_data.data.intentName)
+        window.GPTMysite('startConversation', event_data.data.intentName)
       }
     })
 
   </script>
 
   <script type="application/javascript">
-    var baseUrlConsole = "https://console.tiledesk.com/v2/dashboard/";
-    var baseUrlTestPage = "https://widget.tiledesk.com/v5/assets/twp/"
+    var baseUrlConsole = "https://console.GPTMysite.com/v2/dashboard/";
+    var baseUrlTestPage = "https://widget.GPTMysite.com/v5/assets/twp/"
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var urlToConsole = urlParams.get('goToConsole');
@@ -695,12 +695,12 @@
 
 
     var url = new URL(currentUrl);
-    var tiledesk_projectid = url.searchParams.get("tiledesk_projectid");
-    var tiledesk_widgetTitle = url.searchParams.get("tiledesk_widgetTitle");
+    var GPTMysite_projectid = url.searchParams.get("GPTMysite_projectid");
+    var GPTMysite_widgetTitle = url.searchParams.get("GPTMysite_widgetTitle");
     var project_name = url.searchParams.get("project_name");
     var role = url.searchParams.get("role")
-    var urlConsole = baseUrlConsole + "#/projects/" + tiledesk_projectid + "/home";
-    // console.log('tiledesk_projectid: ', tiledesk_projectid);
+    var urlConsole = baseUrlConsole + "#/projects/" + GPTMysite_projectid + "/home";
+    // console.log('GPTMysite_projectid: ', GPTMysite_projectid);
     // console.log('project_name: ', project_name);
 
     function getQueryVariable(variable) {
@@ -716,7 +716,7 @@
     }
 
     window.onload = function () {
-      document.getElementById("tiledesk_widgetTitle").innerHTML = tiledesk_widgetTitle;
+      document.getElementById("GPTMysite_widgetTitle").innerHTML = GPTMysite_widgetTitle;
     }
 
 
@@ -743,7 +743,7 @@
             brandJson['COMMON'].BRAND_PRIMARY_COLOR ? document.body.style.setProperty('--base-company-logo',
               brandJson['COMMON'].BRAND_PRIMARY_COLOR) : null;
             /** IFRAME TITLE**/
-            brandJson['COMMON'].COMPANY_NAME ? document.getElementById('tiledeskiframe').title = brandJson['COMMON']
+            brandJson['COMMON'].COMPANY_NAME ? document.getElementById('GPTMysiteiframe').title = brandJson['COMMON']
               .COMPANY_NAME + ' Widget' : null;
           }
         }
@@ -774,7 +774,7 @@
         </ul> -->
     <div class="header-left">
       <div>
-        <img id="header-logo" class="logo" src="./tiledesk_widget_files/logo-short.png">
+        <img id="header-logo" class="logo" src="./GPTMysite_widget_files/logo-short.png">
       </div>
     </div>
     <div class="header-right">
@@ -787,7 +787,7 @@
         </span>
 
       </div>
-      <div class="header-title ellips" id="tiledesk_widgetTitle"></div>
+      <div class="header-title ellips" id="GPTMysite_widgetTitle"></div>
     </div>
 
   </header>
@@ -799,10 +799,10 @@
 
   <footer id="footer">
     <div class="b-agent-demo_powered_by">
-      <a href="https://console.tiledesk.com/" target="_blank" style="cursor: pointer;text-decoration: none;"
+      <a href="https://console.GPTMysite.com/" target="_blank" style="cursor: pointer;text-decoration: none;"
         id="footer-link">
         <span style="position: relative; top: 2px;">Powered by</span>
-        <img src="./tiledesk_widget_files/logo@2x-black.png" id="footer-logo">
+        <img src="./GPTMysite_widget_files/logo@2x-black.png" id="footer-logo">
       </a>
     </div>
   </footer>
@@ -850,10 +850,10 @@
 
 
   <div>
-    <link href="./tiledesk_widget_files/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <!-- <link href="./tiledesk_widget_files/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="./tiledesk_widget_files/website-poly.min.css" rel="stylesheet" type="text/css">
-    <!-- <link href="./tiledesk_widget_files/css" rel="stylesheet" type="text/css"> -->
+    <link href="./GPTMysite_widget_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="./GPTMysite_widget_files/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="./GPTMysite_widget_files/website-poly.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="./GPTMysite_widget_files/css" rel="stylesheet" type="text/css"> -->
   </div>
 </body>
 

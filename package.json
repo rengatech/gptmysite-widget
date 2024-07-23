@@ -1,12 +1,12 @@
 {
   "name": "@chat21/chat21-web-widget",
-  "author": "Tiledesk SRL",
+  "author": "GPTMysite SRL",
   "version": "5.0.80",
   "license": "MIT",
-  "homepage": "https://www.tiledesk.com",
+  "homepage": "https://www.GPTMysite.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Tiledesk/chat21-web-widget"
+    "url": "https://github.com/GPTMysite/chat21-web-widget"
   },
   "scripts": {
     "ng": "ng",
