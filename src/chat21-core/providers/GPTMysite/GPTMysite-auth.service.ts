@@ -1,4 +1,4 @@
-import { LoggerService } from '../../providers/abstract/logger.service';
+import { LoggerService } from '../abstract/logger.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserModel } from '../../models/user';
